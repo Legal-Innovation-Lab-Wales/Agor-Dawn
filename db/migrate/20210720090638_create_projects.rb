@@ -5,7 +5,7 @@ class CreateProjects < ActiveRecord::Migration[6.1]
       t.string :name
       t.string :description
       t.boolean :public
-      t.interger :view_count
+      t.integer :view_count
 
       t.timestamps
     end
