@@ -28,3 +28,4 @@ Dir[File.join(Rails.root, 'db', 'seeds', '*.rb')].sort.each { |seed| load seed }
 puts ('-' * DOTTED_LINE_LENGTH).to_s
 puts 'Counts'
 puts("#{pretty_print_name('Users')}\t#{User.count}")
+puts("#{pretty_print_name('Projects')}\t#{Project.count}")
