@@ -1,7 +1,30 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+require 'faker'
+
+@start_time = Time.now
+
+MAX_NAME_LENGTH = 22
+MAX_TIME_LENGTH = 6
+DOTTED_LINE_LENGTH = MAX_NAME_LENGTH + (MAX_TIME_LENGTH * 3) +
+                     ('Start: '.length + 'Duration: '.length + 'Elapsed: '.length) + 8 # Tabs
+
+def pretty_print_name(name)
+  name = name[0..(MAX_NAME_LENGTH - 1)] if name.length > MAX_NAME_LENGTH
+  name + (' ' * (MAX_NAME_LENGTH - name.length))
+end
+
+def pretty_print(value)
+  str = value.to_f.to_s
+  if str.length < MAX_TIME_LENGTH
+    str + ('0' * (MAX_TIME_LENGTH - str.length))
+  else
+    str[0..(MAX_TIME_LENGTH - 1)]
+  end
+end
+
+puts ('-' * DOTTED_LINE_LENGTH).to_s
+puts 'Running Seeds'
+Dir[File.join(Rails.root, 'db', 'seeds', '*.rb')].sort.each { |seed| load seed }
+
+puts ('-' * DOTTED_LINE_LENGTH).to_s
+puts 'Counts'
+puts("#{pretty_print_name('Users')}\t#{User.count}")

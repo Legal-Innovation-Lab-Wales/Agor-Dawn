@@ -25,6 +25,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'devise', '~> 4.8.0'
 gem 'bootstrap', '~> 5.0.1'
 gem 'font-awesome-sass', '~> 5.15.1'
+gem 'faker'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
