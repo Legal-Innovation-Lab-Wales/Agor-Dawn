@@ -22,6 +22,10 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+gem 'devise', '~> 4.8.0'
+gem 'bootstrap', '~> 5.0.1'
+gem 'font-awesome-sass', '~> 5.15.1'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
@@ -31,6 +35,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'faker'
 end
 
 group :development do
