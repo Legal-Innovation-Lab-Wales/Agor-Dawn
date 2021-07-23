@@ -1,11 +1,13 @@
 print "#{pretty_print_name('Comments')}\tStart: #{pretty_print(Time.now - @start_time)}"
 
-while Comment.count != 10
-  Comment.create!(
-    user_id: rand(1..User.count-1),
-    project_id: rand(1..Project.count-1),
-    description: Faker::Company.catch_phrase,
-  )
+Project.all.each do |project|
+  10.times do
+    Comment.create!(
+     user_id: rand(1..User.count),
+     project: project,
+     comment: Faker::Company.catch_phrase,
+    )
+  end
 end
 
 puts "\tDuration: #{pretty_print(Time.now - @start_time)}   Elapsed: #{pretty_print(Time.now - @start_time)}"
