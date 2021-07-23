@@ -1,69 +1,8 @@
-<div class="content index">
-<header>
-  <div class="bg-dark collapse" id="navbarHeader" style="">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-8 col-md-7 py-4">
-          <h4 class="text-white">About</h4>
-          <p class="text-muted">An online platform for researchers and innovators seeking commercialisation support.</p>
-        </div>
-        <div class="col-sm-4 offset-md-1 py-4">
-          <h4 class="text-white">Contact</h4>
-          <ul>
-            <li><a href="#" class="text-white">Follow on Twitter</a></li>
-            <li><a href="#" class="text-white">Email</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="navbar navbar-dark bg-dark shadow-sm">
-    <div class="container">
-      <a href="#" class="navbar-brand d-flex align-items-center">
-        <strong><i class="fas fa-users"></i> Projects</strong>
-      </a>
-      <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-    </div>
-  </div>
-</header>
-<main>
-  <section class="py-5 text-center container">
-    <div class="row py-lg-5">
-      <div class="col-lg-6 col-md-8 mx-auto">
-        <h1>Agor Dawn</h1>
-        <p>Discover, collaborate and innovate. A central hub for research projects and collaboration </p>
-        <p>
-          <%= link_to "#", class: "btn btn-primary my-2" do %>
-          Create a new project
-          <% end %>
-        </p>
-      </div>
-    </div>
+<main class="projects index">
+  <header>
+    <h1>Projects</h1>
+  </header>
+  <section>
+    
   </section>
-  <div class="album py-5">
-    <div class="container">
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-          <% @projects.each do |project| %>
-          <div class="col">
-          <div class="card text-center">
-            <div class="card-header">
-              Featured
-            </div>
-            <div class="card-body">
-              <h5 class="card-title"><%= project.name %></h5>
-              <p class="card-text"><%= project.description %></p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-            <div class="card-footer text-muted">
-              2 days ago
-            </div>
-          </div>
-        </div>
-        <% end %>
-      </div>
-    </div>
-  </div>
 </main>
-</div>
