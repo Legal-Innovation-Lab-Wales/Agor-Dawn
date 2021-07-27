@@ -1,11 +1,12 @@
-<div class="content index">
+<main class="show index">
   <header>
     <div class="bg-dark collapse" id="navbarHeader" style="">
       <div class="container">
         <div class="row">
           <div class="col-sm-8 col-md-7 py-4">
             <h4 class="text-white">About</h4>
-            <p class="text-muted">An online platform for researchers and innovators seeking commercialisation support.</p>
+            <p class="text-muted">An online platform for researchers and innovators seeking commercialisation
+              support.</p>
           </div>
           <div class="col-sm-4 offset-md-1 py-4">
             <h4 class="text-white">Contact</h4>
@@ -19,7 +20,7 @@
     </div>
     <div class="navbar navbar-dark bg-dark shadow-sm">
       <div class="container">
-        <a href="#" class="navbar-brand d-flex align-items-center">
+        <a href="/" class="navbar-brand d-flex align-items-center">
           <strong><i class="fas fa-users"></i> Projects</strong>
         </a>
         <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
@@ -28,18 +29,53 @@
       </div>
     </div>
   </header>
+
   <main>
     <section class="py-5 text-center container">
       <div class="row py-lg-5">
         <div class="col-lg-6 col-md-8 mx-auto">
-            <h1><%= @project.name %></h1>
-            <h1><%= @project.user.first_name %></h1>
+          <h1><%= @project.name %></h1>
+          <h2><%= @project.summary %></h2>
+          <h4> by <%= @project.user.first_name %></h4>
+        </div>
+        <p> <%= @project.description %></p>
 
-          <% @project.comments.each do |comment| %>
-          <%= comment.comment %>
-          <% end %>
+        <div class="container comments my-5 py-5">
+          <div class="row d-flex">
+            <% @project.comments.each do |comment| %>
+            <div class="col-md-11 col-lg-9 col-xl-7">
+                <div class="d-flex flex-start mb-4">
+                  <img
+                    class="rounded-circle shadow-1-strong me-3"
+                    src=<%= comment.user.avatar %>
+                    alt="avatar"
+                    width="65"
+                    height="65"
+                    />
+                  <div class="card w-100">
+                    <div class="card-body p-4">
+                      <div class="">
+                        <h5>
+                          <%= comment.user.first_name %></h5>
+                        <p class="small">5 hours ago</p>
+                        <p>
+                          <%= comment.comment %>
+                        </p>
+
+                        <div class="d-flex justify-content-between align-items-center">
+                          <div class="d-flex align-items-center">
+                            <a href="#!" class="link-muted me-2"><i class="fas fa-thumbs-up me-1"></i>158</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                </div>
+              <% end %>
+              </div>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 </main>
-</div>

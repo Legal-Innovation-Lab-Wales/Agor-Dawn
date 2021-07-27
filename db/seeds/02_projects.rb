@@ -4,9 +4,11 @@ while Project.count != 10
   Project.create!(
     user_id: rand(1..User.count),
     name: Faker::Company.name,
-    description: Faker::Company.catch_phrase,
+    description: Faker::Markdown.sandwich(sentences: 65),
+    summary: Faker::Company.catch_phrase,
     public: true,
-    view_count: 0
+    view_count: 0,
+    num_likes: 0
   )
 end
 

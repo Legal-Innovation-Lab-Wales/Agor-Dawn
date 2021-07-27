@@ -6,6 +6,8 @@ class CreateProjects < ActiveRecord::Migration[6.1]
       t.text :description, null: false
       t.boolean :public, null: false, default: true
       t.integer :view_count, null: false, default: 0
+      t.text :summary, null: false
+      t.integer :num_likes, null: false, default: 0
 
       t.timestamps
     end
