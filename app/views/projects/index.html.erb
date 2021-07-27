@@ -5,15 +5,19 @@
   <section class="content">
     <div class="project-cards">
       <% @projects.each do |project| %>
-        <div class="card-outer-1">
-          <div class="card-outer-2">
-            <div class="card-content">
-              <h3><%= project.name %></h3>
-              <p><%= project.description %></p>
-              <p><%= project.user.first_name + ' ' + project.user.last_name %></p>
-              <p><%= project.created_date %></p>
+        <div class="card-outer-0">
+          <%= link_to 'root' do %> <%# replace me  with an actual route %>
+            <div class="card-outer-1">
+              <div class="card-outer-2">
+                <div class="card-content">
+                  <h3><%= project.name %></h3>
+                  <p><%= project.description %></p>
+                  <p><%= project.user.first_name + ' ' + project.user.last_name %></p>
+                  <p><%= project.created_date %></p>
+                </div>
+              </div>
             </div>
-          </div>
+          <% end %>
         </div>
       <% end %>
     </div>
