@@ -6,7 +6,7 @@ html, body {
 }
 
 body#overboot {
-  background-color: #fff;
+  background-color: $primary-background-color;
 
   .alert, .notice {
     &:empty {
