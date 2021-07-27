@@ -29,45 +29,52 @@
         flex-flow: row wrap;
         justify-content: center;
 
-        .card-outer-1 {
-          transform: rotate(-3deg);
-          border: 0.25rem solid #FFC75F;
+        .card-outer-0 {
           margin: 2rem;
-          transition: transform .2s ease-in-out;
+          
+          a {
+            text-decoration: none;
 
-          .card-outer-2 {
-            transform: rotate(1deg);
-            border: 0.25rem solid #FF6F91;
+            .card-outer-1 {
+              transform: rotate(-3deg);
+              border: 0.25rem solid #FFC75F;
+              transition: transform .2s ease-in-out;
 
-            .card-content {
-              transform: rotate(2deg);
-              display: flex;
-              flex-direction: column;
-              text-align: center;
-              min-width: 25rem;
-              max-width: 35rem;
-              padding: 1rem;
-              border: 0.25rem solid #845EC2;
-              background-color: #fff;
-              color: #000;
+              .card-outer-2 {
+                transform: rotate(1deg);
+                border: 0.25rem solid #FF6F91;
 
-              .btn {
-                width: 40%;
-                text-align: center;
-                margin: 0 auto;
+                .card-content {
+                  transform: rotate(2deg);
+                  display: flex;
+                  flex-direction: column;
+                  text-align: center;
+                  min-width: 25rem;
+                  max-width: 35rem;
+                  padding: 1rem;
+                  border: 0.25rem solid #845EC2;
+                  background-color: #fff;
+                  color: #000;
 
-                &.btn-primary {
-                  background-color: #2C73D2;
-                  border: none;
-                  border-radius: 0;
+                  .btn {
+                    width: 40%;
+                    text-align: center;
+                    margin: 0 auto;
+
+                    &.btn-primary {
+                      background-color: #2C73D2;
+                      border: none;
+                      border-radius: 0;
+                    }
+                  }
                 }
               }
-            }
-          }
 
-          &:hover {
-            cursor: pointer;
-            transform: scale(1.1) rotate(-3deg);
+              &:hover {
+                cursor: pointer;
+                transform: scale(1.1) rotate(-3deg);
+              }
+            }
           }
         }
       }
