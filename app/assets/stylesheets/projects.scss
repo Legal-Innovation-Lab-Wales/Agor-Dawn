@@ -17,8 +17,8 @@
         font-weight: 700;
         text-transform: uppercase;
         letter-spacing: 1rem;
-        color: $color-primary-0;
-        text-shadow: 3px 3px $color-primary-1;
+        color: $color-primary-1-0;
+        text-shadow: 3px 3px $color-primary-1-1;
 
         @media screen and (max-width: $screen-md) {
           font-size: 3rem;
