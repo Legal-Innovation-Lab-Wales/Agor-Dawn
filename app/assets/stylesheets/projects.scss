@@ -8,6 +8,10 @@
       padding: 5rem 0 0;
       text-align: center;
 
+      @media screen and (max-width: $screen-md) {
+        padding: 2rem 0 0;
+      }
+
       h1 {
         font-size: 5rem;
         font-weight: 700;
@@ -16,11 +20,19 @@
         color: $color-primary-0;
         text-shadow: 3px 3px $color-primary-1;
 
+        @media screen and (max-width: $screen-md) {
+          font-size: 3rem;
+          letter-spacing: 0.5rem;
+        }
       }
     }
 
     .content {
       padding: 5rem 5rem;
+
+      @media screen and (max-width: $screen-md) {
+        padding: 1rem 1rem;
+      }
       
       .project-cards {
         display: flex;
@@ -29,6 +41,10 @@
 
         .card-outer-0 {
           margin: 2rem;
+
+          @media screen and (max-width: $screen-md) {
+            margin: 0.5rem;
+          }
           
           a {
             text-decoration: none;
@@ -47,23 +63,31 @@
                   display: flex;
                   flex-direction: column;
                   text-align: center;
-                  min-width: 25rem;
-                  max-width: 35rem;
-                  padding: 1rem;
+                  min-width: 20rem;
+                  max-width: 30rem;
+                  padding: 2rem 1rem;
                   border: 0.25rem solid #845EC2;
                   background-color: #fff;
                   color: #000;
 
-                  .btn {
-                    width: 40%;
-                    text-align: center;
-                    margin: 0 auto;
+                  .name {
 
-                    &.btn-primary {
-                      background-color: #2C73D2;
-                      border: none;
-                      border-radius: 0;
-                    }
+                  }
+
+                  .summary {
+
+                  }
+
+                  .owner {
+                    font-size: 0.85rem;
+                    font-weight: 600;
+                    margin-bottom: 0;
+                  }
+
+                  .created-date {
+                    font-size: 0.85rem;
+                    font-weight: 300;
+                    margin-bottom: 0;
                   }
                 }
               }
