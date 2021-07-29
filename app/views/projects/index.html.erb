@@ -5,20 +5,9 @@
   <section class="content">
     <div class="project-cards">
       <% @projects.each do |project| %>
-        <div class="card-outer-0">
-          <%= link_to project do %>
-              <div class="card-outer-1">
-                  <div class="card-outer-2">
-                    <div class="card-content">
-                      <h2 class="name"><%= project.name %></h2>
-                      <p class="summary"><%= project.summary %></p>
-                      <p class="owner"><%= project.user.first_name + ' ' + project.user.last_name %></p>
-                      <p class="created-date"><%= project.created_date %></p>
-                    </div>
-                  </div>
-              </div>
-          <% end %>
-        </div>
+        <%= link_to project do %>
+            <%= render 'project_card', project: project %>
+        <% end %>
       <% end %>
     </div>
   </section>

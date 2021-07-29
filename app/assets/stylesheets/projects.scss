@@ -39,67 +39,93 @@
         flex-flow: row wrap;
         justify-content: center;
 
-        .card-outer-0 {
-          margin: 2rem;
-
-          @media screen and (max-width: $screen-md) {
-            margin: 0.5rem;
-          }
           
-          a {
-            text-decoration: none;
+        a {
+          margin: 2rem;
+          text-decoration: none;
 
-            .card-outer-1 {
-              transform: rotate(-3deg);
-              border: 0.25rem solid #FFC75F;
-              transition: transform .2s ease-in-out;
+          .card-outer-1 {
+            transform: rotate(-3deg);
 
-              .card-outer-2 {
-                transform: rotate(1deg);
-                border: 0.25rem solid #FF6F91;
+            .card-outer-2 {
+              transform: rotate(1deg);
 
-                .card-content {
-                  transform: rotate(2deg);
-                  display: flex;
-                  flex-direction: column;
-                  text-align: center;
-                  min-width: 20rem;
-                  max-width: 30rem;
-                  padding: 2rem 1rem;
-                  border: 0.25rem solid #845EC2;
-                  background-color: #fff;
-                  color: #000;
-
-                  .name {
-
-                  }
-
-                  .summary {
-
-                  }
-
-                  .owner {
-                    font-size: 0.85rem;
-                    font-weight: 600;
-                    margin-bottom: 0;
-                  }
-
-                  .created-date {
-                    font-size: 0.85rem;
-                    font-weight: 300;
-                    margin-bottom: 0;
-                  }
-                }
+              .card-content {
+                transform: rotate(2deg);
+                min-width: 20rem;
+                max-width: 30rem;
               }
+            }
 
-              &:hover {
-                cursor: pointer;
-                transform: scale(1.1) rotate(-3deg);
-              }
+            &:hover {
+              cursor: pointer;
+              transform: scale(1.1) rotate(-3deg);
             }
           }
         }
       }
     }
+  }
+
+  &.show {
+    .comments{
+      margin: 2rem;
+      padding: 2rem;
+  
+      .rounded-circle{
+        width: 80px;
+        height: 80px;
+      }
+  
+      .card{
+        width: 100rem;
+  
+        .card-body{
+          padding: 2rem;
+        }
+      }
+    }
+  }
+
+  .project-card {
+
+      .card-outer-1 {
+        border: 0.25rem solid #FFC75F;
+        transition: transform .2s ease-in-out;
+
+        .card-outer-2 {
+          border: 0.25rem solid #FF6F91;
+
+          .card-content {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            padding: 2rem 1rem;
+            border: 0.25rem solid #845EC2;
+            background-color: #fff;
+            color: #000;
+
+            .name {
+
+            }
+
+            .summary {
+
+            }
+
+            .owner {
+              font-size: 0.85rem;
+              font-weight: 600;
+              margin-bottom: 0;
+            }
+
+            .created-date {
+              font-size: 0.85rem;
+              font-weight: 300;
+              margin-bottom: 0;
+            }
+          }
+        }
+      }
   }
 }
