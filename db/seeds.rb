@@ -29,3 +29,4 @@ puts ('-' * DOTTED_LINE_LENGTH).to_s
 puts 'Counts'
 puts("#{pretty_print_name('Users')}\t#{User.count}")
 puts("#{pretty_print_name('Projects')}\t#{Project.count}")
+puts("#{pretty_print_name('Comments')}\t#{Comment.count}")

@@ -1,17 +1,45 @@
+@import "variables";
+
 html, body {
   min-height: 100vh;
   overflow-x: hidden;
 }
 
-
-
 body#overboot {
+  background-color: $primary-background-color;
+
   .alert, .notice {
     &:empty {
       height: 0;
       padding: 0;
       margin: 0;
       border: 0;
+    }
+  }
+
+  main {
+    @media screen and (min-width: $screen-xs) {
+      padding: 0 0.5rem;
+    }
+
+    @media screen and (min-width: $screen-sm) {
+      padding: 0 1rem;
+    }
+
+    @media screen and (min-width: $screen-md) {
+      padding: 0 2rem;
+    }
+
+    @media screen and (min-width: $screen-lg) {
+      padding: 0 5rem;
+    }
+
+    @media screen and (min-width: $screen-xl) {
+      padding: 0 8rem;
+    }
+
+    @media screen and (min-width: $screen-xxl) {
+      padding: 0 10rem;
     }
   }
 
