@@ -2,10 +2,14 @@
   <div class="card-outer-1">
     <div class="card-outer-2">
       <div class="card-content">
-        <h2 class="name"><%= project.name %></h2>
-        <p class="summary"><%= project.summary %></p>
-        <p class="owner"><%= project.user.first_name + ' ' + project.user.last_name %></p>
-        <p class="created-date"><%= project.created_date %></p>
+        <h2 class="name"><%= locals[:project].name %></h2>
+        <p class="summary"><%= locals[:project].summary %></p>
+        <p class="owner"><%= locals[:project].user.first_name + ' ' + locals[:project].user.last_name %></p>
+        <p class="created-date"><%= locals[:project].created_date %></p>
+
+        <% unless locals[:hide_description].present? %>
+          <p class="description"><%= locals[:project].description %></p>
+        <% end %>
       </div>
     </div>
   </div>

@@ -1,5 +1,5 @@
 <main class="projects show">
-  <%= render 'project_card', project: @project %>
+  <%= render 'project_card', locals: { project: @project } %>
   <section class="comments">
     <div class="row d-flex">
       <% @project.comments.each do |comment| %>
