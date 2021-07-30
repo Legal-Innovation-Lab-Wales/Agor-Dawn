@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
-  root "projects#index"
+  devise_for :users, path: 'users'
 
-  get 'projects/index', to: "projects#index"
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  #
-  devise_for :users
+  # authenticated :user do
+    resources :projects do
+      resources :comments, only: %i[create]
+    end
+  # end
 
-  resources :projects
+  # resources :projects, only: %i[index show]
 
+  root 'projects#index'
 end

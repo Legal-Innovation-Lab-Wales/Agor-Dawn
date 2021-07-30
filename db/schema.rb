@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 2021_07_23_082749) do
     t.text "description", null: false
     t.boolean "public", default: true, null: false
     t.integer "view_count", default: 0, null: false
-    t.text "summary", null: false
+    t.string "summary", limit: 240, null: false
     t.integer "num_likes", default: 0, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

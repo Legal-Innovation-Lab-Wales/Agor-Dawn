@@ -59,33 +59,8 @@
   &.show {
 
     .project-card {
-      // max-width: 70vw;
       margin: 2rem auto;
-      // padding: 2rem 0;
-
-      @media screen and (max-width: $screen-lg) {
-        // margin: 1rem auto;
-      }
-
-      // .card-outer-1 {}
     }
-    // .comments{
-    //   margin: 2rem;
-    //   padding: 2rem;
-  
-    //   .rounded-circle{
-    //     width: 80px;
-    //     height: 80px;
-    //   }
-  
-    //   .card{
-    //     width: 100rem;
-  
-    //     .card-body{
-    //       padding: 2rem;
-    //     }
-    //   }
-    // }
   }
 
   .project-card {

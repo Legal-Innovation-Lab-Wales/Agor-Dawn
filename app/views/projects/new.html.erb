@@ -1,0 +1,18 @@
+<main class="projects new">
+  <h1>New Project</h1>
+  <%= form_with model: @project do |form| %>
+    <%= form.label :name, 'Name' %>
+    <%= form.text_field :name %>
+    <br>
+    <%= form.label :summary, 'Summary' %>
+    <%= form.text_field :summary %>
+    <br>
+    <%= form.label :description, 'Description' %>
+    <%= form.text_area :description %>
+    <br>
+    <%= form.label :public, 'Public' %>
+    <%= form.check_box :public %>
+    <br>
+    <%= form.submit 'Submit' %>
+  <% end %>
+</main>
