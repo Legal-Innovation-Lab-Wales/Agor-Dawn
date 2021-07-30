@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  
+  before_action :project_params, only: %i[create update]
 
   def index
     @projects = Project.includes(:user)
@@ -18,7 +18,7 @@ class ProjectsController < ApplicationController
   end
 
   def create
-
+    
   end
 
   def edit
@@ -31,5 +31,11 @@ class ProjectsController < ApplicationController
 
   def destroy
     
+  end
+
+  private
+
+  def project_params
+    params.require(:project).permit(:name, :summary, :description, :public)
   end
 end
