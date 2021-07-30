@@ -21,6 +21,11 @@
       <a href="#" class="navbar-brand d-flex align-items-center">
         <strong>Agor Dawn</strong>
       </a>
+      <% if current_user.nil? %>
+        <%= link_to 'Sign In', new_user_session_path %>
+      <% else %>
+        <%= link_to "Welcome #{current_user.first_name}... Sign Out", destroy_user_session_path, method: :delete %>
+      <% end %>
       <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
