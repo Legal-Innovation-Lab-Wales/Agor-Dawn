@@ -1,7 +1,7 @@
 class ProjectsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
   before_action :project_params, only: %i[create update]
-  before_action :project, only: %i[edit]
+  before_action :project, only: %i[edit update]
 
   def index
     @projects = Project.includes(:user)
@@ -32,11 +32,19 @@ class ProjectsController < ApplicationController
   end
 
   def edit
-    render 'projects/edit'
+    render 'edit'
   end
 
   def update
-
+    @project.update(project_params)
+    
+    if @project.valid?
+      flash[:success] = 'Successfully updated project!'
+    else
+      flash[:error] = 'Error updating project'
+    end
+    
+    render 'edit'
   end
 
   def destroy
@@ -46,7 +54,9 @@ class ProjectsController < ApplicationController
   private
 
   def project
-    # @project = current_user.projects.find(params[:id])
+    @project = current_user.projects.find(params[:id])
+  rescue ActiveRecord::RecordNotFound
+    redirect_back(fallback_location: projects_path, flash: { error: 'That project does not exist' })
   end
 
   def project_params
