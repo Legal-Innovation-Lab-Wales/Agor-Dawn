@@ -8,7 +8,7 @@ while Project.count != 10
     summary: Faker::Company.catch_phrase,
     public: true,
     view_count: 0,
-    num_likes: 0
+    num_likes: rand(1..10)
   )
 end
 
