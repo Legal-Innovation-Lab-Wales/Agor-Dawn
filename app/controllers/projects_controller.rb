@@ -1,6 +1,7 @@
 class ProjectsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
   before_action :project_params, only: %i[create update]
+  before_action :project, only: %i[edit]
 
   def index
     @projects = Project.includes(:user)
@@ -15,11 +16,19 @@ class ProjectsController < ApplicationController
   def new
     @project = Project.new
 
-    render 'projects/new'
+    render 'new'
   end
 
   def create
+    @project = current_user.projects.create(project_params)
     
+    if @project.valid?
+      flash[:success] = 'Successfully created project!'
+    else
+      flash[:error] = 'Error creating project'
+    end
+    
+    render 'new'
   end
 
   def edit
@@ -35,6 +44,10 @@ class ProjectsController < ApplicationController
   end
 
   private
+
+  def project
+    # @project = current_user.projects.find(params[:id])
+  end
 
   def project_params
     params.require(:project).permit(:name, :summary, :description, :public)
