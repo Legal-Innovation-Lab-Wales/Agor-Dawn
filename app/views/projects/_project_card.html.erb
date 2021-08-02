@@ -6,6 +6,17 @@
         <p class="summary"><%= locals[:project].summary %></p>
         <p class="owner"><%= locals[:project].user.first_name + ' ' + locals[:project].user.last_name %></p>
         <p class="created-date"><%= locals[:project].created_date %></p>
+        <p class="like_count">
+          test
+          <% if user_signed_in? %>
+            <% if @project.liked?(current_user) %>
+               testing<%= link_to "Like", like_path(@project), method: "put", disabled: true, class: "fa-thumbs-up"%>
+            <% else %>
+              tester <%= link_to "Like", like_path(@project), method: "put", class: "fa-thumbs-up" %>
+            <% end %>
+          <% end %>
+              Number of likes: <%= locals[:project].num_likes %>
+          <% link_to  %><i class="fas fa-thumbs-up"></i></p>
 
         <% unless locals[:hide_description].present? %>
           <p class="description"><%= locals[:project].description %></p>
