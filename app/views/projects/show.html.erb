@@ -1,5 +1,10 @@
 <main class="projects show">
   <%= render 'project_card', locals: { project: @project } %>
+  <% if @project.user == current_user %>
+    <%= link_to project_path, method: :delete do %>
+      Delete
+    <% end %>
+  <% end%>
   <section class="comments">
     <div class="row d-flex">
       <% @project.comments.each do |comment| %>
