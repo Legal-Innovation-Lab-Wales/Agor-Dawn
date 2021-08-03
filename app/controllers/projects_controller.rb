@@ -17,4 +17,12 @@ class ProjectsController < ApplicationController
     #redirect back to project
     redirect_to project_path(@project)
   end
+
+  def unlike
+    @project = Project.all.find(params[:id])
+    @like = Like.all.where("user_id =? AND project_id = ?", current_user.id, @project.id)
+    Like.delete(@like)
+    redirect_to project_path(@project)
+  end
+
 end

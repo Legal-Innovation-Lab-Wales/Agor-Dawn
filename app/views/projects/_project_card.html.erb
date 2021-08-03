@@ -10,7 +10,7 @@
         <p class="like_count">
           <% if user_signed_in? %>
             <% if @project.liked?(current_user) %>
-               unlike<%= link_to "Like", like_path(@project), method: "put", class: "fas fa-thumbs-up", disabled: true%>
+               unlike<%= link_to "Unlike", unlike_path(@project), method: "delete", class: "fas fa-thumbs-up"%>
             <% else %>
               like <%= link_to "Like", like_path(@project), method: "put", class: "fas fa-thumbs-up" %>
             <% end %>
