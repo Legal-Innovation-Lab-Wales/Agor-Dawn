@@ -8,11 +8,12 @@
         <p class="created-date"><%= locals[:project].created_date %></p>
         <% unless locals[:hide_description].present? %>
         <p class="like_count">
+          Number of likes: <%= @numOfLikes %>
           <% if user_signed_in? %>
             <% if @project.liked?(current_user) %>
-               unlike<%= link_to "Unlike", unlike_path(@project), method: "delete", class: "fas fa-thumbs-up"%>
+              <%= link_to "Unlike", unlike_path(@project), method: "delete", class: "fas fa-thumbs-down"%>
             <% else %>
-              like <%= link_to "Like", like_path(@project), method: "put", class: "fas fa-thumbs-up" %>
+              <%= link_to "Like", like_path(@project), method: "put", class: "fas fa-thumbs-up" %>
             <% end %>
           <% end %>
           <p class="description"><%= locals[:project].description %></p>
