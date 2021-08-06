@@ -1,7 +1,6 @@
+# app/models/user.rb
 class User < ApplicationRecord
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable,
-         :trackable #,:confirmable
+  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable, :trackable
 
   has_many :comments
   has_many :projects
@@ -9,4 +8,8 @@ class User < ApplicationRecord
 
   scope :admins, -> { where(admin: true) }
   scope :non_admins, -> { where(admin: false) }
+
+  def full_name
+    "#{first_name} #{last_name}"
+  end
 end

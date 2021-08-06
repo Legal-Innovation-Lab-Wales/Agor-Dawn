@@ -7,19 +7,27 @@
         <p class="owner"><%= locals[:project].user.first_name + ' ' + locals[:project].user.last_name %></p>
         <p class="created-date"><%= locals[:project].created_date %></p>
         <% unless locals[:hide_description].present? %>
-        <p class="like_count">
-          Number of likes: <%= @project.likes.count %>
-          <% if user_signed_in? %>
+          <div class="like-count">
             <% if @like.present? %>
-              <%= link_to project_like_path(@project, @like), method: 'delete', class: 'btn btn-primary' do %>
-                <i class="fas fa-thumbs-down"></i> Unlike
+              <%= link_to project_like_path(@project, @like), method: 'delete', class: 'btn btn-primary like' do %>
+                <i class="fas fa-thumbs-down"></i>
               <% end %>
             <% else %>
-              <%= link_to project_likes_path(@project), method: 'post', class: 'btn btn-primary' do %>
-                <i class="fas fa-thumbs-up"></i> Like
+              <% if user_signed_in? %>
+                <%= link_to project_likes_path(@project), method: 'post', class: 'btn btn-primary like' do %>
+                  <i class="fas fa-thumbs-up"></i>
+                <% end %>
+              <% else %>
+                <%= link_to new_user_session_path, class: 'btn btn-primary like',
+                            data: { confirm: 'To do this action you must login.' } do %>
+                  <i class="fas fa-thumbs-up"></i>
+                <% end %>
               <% end %>
             <% end %>
-          <% end %>
+            <div class="count" title="<%= @liked_by %>" data-toggle="tooltip" data-placement="bottom">
+              <%= @project.likes.count %>
+            </div>
+          </div>
           <p class="description"><%= locals[:project].description %></p>
         <% end %>
       </div>
