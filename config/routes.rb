@@ -5,5 +5,7 @@ Rails.application.routes.draw do
     resources :comments
   end
 
+  resources :images, only: [:create]
+
   root 'projects#index'
 end
