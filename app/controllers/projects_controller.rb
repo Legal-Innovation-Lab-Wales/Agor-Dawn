@@ -2,7 +2,7 @@
 class ProjectsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
   before_action :project_params, only: %i[create update]
-  before_action :project, except: %i[index new]
+  before_action :project, except: %i[index new create]
   before_action :redirect, only: %i[edit update destroy], unless: -> { @project.user == current_user }
 
   # GET /projects
