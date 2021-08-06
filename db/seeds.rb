@@ -30,3 +30,4 @@ puts 'Counts'
 puts("#{pretty_print_name('Users')}\t#{User.count}")
 puts("#{pretty_print_name('Projects')}\t#{Project.count}")
 puts("#{pretty_print_name('Comments')}\t#{Comment.count}")
+puts("#{pretty_print_name('Likes')}\t#{Like.count}")

@@ -1,11 +1,6 @@
+# app/models/project.rb
 class Project < ApplicationRecord
   belongs_to :user
-
-  def liked?(user)
-    #!!self.likes.find{|like| like.user_id == user.id}
-    likes.find_by(user_id: user.id).present?
-  end
-
   has_many :comments, dependent: :destroy
   has_many :likes
 

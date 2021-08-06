@@ -6,4 +6,7 @@ class User < ApplicationRecord
   has_many :comments
   has_many :projects
   has_many :likes
+
+  scope :admins, -> { where(admin: true) }
+  scope :non_admins, -> { where(admin: false) }
 end

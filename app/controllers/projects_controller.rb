@@ -1,19 +1,22 @@
+# app/controllers/projects_controller.rb
 class ProjectsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
   before_action :project_params, only: %i[create update]
-  before_action :project, only: %i[edit update destroy]
+  before_action :project, except: %i[index new]
+  before_action :redirect, only: %i[edit update destroy], unless: -> { @project.user == current_user }
 
   # GET /projects
   def index
     @projects = Project.includes(:user)
+
+    render 'index'
   end
 
   # GET /projects/:id
   def show
-    @project = Project.includes(:user, :comments).find(params[:id])
-    @numOfLikes = Like.all.where("project_id = ?", @project.id).count
-  rescue ActiveRecord::RecordNotFound
-    redirect_back(fallback_location: projects_path, flash: { error: 'Project not found' })
+    @like = current_user.likes.find_by(project: @project)
+
+    render 'show'
   end
 
   # GET /projects/new
@@ -25,15 +28,9 @@ class ProjectsController < ApplicationController
 
   # POST /projects
   def create
-    @project = current_user.projects.create(project_params)
-    
-    if @project.valid?
-      flash[:success] = 'Successfully created project!'
-    else
-      flash[:error] = 'Error creating project'
-    end
-    
-    render 'new'
+    @project = current_user.projects.create!(project_params)
+
+    redirect_to project_path(@project), success('create')
   end
 
   # GET /projects/:id/edit
@@ -44,51 +41,34 @@ class ProjectsController < ApplicationController
   # PUT /projects/:id
   def update
     @project.update(project_params)
-    
-    if @project.valid?
-      flash[:success] = 'Successfully updated project!'
-    else
-      flash[:error] = 'Error updating project'
-    end
-    
-    render 'edit'
+
+    redirect_to project_path(@project), success('update')
   end
 
   # DELETE /projects/:id
   def destroy
     @project.destroy
-    redirect_to projects_path, flash: { success: 'Project deleted' }
-  end
 
-  # PUT /projects/:id/like
-  def like
-    @project = Project.all.find(params[:id])
-    Like.create(user_id: current_user.id, project_id: @project.id)
-    redirect_to project_path(@project)
-  rescue ActiveRecord::RecordNotFound
-    redirect_back(fallback_location: project_path, flash: {error: 'Something went wrong'})
-  end
-
-  # DELETE /projects/:id/unlike
-  def unlike
-    @project = Project.all.find(params[:id])
-    @like = Like.all.where("user_id =? AND project_id = ?", current_user.id, @project.id)
-    Like.delete(@like)
-    redirect_to project_path(@project)
-  rescue ActiveRecord::RecordNotFound
-    redirect_back(fallback_location: project_path, flash: {error: 'Something went wrong'})
+    redirect_to projects_path, flash: success('delete')
   end
 
   private
 
   def project
-    @project = current_user.projects.find(params[:id])
+    @project = Project.includes(:user, :comments, :likes).find(params[:id])
   rescue ActiveRecord::RecordNotFound
-    redirect_back(fallback_location: projects_path, flash: { error: 'You do not have permission to do that' })
+    redirect_back(fallback_location: projects_path, flash: { error: 'Project was not found.' })
   end
 
   def project_params
     params.require(:project).permit(:name, :summary, :description, :public)
   end
 
+  def redirect
+    redirect_back(fallback_location: projects_path, flash: { error: 'You cannot do that action.' })
+  end
+
+  def success(action)
+    { success: "Project successfully #{action}d." }
+  end
 end
