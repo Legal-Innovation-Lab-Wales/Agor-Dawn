@@ -35,9 +35,16 @@ class ProjectsController < ApplicationController
 
   # POST /projects
   def create
-    @project = current_user.projects.create!(project_params)
+    @project = current_user.projects.create(project_params)
 
-    redirect_to project_path(@project), success('create')
+    if @project.valid?
+      flash[:success] = 'Successfully created project!'
+      redirect_to project_path(@project)
+    else
+      flash[:error] = 'Error creating project'
+      render 'new'
+    end
+
   end
 
   # GET /projects/:id/edit
@@ -49,7 +56,13 @@ class ProjectsController < ApplicationController
   def update
     @project.update(project_params)
 
-    redirect_to project_path(@project), success('update')
+    if @project.valid?
+      flash[:success] = 'Successfully updated project!'
+      redirect_to project_path(@project)
+    else
+      flash[:error] = 'Error updating project'
+      render 'edit'
+    end
   end
 
   # DELETE /projects/:id
