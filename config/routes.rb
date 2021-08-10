@@ -9,5 +9,7 @@ Rails.application.routes.draw do
     resources :likes, only: %i[create destroy], controller: 'likes'
   end
 
+  resources :images, only: [:create]
+
   root 'projects#index'
 end
