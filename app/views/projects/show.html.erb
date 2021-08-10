@@ -7,6 +7,18 @@
   <% end%>
   <section class="comments">
     <div class="row d-flex">
+      <div class="card new-comment">
+        <div class="card-body">
+          <p class="fw-bold">Comments</p>
+          <%= form_with model: @comment do |f| %>
+          <div class="form-group">
+            <%= f.label "New comment" %>
+            <%= f.text_area :comment, class: "form-control"%>
+          </div>
+            <%= f.submit "Submit", class: "btn btn-primary" %>
+          <% end %>
+        </div>
+      </div>
       <% @project.comments.each do |comment| %>
         <div class="col-md-11 col-lg-9 col-xl-7">
           <div class="d-flex flex-start mb-4">
