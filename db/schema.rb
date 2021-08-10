@@ -63,6 +63,15 @@ ActiveRecord::Schema.define(version: 2021_08_06_114623) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
+  create_table "likes", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "project_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["project_id"], name: "index_likes_on_project_id"
+    t.index ["user_id"], name: "index_likes_on_user_id"
+  end
+
   create_table "images", force: :cascade do |t|
     t.text "image_data"
     t.datetime "created_at", precision: 6, null: false
@@ -75,7 +84,6 @@ ActiveRecord::Schema.define(version: 2021_08_06_114623) do
     t.boolean "public", default: true, null: false
     t.integer "view_count", default: 0, null: false
     t.string "summary", limit: 240, null: false
-    t.integer "num_likes", default: 0, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_projects_on_user_id"
@@ -107,5 +115,7 @@ ActiveRecord::Schema.define(version: 2021_08_06_114623) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "comments", "projects"
   add_foreign_key "comments", "users"
+  add_foreign_key "likes", "projects"
+  add_foreign_key "likes", "users"
   add_foreign_key "projects", "users"
 end
