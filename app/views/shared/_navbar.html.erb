@@ -1,5 +1,7 @@
 <%# replace with navbar shared component %>
-  <div class="navbar collapse" id="navbarHeader" style="">
+  <%
+=begin%>
+ <div class="navbar collapse" id="navbarHeader" style="">
     <div class="container">
       <div class="row">
         <div class="col-sm-8 col-md-7 py-4">
@@ -30,5 +32,22 @@
         <span class="navbar-toggler-icon"></span>
       </button>
     </div>
-  </div>
+  </div> 
+<%
+=end%>
   <%# replace with navbar shared component %>
+
+<nav class="navbar">
+  <div class="left-navbar">
+    <%= link_to 'Agor Dawn', root_path, class: 'brand' %>
+  </div>
+  <div class="middle-navbar">
+    <input type="text" placeholder="Search..">
+  </div>
+  <div class="right-navbar">
+    <% if current_user.nil? %>
+      <%= link_to 'Sign Up', new_user_registration_path, class: 'nav-btn sign-up' %>
+      <%= link_to 'Sign In', new_user_session_path, class: 'nav-btn sign-in' %>
+    <% end %>
+  </div>
+</nav>

@@ -1,66 +1,112 @@
-// primary
-$color-primary-1-0: #845EC2;	// Main Primary color (1) */
-$color-primary-1-1: #CDB8EE;
-$color-primary-1-2: #A686DA;
-$color-primary-1-3: #683FAA;
-$color-primary-1-4: #51249B;
+$color-primary-0: #6D5CE7;	// Main Primary color */
+$color-primary-1: #B7AEF7;
+$color-primary-2: #8E80EF;
+$color-primary-3: #4F3BDC;
+$color-primary-4: #2F19CE;
 
-// secondary
-$color-primary-2-0: #0087BA;	// Main Primary color (2) */
-$color-primary-2-1: #0AB9FB;
-$color-primary-2-2: #01B9FF;
-$color-primary-2-3: #00668D;
-$color-primary-2-4: #00506E;
+$color-secondary-1-0: #9F52E5;	// Main Secondary color (1) */
+$color-secondary-1-1: #D1A9F7;
+$color-secondary-1-2: #B678EE;
+$color-secondary-1-3: #8930DA;
+$color-secondary-1-4: #700DCA;
 
-// warning
-$color-secondary-1-0: #FF8F6E;	// Main Secondary color (1) */
-$color-secondary-1-1: #FFCEBF;
-$color-secondary-1-2: #FFAC93;
-$color-secondary-1-3: #FA744D;
-$color-secondary-1-4: #E44E22;
+$color-secondary-2-0: #5393E4;	// Main Secondary color (2) */
+$color-secondary-2-1: #A9CBF6;
+$color-secondary-2-2: #79ACED;
+$color-secondary-2-3: #327BD8;
+$color-secondary-2-4: #1060C8;
 
-// success
-$color-secondary-2-0: #56C78A;	// Main Secondary color (2) */
-$color-secondary-2-1: #B4F0D0;
-$color-secondary-2-2: #80DDAB;
-$color-secondary-2-3: #36B16F;
-$color-secondary-2-4: #18A158;
+$color-complement-0: #FFD94E;	// Main Complement color */
+$color-complement-1: #FFECA8;
+$color-complement-2: #FFE276;
+$color-complement-3: #FFD128;
+$color-complement-4: #FFC900;
 
-// danger
-$color-secondary-3-0: #E40060;	// Main Secondary color (3) */
-$color-secondary-3-1: #FD006B;
-$color-secondary-3-2: #FF006B;
-$color-secondary-3-3: #C00051;
-$color-secondary-3-4: #96003F;
+$primary: $color-primary-0;
+$primary-light: $color-primary-2;
+$primary-dark: $color-primary-4;
+// $secondary: $color-primary-2-0;
+// $secondary-light: $color-primary-2-2;
+// $secondary-dark: $color-primary-2-4;
+// $success: $color-secondary-2-0;
+// $success-light: $color-secondary-2-2;
+// $success-dark: $color-secondary-2-4;
+// $info: $color-complement-0;
+// $info-light: $color-complement-2;
+// $info-dark: $color-complement-4;
+// $warning: $color-secondary-1-0;
+// $warning-light: $color-secondary-1-2;
+// $warning-dark: $color-secondary-1-4;
+// $danger: $color-secondary-3-0;
+// $danger-light: $color-secondary-3-2;
+// $danger-dark: $color-secondary-3-4;
 
-// info
-$color-complement-0: #FFEF6E;	// Main Complement color */
-$color-complement-1: #FFF8BF;
-$color-complement-2: #FFF393;
-$color-complement-3: #FAE64D;
-$color-complement-4: #E4CE22;
+// // primary
+// $color-primary-1-0: #845EC2;	// Main Primary color (1) */
+// $color-primary-1-1: #CDB8EE;
+// $color-primary-1-2: #A686DA;
+// $color-primary-1-3: #683FAA;
+// $color-primary-1-4: #51249B;
+
+// // secondary
+// $color-primary-2-0: #0087BA;	// Main Primary color (2) */
+// $color-primary-2-1: #0AB9FB;
+// $color-primary-2-2: #01B9FF;
+// $color-primary-2-3: #00668D;
+// $color-primary-2-4: #00506E;
+
+// // warning
+// $color-secondary-1-0: #FF8F6E;	// Main Secondary color (1) */
+// $color-secondary-1-1: #FFCEBF;
+// $color-secondary-1-2: #FFAC93;
+// $color-secondary-1-3: #FA744D;
+// $color-secondary-1-4: #E44E22;
+
+// // success
+// $color-secondary-2-0: #56C78A;	// Main Secondary color (2) */
+// $color-secondary-2-1: #B4F0D0;
+// $color-secondary-2-2: #80DDAB;
+// $color-secondary-2-3: #36B16F;
+// $color-secondary-2-4: #18A158;
+
+// // danger
+// $color-secondary-3-0: #E40060;	// Main Secondary color (3) */
+// $color-secondary-3-1: #FD006B;
+// $color-secondary-3-2: #FF006B;
+// $color-secondary-3-3: #C00051;
+// $color-secondary-3-4: #96003F;
+
+// // info
+// $color-complement-0: #FFEF6E;	// Main Complement color */
+// $color-complement-1: #FFF8BF;
+// $color-complement-2: #FFF393;
+// $color-complement-3: #FAE64D;
+// $color-complement-4: #E4CE22;
 
 // Colours
-$primary: $color-primary-1-0;
-$primary-light: $color-primary-1-2;
-$primary-dark: $color-primary-1-4;
-$secondary: $color-primary-2-0;
-$secondary-light: $color-primary-2-2;
-$secondary-dark: $color-primary-2-4;
-$success: $color-secondary-2-0;
-$success-light: $color-secondary-2-2;
-$success-dark: $color-secondary-2-4;
-$info: $color-complement-0;
-$info-light: $color-complement-2;
-$info-dark: $color-complement-4;
-$warning: $color-secondary-1-0;
-$warning-light: $color-secondary-1-2;
-$warning-dark: $color-secondary-1-4;
-$danger: $color-secondary-3-0;
-$danger-light: $color-secondary-3-2;
-$danger-dark: $color-secondary-3-4;
+// $primary: $color-primary-1-0;
+// $primary-light: $color-primary-1-2;
+// $primary-dark: $color-primary-1-4;
+// $secondary: $color-primary-2-0;
+// $secondary-light: $color-primary-2-2;
+// $secondary-dark: $color-primary-2-4;
+// $success: $color-secondary-2-0;
+// $success-light: $color-secondary-2-2;
+// $success-dark: $color-secondary-2-4;
+// $info: $color-complement-0;
+// $info-light: $color-complement-2;
+// $info-dark: $color-complement-4;
+// $warning: $color-secondary-1-0;
+// $warning-light: $color-secondary-1-2;
+// $warning-dark: $color-secondary-1-4;
+// $danger: $color-secondary-3-0;
+// $danger-light: $color-secondary-3-2;
+// $danger-dark: $color-secondary-3-4;
 
 $primary-background-color: #ebf1f4;
+
+$light-font-color: #ebf1f4;
+$dark-font-color: #212529;
 
 // Screen Breakpoints
 $screen-xs: 0;
@@ -69,3 +115,11 @@ $screen-md: 768px;
 $screen-lg: 992px;
 $screen-xl: 1200px;
 $screen-xxl: 1400px;
+
+// Padding for screen sizes
+$padding-screen-xs: 0 0.5rem;
+$padding-screen-sm: 0 1rem;
+$padding-screen-md: 0 1.5rem;
+$padding-screen-lg: 0 2rem;
+$padding-screen-xl: 0 3rem;
+$padding-screen-xxl: 0 4rem;

@@ -11,8 +11,8 @@
         font-weight: 700;
         text-transform: uppercase;
         letter-spacing: 1rem;
-        color: $color-primary-1-0;
-        text-shadow: 3px 3px $color-primary-1-1;
+        // color: $color-primary-1-0;
+        // text-shadow: 3px 3px $color-primary-1-1;
 
         @media screen and (max-width: $screen-md) {
           font-size: 3rem;
@@ -65,12 +65,12 @@
   .project-card {
     .card-outer-1 {
       transform: rotate(-3deg);
-      border: 0.25rem solid #FFC75F;
+      border: 0.25rem solid #fdcb6e;
       transition: transform .2s ease-in-out;
 
       .card-outer-2 {
         transform: rotate(1deg);
-        border: 0.25rem solid #FF6F91;
+        border: 0.25rem solid #e17055;
 
         .card-content {
           transform: rotate(2deg);
@@ -78,9 +78,9 @@
           flex-direction: column;
           text-align: center;
           padding: 2rem 1rem;
-          border: 0.25rem solid #845EC2;
+          border: 0.25rem solid #6c5ce7;
           background-color: #fff;
-          color: #000;
+          color: $dark-font-color;
 
           .description {
             margin-top: 1rem;

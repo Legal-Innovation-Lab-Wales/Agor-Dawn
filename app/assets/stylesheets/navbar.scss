@@ -1,5 +1,47 @@
 @import "variables";
 
-.navbar {
-  background-color: $color-primary-1-0;
+nav {
+  overflow: hidden;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  width: 100%;
+  padding-top: 1.3rem !important;
+  padding-bottom: 1.3rem !important;
+  background-color: $primary;
+  border-bottom: 0.25rem solid $primary-light;
+  color: $light-font-color;
+
+  .left-navbar {
+    .brand {
+      color: $light-font-color;
+      font-size: 1.5rem;
+      font-weight: 600;
+
+      &:hover {
+        color: $primary-dark;
+        transition: color 0.15s linear;
+      }
+    }
+  }
+
+  .middle-navbar {
+    input {
+      width: 100%;
+    }
+  }
+
+  .right-navbar {
+    .nav-btn {
+      padding: 0.5rem 0.8rem;
+      // background-color: $color-primary-1-0;
+      // border: 0.2rem solid $color-primary-1-2;
+      color: $light-font-color;
+
+      &:hover {
+        color: $primary-dark;
+        transition: color 0.15s linear;
+      }
+    }
+  }
 }
