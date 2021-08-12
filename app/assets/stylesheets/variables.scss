@@ -48,10 +48,14 @@ $screen-lg: 992px;
 $screen-xl: 1200px;
 $screen-xxl: 1400px;
 
+:export {
+  screenMD: $screen-md;
+}
+
 // Padding for screen sizes
-$padding-screen-xs: 0 0.5rem;
-$padding-screen-sm: 0 1rem;
-$padding-screen-md: 0 1.5rem;
-$padding-screen-lg: 0 2rem;
-$padding-screen-xl: 0 3rem;
-$padding-screen-xxl: 0 4rem;
+$padding-screen-xs: 0.5rem 0.5rem;
+$padding-screen-sm: 1rem 1rem;
+$padding-screen-md: 2rem 1.5rem;
+$padding-screen-lg: 2rem 2rem;
+$padding-screen-xl: 2rem 3rem;
+$padding-screen-xxl: 2rem 4rem;

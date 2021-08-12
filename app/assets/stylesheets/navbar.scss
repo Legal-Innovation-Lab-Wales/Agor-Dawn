@@ -1,21 +1,25 @@
 @import "variables";
 
-.navbar {
+nav {
   overflow: hidden;
   display: flex;
   flex-wrap: nowrap;
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  padding-top: 0.8rem !important;
-  padding-bottom: 0.8rem !important;
+  padding: 0.8rem 1rem;
   background-color: #fff;
-  // border-bottom: 0.15rem solid $primary-light;
-  box-shadow: 0 1px 1px $primary-light;
+  box-shadow: 0 0.1rem 0.1rem $primary-light;
+  margin-bottom: 1rem;
   color: $light-font-color;
 
   .left-navbar {
     display: flex;
+    
+    @media screen and (min-width: $screen-sm) {
+      min-width: 20rem;
+      width: 70%;
+    }
 
     .nav-logo {
       background-color: $primary;
@@ -25,7 +29,9 @@
       font-size: 1.5rem;
       letter-spacing: -0.05rem;
       text-transform: lowercase;
+      text-decoration: underline !important;
       white-space: nowrap;
+      margin-right: 0.5rem;
 
       &:hover {
         background-color: $primary-light;
@@ -33,10 +39,19 @@
       }
     }
 
-    .nav-search {
-      margin-left: 0.5rem;
-      margin-right: 0.5rem;
-      width: 20rem;
+    .search {
+      display: flex;
+      width: 100%;
+
+      .search-input {
+        @media screen and (max-width: $screen-sm) {
+          display: none;
+        }
+      }
+
+      .search-icon {
+        width: 2rem;
+      }
     }
   }
 
@@ -47,8 +62,8 @@
 
     .nav-link {
       color: $primary;
-      // padding: 0.5rem 1rem;
       padding: 0;
+      white-space: nowrap;
 
       &:hover {
         color: $primary-light;
@@ -62,6 +77,7 @@
       border-radius: 0.25rem;
       color: #fff;
       margin-left: 0.5rem;
+      white-space: nowrap;
 
       &:hover {
         background-color: $primary-light;
@@ -85,3 +101,17 @@
     }
   }
 }
+
+.mobile-search {
+  padding: 0 1rem;
+  margin-bottom: 1rem;
+
+  @media screen and (min-width: $screen-sm) {
+    display: none;
+  }
+
+  &.hide {
+    display: none;
+  }
+}
+

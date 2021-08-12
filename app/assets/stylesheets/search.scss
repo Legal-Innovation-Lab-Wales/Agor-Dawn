@@ -1,0 +1,30 @@
+@import "variables";
+
+.search {
+  display: flex;
+  align-items: center;
+
+  .search-input {
+    border-style: inset;
+    border-width: 0.1rem;
+    border-radius: 0.25rem;
+    border-color: $primary;
+    width: 100%;
+    height: 2.5rem;
+    margin-right: 0.5rem;
+
+    &:focus {
+      border-color: $primary;
+    }
+  }
+
+  .search-icon {
+    font-size: 1.5rem;
+    color: $primary;
+
+    &:hover {
+      cursor: pointer;
+      color: $primary-light;
+    }
+  }
+}
