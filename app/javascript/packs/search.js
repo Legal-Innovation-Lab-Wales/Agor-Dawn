@@ -1,17 +1,22 @@
-const search_btn = document.querySelector('nav .search-icon'),
-      search_input = document.querySelector('nav .search-input'),
+const search = document.querySelector('nav .search'),
+      search_btn = search.querySelector('.search-icon'),
+      search_input = search.querySelector('.search-input'),
       mobile_search = document.querySelector('.mobile-search'),
-      mobile_search_btn = document.querySelector('.mobile-search .search-icon')
-
-const search = () => {
-  alert('Searching...')
-}
+      mobile_search_btn = mobile_search.querySelector('.search-icon'),
+      mobile_search_input = mobile_search.querySelector('.search-input'),
+      isFalseyOrWhiteSpace = (str) => {
+        return (!str || str.length === 0 || /^\s*$/.test(str))
+      },
+      search_function = (input) => {
+        if (!isFalseyOrWhiteSpace(input.value)) {
+          alert(`Searching for '${input.value}'`)
+        }
+      }
 
 search_btn.addEventListener('click', () => {
   let search_input_display = window.getComputedStyle(search_input).display
   if (search_input_display === 'block') { // Search button functions as intended
-    // Take value of input field and post to search function
-    search()
+    search_function(search_input)
   } else if (search_input_display === 'none') { // Search button reveals a search input on mobile
     mobile_search.classList.toggle('hide')
   } else {
@@ -20,5 +25,5 @@ search_btn.addEventListener('click', () => {
 })
 
 mobile_search_btn.addEventListener('click', () => {
-  search()
+  search_function(mobile_search_input)
 })
