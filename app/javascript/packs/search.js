@@ -8,7 +8,9 @@ const search = document.querySelector('nav .search'),
         return (!str || str.length === 0 || /^\s*$/.test(str))
       },
       search_function = (input) => {
-        if (!isFalseyOrWhiteSpace(input.value)) {
+        if (isFalseyOrWhiteSpace(input.value)) {
+          alert('No search value')
+        } else {
           alert(`Searching for '${input.value}'`)
         }
       }
@@ -18,6 +20,8 @@ search_btn.addEventListener('click', () => {
   if (search_input_display === 'block') { // Search button functions as intended
     search_function(search_input)
   } else if (search_input_display === 'none') { // Search button reveals a search input on mobile
+    search_btn.classList.toggle('fa-search')
+    search_btn.classList.toggle('fa-times')
     mobile_search.classList.toggle('hide')
   } else {
     alert('An error has occurred, please refresh your browser')
