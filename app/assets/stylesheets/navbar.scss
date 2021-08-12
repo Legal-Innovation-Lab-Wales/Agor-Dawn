@@ -1,7 +1,6 @@
 @import "variables";
 
 nav {
-  overflow: hidden;
   display: flex;
   flex-wrap: nowrap;
   justify-content: space-between;
@@ -29,7 +28,6 @@ nav {
       font-size: 1.5rem;
       letter-spacing: -0.05rem;
       text-transform: lowercase;
-      text-decoration: underline !important;
       white-space: nowrap;
       margin-right: 0.5rem;
     }
@@ -67,6 +65,33 @@ nav {
     .dropdown {
       .dropdown-button {
         font-size: 1.5rem;
+        padding: 0.5rem 0rem 0.5rem;
+      }
+
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        right: 0;
+        left: auto;
+        margin-top: 0.8rem;
+        background-color: $white;
+        min-width: 8rem;
+        box-shadow: 0 0.1rem 0.1rem $primary-light;
+        z-index: 1;
+
+        a {
+          float: none;
+          padding: 0.5rem;
+          color: $primary;
+          display: block;
+          text-align: right;
+        }
+      }
+
+      &:hover {
+        .dropdown-content {
+          display: block;
+        }
       }
     }
   }
