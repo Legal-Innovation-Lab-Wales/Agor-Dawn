@@ -1,47 +1,87 @@
 @import "variables";
 
-nav {
+.navbar {
   overflow: hidden;
   display: flex;
-  flex-flow: row nowrap;
+  flex-wrap: nowrap;
   justify-content: space-between;
+  align-items: center;
   width: 100%;
-  padding-top: 1.3rem !important;
-  padding-bottom: 1.3rem !important;
-  background-color: $primary;
-  border-bottom: 0.25rem solid $primary-light;
+  padding-top: 0.8rem !important;
+  padding-bottom: 0.8rem !important;
+  background-color: #fff;
+  // border-bottom: 0.15rem solid $primary-light;
+  box-shadow: 0 1px 1px $primary-light;
   color: $light-font-color;
 
   .left-navbar {
-    .brand {
-      color: $light-font-color;
+    display: flex;
+
+    .nav-logo {
+      background-color: $primary;
+      padding: 0.5rem;
+      border-radius: 0.25rem;
+      color: #fff;
       font-size: 1.5rem;
-      font-weight: 600;
+      letter-spacing: -0.05rem;
+      text-transform: lowercase;
+      white-space: nowrap;
 
       &:hover {
-        color: $primary-dark;
-        transition: color 0.15s linear;
+        background-color: $primary-light;
+        transition: background-color 0.15s linear;
       }
     }
-  }
 
-  .middle-navbar {
-    input {
-      width: 100%;
+    .nav-search {
+      margin-left: 0.5rem;
+      margin-right: 0.5rem;
+      width: 20rem;
     }
   }
 
   .right-navbar {
-    .nav-btn {
-      padding: 0.5rem 0.8rem;
-      // background-color: $color-primary-1-0;
-      // border: 0.2rem solid $color-primary-1-2;
-      color: $light-font-color;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .nav-link {
+      color: $primary;
+      // padding: 0.5rem 1rem;
+      padding: 0;
 
       &:hover {
-        color: $primary-dark;
+        color: $primary-light;
         transition: color 0.15s linear;
       }
+    }
+
+    .nav-btn {
+      background-color: $primary;
+      padding: 0.8rem;
+      border-radius: 0.25rem;
+      color: #fff;
+      margin-left: 0.5rem;
+
+      &:hover {
+        background-color: $primary-light;
+        transition: background-color 0.15s linear;
+      }
+    }
+  }
+
+  .hamburger {
+    display: none;
+
+    .bar {
+      display: block;
+      width: 1.5rem;
+      height: 0.2rem;
+      margin: 0.3rem auto;
+      border-radius: 0.5rem;
+      -webkit-transition: all 0.3s ease-in-out;
+      transition: all 0.3s ease-in-out;
+      background-color: #101010;
     }
   }
 }

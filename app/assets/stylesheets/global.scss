@@ -23,6 +23,10 @@ body#overboot {
     text-decoration: none;
   }
 
+  li {
+    list-style: none;
+  }
+
   nav, main {
     @media screen and (min-width: $screen-xs) {
       padding: $padding-screen-xs;
