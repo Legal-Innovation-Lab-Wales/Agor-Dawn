@@ -27,27 +27,6 @@ body#overboot {
     list-style: none;
   }
 
-  .btn-primary {
-    background-color: $primary;
-    color: $white;
-    border-radius: 0.25rem;
-
-    &:hover {
-      background-color: $primary-light;
-      transition: background-color 0.15s linear;
-    }
-  }
-
-  .link-primary {
-    color: $primary;
-
-    &:hover {
-      cursor: pointer;
-      color: $primary-light;
-      transition: color 0.15s linear;
-    }
-  }
-
   main {
     @media screen and (min-width: $screen-xs) {
       padding: $padding-screen-xs;
