@@ -10,21 +10,13 @@ nav {
   background-color: $white;
   box-shadow: 0 0.1rem 0.1rem $primary-light;
   margin-bottom: 1rem;
-  color: $light-font-color;
 
   .left-navbar {
     display: flex;
-    
-    @media screen and (min-width: $screen-sm) {
-      min-width: 20rem;
-      width: 70%;
-    }
+    width: 70%;
 
     .nav-logo {
-      background-color: $primary;
       padding: 0.5rem;
-      border-radius: 0.25rem;
-      color: $white !important;
       font-size: 1.5rem;
       letter-spacing: -0.05rem;
       text-transform: lowercase;
@@ -49,16 +41,7 @@ nav {
     align-items: center;
 
     .nav-link {
-      padding: 0;
-      white-space: nowrap;
-    }
-
-    .nav-btn {
-      background-color: $primary;
       padding: 0.8rem;
-      color: $white !important;
-      border-radius: 0.25rem;
-      margin-left: 0.5rem;
       white-space: nowrap;
     }
 
@@ -73,16 +56,12 @@ nav {
         position: absolute;
         right: 0;
         left: auto;
-        margin-top: 0.8rem;
         background-color: $white;
         min-width: 8rem;
         box-shadow: 0 0.1rem 0.1rem $primary-light;
         z-index: 1;
 
         a {
-          float: none;
-          padding: 0.5rem;
-          color: $primary;
           display: block;
           text-align: right;
         }

@@ -27,42 +27,23 @@ body#overboot {
     list-style: none;
   }
 
-  .primary {
+  .btn-primary {
+    background-color: $primary;
+    color: $white;
+    border-radius: 0.25rem;
+
+    &:hover {
+      background-color: $primary-light;
+      transition: background-color 0.15s linear;
+    }
+  }
+
+  .link-primary {
     color: $primary;
 
     &:hover {
       cursor: pointer;
       color: $primary-light;
-      transition: color 0.15s linear;
-    }
-  }
-
-  .secondary-1 {
-    color: $secondary-1;
-
-    &:hover {
-      cursor: pointer;
-      color: $secondary-1-light;
-      transition: color 0.15s linear;
-    }
-  }
-
-  .secondary-2 {
-    color: $secondary-2;
-
-    &:hover {
-      cursor: pointer;
-      color: $secondary-2-light;
-      transition: color 0.15s linear;
-    }
-  }
-
-  .complementary {
-    color: $complementary;
-
-    &:hover {
-      cursor: pointer;
-      color: $complementary-light;
       transition: color 0.15s linear;
     }
   }
