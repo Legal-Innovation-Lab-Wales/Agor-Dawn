@@ -8,7 +8,7 @@ nav {
   align-items: center;
   width: 100%;
   padding: 0.8rem 1rem;
-  background-color: #fff;
+  background-color: $white;
   box-shadow: 0 0.1rem 0.1rem $primary-light;
   margin-bottom: 1rem;
   color: $light-font-color;
@@ -25,18 +25,13 @@ nav {
       background-color: $primary;
       padding: 0.5rem;
       border-radius: 0.25rem;
-      color: #fff;
+      color: $white !important;
       font-size: 1.5rem;
       letter-spacing: -0.05rem;
       text-transform: lowercase;
       text-decoration: underline !important;
       white-space: nowrap;
       margin-right: 0.5rem;
-
-      &:hover {
-        background-color: $primary-light;
-        transition: background-color 0.15s linear;
-      }
     }
 
     .search {
@@ -47,7 +42,6 @@ nav {
           display: none;
         }
       }
-
     }
   }
 
@@ -57,43 +51,23 @@ nav {
     align-items: center;
 
     .nav-link {
-      color: $primary;
       padding: 0;
       white-space: nowrap;
-
-      &:hover {
-        color: $primary-light;
-        transition: color 0.15s linear;
-      }
     }
 
     .nav-btn {
       background-color: $primary;
       padding: 0.8rem;
+      color: $white !important;
       border-radius: 0.25rem;
-      color: #fff;
       margin-left: 0.5rem;
       white-space: nowrap;
-
-      &:hover {
-        background-color: $primary-light;
-        transition: background-color 0.15s linear;
-      }
     }
-  }
 
-  .hamburger {
-    display: none;
-
-    .bar {
-      display: block;
-      width: 1.5rem;
-      height: 0.2rem;
-      margin: 0.3rem auto;
-      border-radius: 0.5rem;
-      -webkit-transition: all 0.3s ease-in-out;
-      transition: all 0.3s ease-in-out;
-      background-color: #101010;
+    .dropdown {
+      .dropdown-button {
+        font-size: 1.5rem;
+      }
     }
   }
 }
@@ -110,4 +84,3 @@ nav {
     display: none;
   }
 }
-

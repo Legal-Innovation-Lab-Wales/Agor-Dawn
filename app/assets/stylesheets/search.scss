@@ -19,8 +19,6 @@
   }
 
   .search-icon {
-    color: $primary;
-
     &.fa-search {
       font-size: 1.5rem;
     }
@@ -31,7 +29,6 @@
 
     &:hover {
       cursor: pointer;
-      color: $primary-light;
     }
   }
 }
