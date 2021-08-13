@@ -1,5 +1,19 @@
 <section class="form">
   <h2>Welcome back!</h2>
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |form| %>
+    <div class="field">
+      <%= form.label :email %><br>
+      <%= form.email_field :email, autofocus: true, autocomplete: 'email' %>
+    </div>
+    <div class="field">
+      <%= form.label :password %><br>
+      <%= form.password_field :email, autocomplete: 'current-password' %>
+    </div>
+    <div class="actions">
+      <%= form.submit 'Sign In', class: 'btn btn-primary' %>
+    </div>
+  <% end %>
+  <%= render 'devise/shared/forgot_password' %>
 </section>
 
 
