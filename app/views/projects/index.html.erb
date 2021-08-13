@@ -6,6 +6,14 @@
     <% end %>
   </div>
   <section class="content">
+    <div class="summary">
+      <% if params[:query].present? %>
+        <%= "Search '#{params[:query]}' returned #{pluralize(@projects.count, 'result')}." %>
+      <% else %>
+        <%= "Showing #{@projects.count} of #{pluralize(@projects.count, 'project')}." %>
+      <% end %>
+      <hr>
+    </div>
     <div class="project-cards">
       <% @projects.each do |project| %>
         <%= link_to project do %>

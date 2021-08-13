@@ -53,6 +53,14 @@
     }
     
     .content {
+      .summary {
+        text-align: center;
+
+        hr {
+          background: -webkit-gradient(linear, 0 0, 100% 0, from(transparent), to(transparent), color-stop(50%, $primary));
+        }
+      }
+
       .project-cards {
         display: flex;
         flex-flow: row wrap;
@@ -60,12 +68,8 @@
 
           
         a {
-          margin: 2rem;
+          margin: 1rem;
           text-decoration: none;
-
-          @media screen and (max-width: $screen-lg) {
-            margin: 1rem;
-          }
 
           @media screen and (max-width: $screen-md) {
             margin: 0.5rem;
