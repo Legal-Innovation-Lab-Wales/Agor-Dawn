@@ -28,10 +28,6 @@ body#overboot {
   }
 
   main {
-    @media screen and (min-width: $screen-xs) {
-      padding: $padding-screen-xs;
-    }
-
     @media screen and (min-width: $screen-sm) {
       padding: $padding-screen-sm;
     }
@@ -42,14 +38,6 @@ body#overboot {
 
     @media screen and (min-width: $screen-lg) {
       padding: $padding-screen-lg;
-    }
-
-    @media screen and (min-width: $screen-xl) {
-      padding: $padding-screen-xl;
-    }
-
-    @media screen and (min-width: $screen-xxl) {
-      padding: $padding-screen-xxl;
     }
   }
 
