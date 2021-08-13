@@ -10,6 +10,9 @@ const search = document.querySelector('nav .search'),
       mobile_search = document.querySelector('.mobile-search'),
       mobile_search_btn = mobile_search.querySelector('.search-icon'),
       mobile_search_input = mobile_search.querySelector('.search-input'),
+      isFalseyOrWhiteSpace = (str) => {
+        return (!str || str.length === 0 || /^\s*$/.test(str))
+      },
       is_desktop_view = () => {
         return window.innerWidth >= parseInt(CSS.screenSm.replace('px', ''))
       },
@@ -22,9 +25,11 @@ const search = document.querySelector('nav .search'),
         search_btn.classList.add('fa-times')
       },
       search_function = input => {
-        const url = new URL(location.href)
-        url.searchParams.set('query', input.value)
-        location.href = url.href
+        if (!isFalseyOrWhiteSpace(input.value)) {
+          const url = new URL(location.origin)
+          url.searchParams.set('query', input.value)
+          location.href = url.href
+        }
       }
 
 search_btn.addEventListener('click', () => {
