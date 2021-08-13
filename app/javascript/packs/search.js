@@ -10,15 +10,10 @@ const search = document.querySelector('nav .search'),
       mobile_search = document.querySelector('.mobile-search'),
       mobile_search_btn = mobile_search.querySelector('.search-icon'),
       mobile_search_input = mobile_search.querySelector('.search-input'),
-      isFalseyOrWhiteSpace = (str) => {
-        return (!str || str.length === 0 || /^\s*$/.test(str))
-      },
-      search_function = (input) => {
-        if (isFalseyOrWhiteSpace(input.value)) {
-          alert('No search value')
-        } else {
-          alert(`Searching for '${input.value}'`)
-        }
+      search_function = input => {
+        const url = new URL(location.href)
+        url.searchParams.set('query', input.value)
+        location.href = url.href
       }
 
 search_btn.addEventListener('click', () => {

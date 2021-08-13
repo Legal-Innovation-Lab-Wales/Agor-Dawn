@@ -63,6 +63,12 @@ ActiveRecord::Schema.define(version: 2021_08_06_114623) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
+  create_table "images", force: :cascade do |t|
+    t.text "image_data"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "likes", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "project_id", null: false
@@ -70,12 +76,6 @@ ActiveRecord::Schema.define(version: 2021_08_06_114623) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["project_id"], name: "index_likes_on_project_id"
     t.index ["user_id"], name: "index_likes_on_user_id"
-  end
-
-  create_table "images", force: :cascade do |t|
-    t.text "image_data"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "projects", force: :cascade do |t|

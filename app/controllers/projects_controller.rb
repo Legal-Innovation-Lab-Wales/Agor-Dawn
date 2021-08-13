@@ -9,6 +9,8 @@ class ProjectsController < ApplicationController
   def index
     @projects = Project.includes(:user)
 
+    @projects = @projects.search(search_params[:query]) if search_params[:query].present?
+
     render 'index'
   end
 
@@ -82,6 +84,10 @@ class ProjectsController < ApplicationController
 
   def project_params
     params.require(:project).permit(:name, :summary, :public, :content)
+  end
+
+  def search_params
+    params.permit(:query)
   end
 
   def redirect

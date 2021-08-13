@@ -8,5 +8,13 @@ class Project < ApplicationRecord
   validates :name, presence: true
   validates :summary, length: { maximum: 240 }
 
+  scope :search, lambda { |query|
+    joins(:user).where('lower(name) similar to lower(:query) ' \
+                       'or lower(summary) similar to lower(:query) ' \
+                       'or lower(users.first_name) similar to lower(:query) ' \
+                       'or lower(users.last_name) similar to lower(:query)',
+                       { query: "%#{query.split.join('%|%')}%" })
+  }
+
   has_rich_text :content
 end
