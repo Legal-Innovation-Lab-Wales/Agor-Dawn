@@ -4,20 +4,10 @@
   &.index {
     header {
       text-align: center;
+      margin-bottom: 1rem;
 
-      h1 {
-        padding-top: 1rem;
-        font-size: 5rem;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 1rem;
-        color: $color-primary-1-0;
-        text-shadow: 3px 3px $color-primary-1-1;
-
-        @media screen and (max-width: $screen-md) {
-          font-size: 3rem;
-          letter-spacing: 0.5rem;
-        }
+      .create {
+        padding: 1rem !important;
       }
     }
 
@@ -32,22 +22,29 @@
           margin: 2rem;
           text-decoration: none;
 
+          @media screen and (max-width: $screen-lg) {
+            margin: 1rem;
+          }
+
           @media screen and (max-width: $screen-md) {
-            margin: 0.5rem 0;
+            margin: 0.5rem;
           }
 
           .card-outer-1 {
+            transform: rotate(-2deg);
 
             .card-outer-2 {
+              transform: rotate(1deg);
 
               .card-content {
+                transform: rotate(1deg);
                 min-width: 20rem;
                 max-width: 30rem;
               }
             }
 
             &:hover {
-              transform: scale(1.1) rotate(-1.5deg);
+              transform: scale(1.1) rotate(-2deg);
             }
           }
         }
@@ -58,6 +55,18 @@
   &.show {
     .project-card {
       margin: 2rem auto;
+
+      .card-outer-1 {
+        transform: rotate(-1deg);
+
+        .card-outer-2 {
+          transform: rotate(0.5deg);
+
+          .card-content {
+            transform: rotate(0.5deg);
+          }
+        }
+      }
 
       .like-count {
         display: flex;
@@ -89,23 +98,20 @@
 
   .project-card {
     .card-outer-1 {
-      transform: rotate(-3deg);
-      border: 0.25rem solid #FFC75F;
+      border: 0.25rem solid $complementary-light;
       transition: transform .2s ease-in-out;
 
       .card-outer-2 {
-        transform: rotate(1deg);
-        border: 0.25rem solid #FF6F91;
+        border: 0.25rem solid $secondary-1-light;
 
         .card-content {
-          transform: rotate(2deg);
           display: flex;
           flex-direction: column;
           text-align: center;
           padding: 2rem 1rem;
-          border: 0.25rem solid #845EC2;
-          background-color: #fff;
-          color: #000;
+          border: 0.25rem solid $primary-light;
+          background-color: $white;
+          color: $dark-font-color;
 
           .description {
             margin-top: 1rem;
@@ -124,20 +130,6 @@
             font-size: 0.85rem;
             font-weight: 300;
             margin-bottom: 0;
-          }
-        }
-      }
-    }
-
-    @media screen and (min-width: $screen-xl) {
-      .card-outer-1 {
-        transform: rotate(-1.5deg);
-
-        .card-outer-2 {
-          transform: rotate(0.5deg);
-
-          .card-content {
-            transform: rotate(1deg);
           }
         }
       }

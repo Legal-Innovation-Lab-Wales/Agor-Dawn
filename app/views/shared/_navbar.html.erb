@@ -1,34 +1,33 @@
-<%# replace with navbar shared component %>
-  <div class="navbar collapse" id="navbarHeader" style="">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-8 col-md-7 py-4">
-          <h4 class="text-white">About</h4>
-          <p class="text-muted">An online platform for researchers and innovators seeking commercialisation support.</p>
+<nav>
+  <div class="left-navbar">
+    <%= link_to 'Agor Dawn', root_path, class: 'nav-logo btn btn-primary' %>
+    <%= render 'shared/search' %>
+  </div>
+  <div class="right-navbar">
+    <% if current_user.nil? %>
+      <%= link_to 'Sign In', new_user_session_path, class: 'nav-link link-primary' %>
+      <%= link_to 'Sign Up', new_user_registration_path, class: 'nav-link btn btn-primary' %>
+    <% else %>
+      <div class="dropdown">
+        <div class="dropdown-button link-primary">
+          <i class="fas fa-user"></i>
+          <i class="fa fa-caret-down"></i>
         </div>
-        <div class="col-sm-4 offset-md-1 py-4">
-          <h4 class="text-white">Contact</h4>
-          <ul>
-            <li><a href="#" class="text-white">Follow on Twitter</a></li>
-            <li><a href="#" class="text-white">Email</a></li>
-          </ul>
+        <div class="dropdown-content">
+          <%= link_to '#', class: 'nav-link link-primary' do %>
+            Profile <i class="fas fa-address-card"></i>
+          <% end %>
+          <%= link_to destroy_user_session_path, method: 'delete', class: 'nav-link link-primary' do %>
+            Sign Out <i class="fas fa-sign-out-alt"></i>
+          <% end %>
         </div>
       </div>
-    </div>
+    <% end %>
   </div>
-  <div class="navbar navbar-dark shadow-sm">
-    <div class="container">
-      <a href="#" class="navbar-brand d-flex align-items-center">
-        <strong>Agor Dawn</strong>
-      </a>
-      <% if current_user.nil? %>
-        <%= link_to 'Sign In', new_user_session_path %>
-      <% else %>
-        <%= link_to "Welcome #{current_user.first_name}... Sign Out", destroy_user_session_path, method: :delete %>
-      <% end %>
-      <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-    </div>
-  </div>
-  <%# replace with navbar shared component %>
+</nav>
+
+<div class="mobile-search hide">
+  <%= render 'shared/search' %>
+</div>
+
+<%= javascript_pack_tag 'search' %>
