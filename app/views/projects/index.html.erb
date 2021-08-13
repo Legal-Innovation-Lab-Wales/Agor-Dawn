@@ -1,7 +1,10 @@
 <main class="projects index">
-  <header>
-    <%= link_to 'Create Project', new_project_path, class: 'create btn btn-secondary-2' %>
-  </header>
+  <div class="create-btn">
+    <%= link_to new_project_path, class: 'btn btn-secondary-2' do %>
+      <span class="text">Add Project</span>
+      <i class="icon fas fa-plus-square"></i>
+    <% end %>
+  </div>
   <section class="content">
     <div class="project-cards">
       <% @projects.each do |project| %>
