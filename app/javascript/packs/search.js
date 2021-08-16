@@ -13,29 +13,41 @@ const search = document.querySelector('nav .search'),
       isFalseyOrWhiteSpace = (str) => {
         return (!str || str.length === 0 || /^\s*$/.test(str))
       },
-      search_function = (input) => {
-        if (isFalseyOrWhiteSpace(input.value)) {
-          alert('No search value')
-        } else {
-          alert(`Searching for '${input.value}'`)
+      is_desktop_view = () => {
+        return window.innerWidth >= parseInt(CSS.screenSm.replace('px', ''))
+      },
+      toggle_desktop_search = () => {
+        search_btn.classList.remove('fa-times')
+        search_btn.classList.add('fa-search')
+      },
+      toggle_mobile_search = () => {
+        search_btn.classList.remove('fa-search')
+        search_btn.classList.add('fa-times')
+      },
+      search_function = input => {
+        if (!isFalseyOrWhiteSpace(input.value)) {
+          const url = new URL(location.origin)
+          url.searchParams.set('query', input.value)
+          location.href = url.href
         }
       }
 
 search_btn.addEventListener('click', () => {
-  let search_input_display = window.getComputedStyle(search_input).display
-  if (search_input_display === 'block') { // Search button functions as intended
+  if (is_desktop_view()) {
     search_function(search_input)
-  } else if (search_input_display === 'none') { // Search button reveals a search input on mobile'
+  } else {
     mobile_search.classList.toggle('hide')
     if (mobile_search.classList.contains('hide')) {
-      search_btn.classList.add('fa-search')
-      search_btn.classList.remove('fa-times')
+      toggle_desktop_search()
     } else {
-      search_btn.classList.remove('fa-search')
-      search_btn.classList.add('fa-times')
+      toggle_mobile_search()
     }
-  } else {
-    alert('An error has occurred, please refresh your browser')
+  }
+})
+
+search_input.addEventListener('keyup', e => { 
+  if (e.key === 'Enter') {
+    search_function(search_input)
   }
 })
 
@@ -43,14 +55,18 @@ mobile_search_btn.addEventListener('click', () => {
   search_function(mobile_search_input)
 })
 
+mobile_search_input.addEventListener('keyup', e => {
+  if (e.key === 'Enter') {
+    search_function(mobile_search_input)
+  }
+})
+
 window.addEventListener('resize', () => {
-  if (window.innerWidth >= parseInt(CSS.screenSm.replace('px', ''))) {
-    search_btn.classList.remove('fa-times')
-    search_btn.classList.add('fa-search')
+  if (is_desktop_view()) {
+    toggle_desktop_search()
   } else {
     if (!mobile_search.classList.contains('hide')) {
-      search_btn.classList.add('fa-times')
-      search_btn.classList.remove('fa-search')
+      toggle_mobile_search()
     }
   }
 })
