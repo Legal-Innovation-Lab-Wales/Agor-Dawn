@@ -11,6 +11,7 @@ ActionView::Base.field_error_proc = Proc.new do |html_tag, instance|
                  .value
                  .match(/\[(.*?)\]/)[0]
                  .delete('[]')
+                 .gsub('_', ' ')
     
     error_message = error_messages[value.to_sym][0]
     error_message = 'is invalid' unless error_message.present?
