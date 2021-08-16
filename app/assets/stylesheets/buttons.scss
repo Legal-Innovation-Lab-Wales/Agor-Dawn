@@ -1,0 +1,62 @@
+@import "variables";
+
+body#overboot {
+  .btn {
+    color: $white;
+    border-radius: 0.25rem;
+    padding: 0.8rem;
+    line-height: 1;
+    border: none;
+    font-size: 1.5rem;
+
+    &:hover {
+      transition: background-color 0.15s linear;
+    }
+
+    &:focus {
+      box-shadow: none;
+    }
+  }
+
+  .btn-primary {
+    background-color: $primary;
+
+    &:hover {
+      background-color: $primary-light;
+    }
+  }
+
+  .btn-secondary-1 {
+    background-color: $secondary-1;
+
+    &:hover {
+      background-color: $secondary-1-light;
+    }
+  }
+
+  .btn-secondary-2 {
+    background-color: $secondary-2;
+
+    &:hover {
+      background-color: $secondary-2-light;
+    }
+  }
+
+  .btn-complementary {
+    background-color: $complementary;
+
+    &:hover {
+      background-color: $complementary-light;
+    }
+  }
+
+  .link-primary {
+    color: $primary;
+
+    &:hover {
+      cursor: pointer;
+      color: $primary-light;
+      transition: color 0.15s linear;
+    }
+  }
+}

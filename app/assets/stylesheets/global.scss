@@ -3,10 +3,12 @@
 html, body {
   min-height: 100vh;
   overflow-x: hidden;
+  color: $dark-font-color;
 }
 
 body#overboot {
   background-color: $primary-background-color;
+  line-height: 1;
 
   .alert, .notice {
     &:empty {
@@ -17,29 +19,37 @@ body#overboot {
     }
   }
 
+  a {
+    text-decoration: none;
+  }
+
+  li {
+    list-style: none;
+  }
+
   main {
     @media screen and (min-width: $screen-xs) {
-      padding: 0 0.5rem;
+      padding: $padding-screen-xs;
     }
 
     @media screen and (min-width: $screen-sm) {
-      padding: 0 1rem;
+      padding: $padding-screen-sm;
     }
 
     @media screen and (min-width: $screen-md) {
-      padding: 0 2rem;
+      padding: $padding-screen-md;
     }
 
     @media screen and (min-width: $screen-lg) {
-      padding: 0 5rem;
+      padding: $padding-screen-lg;
     }
 
     @media screen and (min-width: $screen-xl) {
-      padding: 0 8rem;
+      padding: $padding-screen-xl;
     }
 
     @media screen and (min-width: $screen-xxl) {
-      padding: 0 10rem;
+      padding: $padding-screen-xxl;
     }
   }
 

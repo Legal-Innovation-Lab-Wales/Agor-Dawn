@@ -48,5 +48,19 @@ unless User.find_by_email('g.d.andrews@swansea.ac.uk').present?
   )
 end
 
+20.times.each do |index|
+  User.create!(
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    bio: Faker::Job.title,
+    email: "AD-test-user-#{index + 1}@purpleriver.dev",
+    password: 'test1234',
+    admin: false,
+    avatar: Faker::Avatar.image
+  )
+
+  User.all.admins
+end
+
 puts "\tDuration: #{pretty_print(Time.now - @start_time)}   Elapsed: #{pretty_print(Time.now - @start_time)}"
 @last_time = Time.now

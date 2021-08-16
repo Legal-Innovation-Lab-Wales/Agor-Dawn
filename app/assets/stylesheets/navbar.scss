@@ -1,5 +1,90 @@
 @import "variables";
 
-.navbar {
-  background-color: $color-primary-1-0;
+nav {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0.8rem 1rem;
+  background-color: $white;
+  box-shadow: 0 0.1rem 0.1rem $primary-light;
+  margin-bottom: 1rem;
+
+  .left-navbar {
+    display: flex;
+    width: 70%;
+
+    .nav-logo {
+      padding: 0.5rem !important;
+      font-size: 1.5rem;
+      letter-spacing: -0.05rem;
+      text-transform: lowercase;
+      white-space: nowrap;
+      margin-right: 0.5rem;
+    }
+
+    .search {
+      width: 100%;
+
+      .search-input {
+        @media screen and (max-width: $screen-sm) {
+          display: none;
+        }
+      }
+    }
+  }
+
+  .right-navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .nav-link {
+      white-space: nowrap;
+      font-size: 1rem !important;
+    }
+
+    .dropdown {
+      .dropdown-button {
+        font-size: 1.5rem;
+        padding: 0.5rem 0rem 0.5rem;
+      }
+
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        right: 0;
+        left: auto;
+        background-color: $white;
+        min-width: 8rem;
+        box-shadow: 0 0.1rem 0.1rem $primary-light;
+        z-index: 1;
+
+        a {
+          display: block;
+          text-align: right;
+        }
+      }
+
+      &:hover {
+        .dropdown-content {
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+.mobile-search {
+  padding: 0 1rem;
+  margin-bottom: 1rem;
+
+  @media screen and (min-width: $screen-sm) {
+    display: none;
+  }
+
+  &.hide {
+    display: none;
+  }
 }

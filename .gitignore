@@ -43,3 +43,4 @@ db/schema.rb
 yarn.lock
 .idea/vcs.xml
 .idea/inspectionProfiles/Project_Default.xml
+db/schema.rb
