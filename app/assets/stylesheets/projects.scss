@@ -55,10 +55,6 @@
     .content {
       .summary {
         text-align: center;
-
-        hr {
-          background: -webkit-gradient(linear, 0 0, 100% 0, from(transparent), to(transparent), color-stop(50%, $primary));
-        }
       }
 
       .project-cards {
