@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   delete '/projects/:id/unlike', to: 'projects#unlike', as: 'unlike'
 
   resources :projects do
-    resources :comments, only: %i[:create], controller: 'comments'
+    resources :comments, only: %i[create], controller: 'comments'
     resources :likes, only: %i[create destroy], controller: 'likes'
   end
 

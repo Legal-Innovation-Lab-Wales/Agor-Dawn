@@ -1,0 +1,14 @@
+<% if user_signed_in? %>
+  <div class="card new-comment">
+    <div class="card-body">
+      <p class="fw-bold">Comments</p>
+      <%= form_with model: @comment, url: project_comments_path(@project) do |f| %>
+        <div class="form-group">
+          <%= f.label "New comment" %>
+          <%= f.text_area :comment_text, class: "form-control"%>
+        </div>
+        <%= f.submit "Submit", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+<% end %>
