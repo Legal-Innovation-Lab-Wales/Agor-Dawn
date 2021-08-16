@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users, path: 'users'
 
+  get '/users/:id', to: 'users#show', as: 'user'
+
   put '/projects/:id/like', to: 'projects#like', as: 'like'
   delete '/projects/:id/unlike', to: 'projects#unlike', as: 'unlike'
 
