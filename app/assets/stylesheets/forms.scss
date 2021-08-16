@@ -1,0 +1,97 @@
+@import "variables";
+
+.form {
+  padding: 1.5rem;
+  margin: 0 auto;
+  background-color: $white;
+  box-shadow: 0 0.1rem 0.1rem #8e80ef;
+  border-radius: 0.25rem;
+  max-width: 40rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  @media screen and (max-width: $screen-sm) {
+    max-width: 100%;
+    background-color: $primary-background-color;
+    box-shadow: none;
+  }
+
+  h2 {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  .subtext {
+    text-align: center;
+  }
+
+  .field {
+    margin-bottom: 1rem;
+
+    label {
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+
+    input {
+      width: 100%;
+      height: 2.5rem;
+      background-color: $primary-background-color;
+      border-style: solid;
+      border-width: 0.1rem;
+      border-radius: 0.25rem;
+      border-color: $primary;
+
+      @media screen and (max-width: $screen-sm) {
+        background-color: $white;
+      }
+
+      &:focus {
+        background-color: $white;
+        border-color: $primary;
+      }
+
+      &:focus-visible {
+        background-color: $white;
+        outline: $primary auto 0.1rem;
+      }
+
+      &.invalid {
+        border-color: $secondary-1;
+        border-width: 0.15rem;
+
+        &:focus {
+          border-color: $secondary-1;
+        }
+
+        &:focus-visible {
+          outline: $secondary-1 auto 0.1rem;
+        }
+      }
+    }
+
+    .error {
+      margin-top: 0.5rem;
+      color: $secondary-1;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .actions {
+    text-align: center;
+
+    input {
+      width: 60%;
+    }
+  }
+
+  .forgot-password {
+    text-align: center;
+    margin-top: 1rem;
+  }
+}

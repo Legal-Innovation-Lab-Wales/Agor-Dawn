@@ -68,6 +68,13 @@ nav {
         a {
           display: block;
           text-align: right;
+          padding: 1rem;
+
+          &:hover {
+            background-color: $primary;
+            color: $white !important;
+            transition: background-color 0.15s linear, color 0.15s linear;
+          }
         }
       }
 
