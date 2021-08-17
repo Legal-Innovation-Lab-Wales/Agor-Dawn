@@ -8,9 +8,9 @@
         <p class="created-date"><%= locals[:project].created_date %></p>
         <% if locals[:project].user == current_user %>
           <% if locals[:project].public? %>
-            <i class="fas fa-unlock"></i>
+            <i class="fas fa-unlock"> Public</i>
           <% else %>
-            <i class="fas fa-lock"></i>
+            <i class="fas fa-lock"> Private</i>
           <% end %>
         <% end %>
         <% unless locals[:hide_description].present? %>
