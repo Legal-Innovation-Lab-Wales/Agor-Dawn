@@ -35,4 +35,6 @@
   </div>
 </div>
 
-<%= render 'shared/liked' %>
+<% if action_name == 'show'%>
+  <%= render 'shared/liked' %>
+<% end %>

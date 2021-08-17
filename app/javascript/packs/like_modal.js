@@ -24,6 +24,3 @@ window.onclick = function(event) {
     }
 }
 
-window.onload = event =>{
-    openModal()
-}
