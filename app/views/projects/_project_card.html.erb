@@ -27,14 +27,15 @@
             <div class="count" title="<%= @liked_by %>" data-toggle="tooltip" data-placement="bottom">
               <%= @project.likes.count %>
             </div>
-            <button type="button" class="btn btn-primary" onclick='openModal()'>
+            <button id="open_liked_modal" type="button" class="btn btn-primary">
               Launch demo modal
             </button>
-
             <div class="trix-content"><%= locals[:project].content %></p></div>
+          </div>
         <% end %>
-        </div>
       </div>
     </div>
   </div>
 </div>
+
+<%= render 'shared/liked' %>
