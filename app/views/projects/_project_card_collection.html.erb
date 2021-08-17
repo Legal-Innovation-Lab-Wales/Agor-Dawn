@@ -6,7 +6,7 @@
   <% end %>
   <hr>
 </div>
-<div class="project-cards">
+<div class="project-card-collection">
   <% projects.each do |project| %>
     <%= link_to project do %>
         <%= render 'projects/project_card', locals: { project: project, hide_description: true } %>

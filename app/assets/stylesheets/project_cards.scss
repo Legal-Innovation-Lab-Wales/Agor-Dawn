@@ -4,7 +4,7 @@
   text-align: center;
 }
 
-.project-cards {
+.project-card-collection {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
@@ -41,12 +41,15 @@
 .project-card {
   .card-outer-1 {
     border: 0.25rem solid $complementary-light;
+    transform: rotate(-1deg);
     transition: transform .2s ease-in-out;
 
     .card-outer-2 {
       border: 0.25rem solid $secondary-1-light;
+      transform: rotate(0.5deg);
 
       .card-content {
+        transform: rotate(0.5deg);
         display: flex;
         flex-direction: column;
         text-align: center;
