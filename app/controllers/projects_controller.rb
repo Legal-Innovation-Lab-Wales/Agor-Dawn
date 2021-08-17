@@ -11,7 +11,7 @@ class ProjectsController < ApplicationController
 
     @projects = @projects.search(search_params[:query]) if search_params[:query].present?
 
-    render 'index'
+    render '_index'
   end
 
   # GET /projects/:id

@@ -13,5 +13,5 @@ Rails.application.routes.draw do
 
   resources :images, only: [:create]
 
-  root 'projects#index'
+  root 'pages#home'
 end

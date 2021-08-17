@@ -1,0 +1,21 @@
+<section class="cover">
+  <h1 class="title">Agor Dawn</h1>
+  <h2 class="card-subtitle">Agor Dawn is a platform to help with the commercialisation of projects from humanities and
+    social sciences. The aim is to provide a space to foster collaboration and innovation. </h2>
+
+  <div class="info-links">
+    <p>You can find out more about the project by clicking on one of the links below.</p>
+    <h3><a href="#">About the project</a> // <a href="https://www.agorip.com/">AgorIP</a> // <a href="https://www.agorip.com/get-in-touch/">Get in touch</a></h3>
+  </div>
+
+  <% if current_user.nil? %>
+    <h2 class="auth-prompt">If you haven't already you might want to     <%= link_to 'Sign In', new_user_session_path, class: '' %> or     <%= link_to 'Sign Up', new_user_registration_path, class: '' %></h2>
+  <% end %>
+
+  <h1 class="bottom-link"><a href="#projects-index">View All Projects <br/><i class="fas fa-chevron-down"></i></a></h1>
+
+</section>
+
+<div class="projects-container">
+  <%= render "projects/index" %>
+</div>
