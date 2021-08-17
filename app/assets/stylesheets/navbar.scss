@@ -9,7 +9,11 @@ nav {
   padding: 0.8rem 1rem;
   background-color: $white;
   box-shadow: 0 0.1rem 0.1rem $primary-light;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
+
+  @media screen and (max-width: $screen-sm) {
+    margin-bottom: 1rem;
+  }
 
   .left-navbar {
     display: flex;
@@ -64,6 +68,13 @@ nav {
         a {
           display: block;
           text-align: right;
+          padding: 1rem;
+
+          &:hover {
+            background-color: $primary;
+            color: $white !important;
+            transition: background-color 0.15s linear, color 0.15s linear;
+          }
         }
       }
 

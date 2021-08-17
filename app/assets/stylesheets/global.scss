@@ -27,11 +27,11 @@ body#overboot {
     list-style: none;
   }
 
-  main {
-    @media screen and (min-width: $screen-xs) {
-      padding: $padding-screen-xs;
-    }
+  hr {
+    background: -webkit-gradient(linear, 0 0, 100% 0, from(transparent), to(transparent), color-stop(50%, $primary));
+  }
 
+  main {
     @media screen and (min-width: $screen-sm) {
       padding: $padding-screen-sm;
     }
@@ -42,14 +42,6 @@ body#overboot {
 
     @media screen and (min-width: $screen-lg) {
       padding: $padding-screen-lg;
-    }
-
-    @media screen and (min-width: $screen-xl) {
-      padding: $padding-screen-xl;
-    }
-
-    @media screen and (min-width: $screen-xxl) {
-      padding: $padding-screen-xxl;
     }
   }
 

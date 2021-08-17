@@ -1,8 +1,19 @@
-<main class="projects index">
-  <header>
-    <%= link_to 'Create Project', new_project_path, class: 'create btn btn-secondary-2' %>
-  </header>
+<section class="projects index">
+  <div class="create-btn">
+    <%= link_to new_project_path, class: 'btn btn-secondary-2' do %>
+      <span class="text">Add Project</span>
+      <i class="icon fas fa-plus-square"></i>
+    <% end %>
+  </div>
   <section class="content">
+    <div class="summary">
+      <% if params[:query].present? %>
+        <%= "Search '#{params[:query]}' returned #{pluralize(@projects.count, 'result')}." %>
+      <% else %>
+        <%= "Showing #{@projects.count} of #{pluralize(@projects.count, 'project')}." %>
+      <% end %>
+      <hr>
+    </div>
     <div class="project-cards">
       <% @projects.each do |project| %>
         <%= link_to project do %>
@@ -11,4 +22,4 @@
       <% end %>
     </div>
   </section>
-</main>
+</section>
