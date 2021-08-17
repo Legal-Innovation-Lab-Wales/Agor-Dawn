@@ -1,4 +1,4 @@
-<section class="cover">
+<section class="header">
   <h1 class="title">Agor Dawn</h1>
   <h2 class="card-subtitle">Agor Dawn is a platform to help with the commercialisation of projects from humanities and
     social sciences. The aim is to provide a space to foster collaboration and innovation. </h2>
@@ -12,10 +12,10 @@
     <h2 class="auth-prompt">If you haven't already you might want to     <%= link_to 'Sign In', new_user_session_path, class: '' %> or     <%= link_to 'Sign Up', new_user_registration_path, class: '' %></h2>
   <% end %>
 
-  <h1 class="bottom-link"><a href="#projects-index">View All Projects <br/><i class="fas fa-chevron-down"></i></a></h1>
 
 </section>
 
 <div class="projects-container">
+  <h3>Recent Projects</h3>
   <%= render "projects/index" %>
 </div>
