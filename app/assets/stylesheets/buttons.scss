@@ -58,4 +58,54 @@ body#overboot {
       transition: color 0.15s linear;
     }
   }
+
+  .floating-btn {
+    position: fixed;
+    bottom: 2.5rem;
+    right: 2.5rem;
+    z-index: 1;
+
+    .btn {
+      padding: 0 !important;
+      color: $white;
+      display: inline-flex;
+      align-items: center;
+      justify-content: space-between;
+      overflow: hidden;
+      -webkit-transition: width 1s;
+      transition: width 1s;
+
+      .icon, .text {
+        vertical-align: middle;
+        display: flex;
+      }
+
+      .icon {
+        background-color: $secondary-2;
+        font-size: 2rem;
+        padding: 1rem 1rem 1rem 0;
+      }
+
+      .text {
+        order: -1;
+        display: flex;
+        font-size: 1rem;
+        white-space: nowrap;
+        color: $white;
+        padding-left: 1rem;
+        max-width: 0;
+        transition: max-width 1s, padding 1s;
+        -webkit-transition: max-width 1s, padding 1s;
+      }
+
+      &:hover {
+        background-color: $secondary-2 !important;
+
+        .text {
+          max-width: 300px;
+          padding-right: 1rem;
+        }
+      }
+    }
+  }
 }

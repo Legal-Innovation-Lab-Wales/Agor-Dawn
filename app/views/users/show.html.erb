@@ -10,4 +10,5 @@
       <small>Member since <%= @user.created_date %> | Last online <%= @user.last_update_date%> </small>
     </div>
   </div>
+  <%= render 'projects/project_cards', projects: current_user.projects.all %>
 </section>
