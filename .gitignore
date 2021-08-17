@@ -35,12 +35,7 @@
 yarn-debug.log*
 .yarn-integrity
 .DS_Store
-.idea/agor-dawn.iml
-.idea/misc.xml
-.idea/modules.xml
-.idea/workspace.xml
+.idea/
 db/schema.rb
 yarn.lock
-.idea/vcs.xml
-.idea/inspectionProfiles/Project_Default.xml
 db/schema.rb
