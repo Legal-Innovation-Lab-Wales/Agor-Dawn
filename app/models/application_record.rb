@@ -16,4 +16,8 @@ class ApplicationRecord < ActiveRecord::Base
   def last_update
     updated_at.strftime('%d/%m/%Y %I:%M %p')
   end
+
+  def last_update_date
+    updated_at.strftime('%d/%m/%Y')
+  end
 end
