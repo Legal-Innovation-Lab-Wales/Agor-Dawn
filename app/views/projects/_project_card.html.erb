@@ -6,6 +6,13 @@
         <p class="summary"><%= locals[:project].summary %></p>
         <p class="owner"><%= locals[:project].user.first_name + ' ' + locals[:project].user.last_name %></p>
         <p class="created-date"><%= locals[:project].created_date %></p>
+        <% if locals[:project].user == current_user %>
+          <% if locals[:project].public? %>
+            <i class="fas fa-unlock"></i>
+          <% else %>
+            <i class="fas fa-lock"></i>
+          <% end %>
+        <% end %>
         <% unless locals[:hide_description].present? %>
           <div class="like-count">
             <% if @like.present? %>

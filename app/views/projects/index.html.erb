@@ -17,7 +17,7 @@
     <div class="project-cards">
       <% @projects.each do |project| %>
         <%= link_to project do %>
-            <%= render 'project_card', locals: { project: project, hide_description: true } %>
+          <%= render 'project_card', locals: { project: project, hide_description: true } %>
         <% end %>
       <% end %>
     </div>

@@ -1,7 +1,7 @@
 <section class="projects show">
   <%= render 'project_card', locals: { project: @project } %>
   <% if @project.user == current_user %>
-    <%= link_to project_path, 'Delete', method: :delete %>
+    <%= button_to 'Delete This Project', project_path, method: :delete, class: 'btn btn-danger' %>
   <% end %>
   <section class="comments">
     <div class="row d-flex">
@@ -29,4 +29,4 @@
       <% end %>
     </div>
   </section>
-</main>
+</section>
