@@ -1,14 +1,12 @@
 <% @project.comments.each do |comment| %>
-  <div class="col-md-11 col-lg-9 col-xl-7">
-    <div class="d-flex flex-start mb-4">
+  <div class="comment-section">
+    <div class="d-flex">
       <img class="rounded-circle me-2" src=<%= comment.user.avatar %> alt="avatar">
-      <div class="card">
-        <div class="card-body">
+      <div class="comment">
           <h5><%= comment.user.first_name %></h5>
-          <p class="small">5 hours ago</p>
+          <p class="small"><%= time_ago_in_words(comment.created_at) %></p>
           <p><%= comment.comment %></p>
         </div>
-      </div>
     </div>
   </div>
 <% end %>
