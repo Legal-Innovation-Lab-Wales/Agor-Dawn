@@ -1,0 +1,16 @@
+#close_liked_modal {
+  height: 2.4rem;
+  width: 2.4rem;
+}
+.likes {
+  display: flex;
+  overflow: scroll;
+  .like {
+    padding: 0.2rem;
+    text-align: center;
+    img.user-icon {
+      height: 4rem;
+      width: 4rem;
+    }
+  }
+}

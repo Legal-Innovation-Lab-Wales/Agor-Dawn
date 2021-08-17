@@ -1,7 +1,9 @@
 const like_modal = document.getElementById("exampleModal")
 const open_liked_modal = document.getElementById("open_liked_modal")
+const close_liked_modal = document.getElementById("close_liked_modal")
 
 open_liked_modal.addEventListener("click", openModal)
+close_liked_modal.addEventListener("click", closeModal)
 
 function openModal() {
     document.getElementById("backdrop").style.display = "block"
@@ -20,4 +22,8 @@ window.onclick = function(event) {
     if (event.target === like_modal) {
         closeModal()
     }
+}
+
+window.onload = event =>{
+    openModal()
 }
