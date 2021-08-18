@@ -1,9 +1,5 @@
 import variables from '../../assets/stylesheets/variables.scss';
 
-const CSS = {
-  screenSm: variables.screensm
-}
-
 const search = document.querySelector('nav .search'),
       search_btn = search.querySelector('.search-icon'),
       search_input = search.querySelector('.search-input'),
@@ -14,7 +10,7 @@ const search = document.querySelector('nav .search'),
         return (!str || str.length === 0 || /^\s*$/.test(str))
       },
       is_desktop_view = () => {
-        return window.innerWidth >= parseInt(CSS.screenSm.replace('px', ''))
+        return window.innerWidth >= parseInt(variables.screenSm.replace('px', ''))
       },
       toggle_desktop_search = () => {
         search_btn.classList.remove('fa-times')
