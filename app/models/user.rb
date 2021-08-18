@@ -5,6 +5,7 @@ class User < ApplicationRecord
   has_many :comments
   has_many :projects
   has_many :likes
+  has_one_attached :avatar
 
   scope :admins, -> { where(admin: true) }
   scope :non_admins, -> { where(admin: false) }

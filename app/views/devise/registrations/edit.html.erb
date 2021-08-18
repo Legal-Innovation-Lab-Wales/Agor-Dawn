@@ -2,6 +2,14 @@
   <h2>Account settings</h2>
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |form| %>
     <div class="field">
+      <div class="col-sm-4">
+        <%= image_tag user_avatar(resource, 300), class: "rounded-circle" %>
+      </div>
+      <div class="col-sm-8">
+        <%= form.file_field :avatar %>
+      </div>
+    </div>
+    <div class="field">
       <%= form.label :email %><br>
       <%= form.email_field :email, autofocus: true, autocomplete: 'email' %>
     </div>
@@ -14,7 +22,7 @@
       <%= form.password_field :password, autocomplete: 'new-password', placeholder: 'Leave blank if you do not want to change it' %>
     </div>
     <div class="field">
-      <%= form.label :password_confirmation %><br />
+      <%= form.label :password_confirmation %><br/>
       <%= form.password_field :password_confirmation, autocomplete: "new-password" %>
     </div>
     <hr>
