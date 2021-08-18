@@ -2,12 +2,8 @@
   <h2>Account settings</h2>
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |form| %>
     <div class="field">
-      <div class="col-sm-4">
-        <%= image_tag user_avatar(resource, 300), class: "rounded-circle" %>
-      </div>
-      <div class="col-sm-8">
-        <%= form.file_field :avatar %>
-      </div>
+      <%= image_tag url_for(resource.avatar), class: 'user-image rounded-circle', alt: 'avatar' %>
+      <%= form.file_field :avatar %>
     </div>
     <div class="field">
       <%= form.label :email %><br>
