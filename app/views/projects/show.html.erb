@@ -8,7 +8,7 @@
       <% @project.comments.each do |comment| %>
         <div class="col-md-11 col-lg-9 col-xl-7">
           <div class="d-flex flex-start mb-4">
-            <%= image_tag url_for(comment.user.avatar), class: 'rounded-circle me-3', alt: 'avatar' %>
+            <%= image_tag url_for(comment.user.avatar), class: 'user-image rounded-circle me-3', alt: 'avatar' %>
             <div class="card">
               <div class="card-body">
                 <h5><%= comment.user.first_name %></h5>
