@@ -14,7 +14,7 @@
     text-decoration: none;
 
     @media screen and (max-width: $screen-md) {
-      margin: 0.5rem;
+      margin: 0.5rem 0;
     }
 
     .card-outer-1 {
@@ -67,6 +67,10 @@
         .main {
           color: $dark-font-color;
 
+          @media screen and (max-width: $screen-sm) {
+            text-decoration: underline;
+          }
+
           .name {
             
           }
@@ -96,6 +100,10 @@
             flex-flow: row;
             align-items: center;
             color: $dark-font-color;
+
+            @media screen and (max-width: $screen-sm) {
+              text-decoration: underline;
+            }
 
             .image {
               background-color: $secondary-2;
