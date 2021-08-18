@@ -15,7 +15,7 @@
         <div class="footer">
           <%= link_to user_path(locals[:project].user) do %>
             <div class="left">
-              <img class="image" src=<%= locals[:project].user.avatar %> alt="avatar">
+              <%= image_tag url_for(locals[:project].user.avatar), class: 'image', alt: 'avatar' %>
               <p class="owner"><%= locals[:project].user.first_name + ' ' + locals[:project].user.last_name %></p>
             </div>
           <% end %>

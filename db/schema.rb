@@ -104,7 +104,6 @@ ActiveRecord::Schema.define(version: 2021_08_06_114623) do
     t.string "first_name", default: "", null: false
     t.string "last_name", default: "", null: false
     t.text "bio"
-    t.text "avatar"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
