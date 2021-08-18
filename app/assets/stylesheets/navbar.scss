@@ -8,11 +8,11 @@ nav {
   width: 100%;
   padding: 0.8rem 1rem;
   background-color: $white;
-  box-shadow: 0 0.1rem 0.1rem $primary-light;
+  box-shadow: $primary-box-shadow;
   margin-bottom: 2rem;
 
   @media screen and (max-width: $screen-sm) {
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
   }
 
   .left-navbar {
@@ -62,7 +62,7 @@ nav {
         left: auto;
         background-color: $white;
         min-width: 8rem;
-        box-shadow: 0 0.1rem 0.1rem $primary-light;
+        box-shadow: $primary-box-shadow;
         z-index: 1;
 
         a {
