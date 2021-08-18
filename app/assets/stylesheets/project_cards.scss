@@ -80,7 +80,7 @@
           }
 
           &:hover {
-            color: $complementary;
+            color: $complementary-dark;
           }
         }
 
@@ -119,7 +119,7 @@
             }
 
             &:hover {
-              color: $complementary;
+              color: $complementary-dark;
 
               & .image {
                 filter: $filter;
@@ -160,8 +160,6 @@
           list-style: inside;
           align-content: center;
         }
-
-        
       }
     }
   }
