@@ -35,6 +35,12 @@ $avatar-size: 15rem;
             margin: 0 1.5rem;
             border: $white 1rem solid;
             width: $avatar-size;
+
+            &:hover {
+              cursor: pointer;
+              filter: grayscale(1) blur(1px);
+              transition: filter 0.15s linear;
+            }
           }
         }
       }
