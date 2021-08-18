@@ -8,7 +8,10 @@
       <h1><%= "#{@user.first_name} #{@user.last_name}" %></h1>
       <p><%= @user.bio %></p>
       <p>Member since <%= @user.created_date %> | Last online <%= @user.last_update_date%> </p>
-      <p><i class="fas fa-comments"></i> <%= @comments_count %> posted</p>
+      <div class="stats">
+        <span><i class="fas fa-comments"></i> <%= @comments_posted %> posted | <%= @comments_received %> received</span>
+        <span><i class="fas fa-thumbs-up"></i> <%= @likes_posted %> posted | <%= @likes_received %> received</span>
+      </div>
     </div>
   </div>
   <%= render 'projects/project_card_collection', projects: @user.projects.all %>

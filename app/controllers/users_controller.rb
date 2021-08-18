@@ -4,15 +4,24 @@ class UsersController < ApplicationController
 
   # GET /user/:id
   def show
-    comments_count
+    stats
 
     render 'show'
   end
 
   private
 
-  def comments_count
-    @comments_count = @user.comments.all.count
+  def stats
+    @comments_posted = @user.comments.count
+    @likes_posted = @user.likes.count
+    @comments_received = 0
+    @likes_received = 0
+    @user.projects.each do |project|
+      if project.user_id == @user.id
+        @comments_received += project.comments.count
+        @likes_received += project.likes.count
+      end
+    end
   end
 
   def user

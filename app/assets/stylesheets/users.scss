@@ -43,6 +43,14 @@ $avatar-size: 15rem;
             }
           }
         }
+
+        .stats {
+          font-size: 0.85rem;
+          
+          span:first-child {
+            margin-right: 0.5rem;
+          }
+        }
       }
     }
   }
