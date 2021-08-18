@@ -2,10 +2,30 @@
   <div class="card-outer-1">
     <div class="card-outer-2">
       <div class="card-content">
-        <h2 class="name"><%= locals[:project].name %></h2>
-        <p class="summary"><%= locals[:project].summary %></p>
-        <p class="owner"><%= locals[:project].user.first_name + ' ' + locals[:project].user.last_name %></p>
-        <p class="created-date"><%= locals[:project].created_date %></p>
+        <%= link_to project_path(locals[:project]) do %>
+          <div class="main">
+            <h2 class="name"><%= locals[:project].name %></h2>
+            <p class="summary"><%= locals[:project].summary %></p>
+          </div>
+        <% end %>
+        <% unless locals[:hide_description].present? %>
+          <div class="trix-content"><%= locals[:project].content %></p></div>
+        <% end %>
+        <hr>
+        <div class="footer">
+          <%= link_to user_path(locals[:project].user) do %>
+            <div class="left">
+              <img class="image" src=<%= locals[:project].user.avatar %> alt="avatar">
+              <p class="owner"><%= locals[:project].user.first_name + ' ' + locals[:project].user.last_name %></p>
+            </div>
+          <% end %>
+          <div class="right">
+            <p class="metadata"><%= locals[:project].created_date %> <i class="fas fa-calendar-alt"></i></p>
+            <p class="metadata"><%= locals[:project].view_count %> <i class="fas fa-eye"></i></p>
+            <p class="metadata"><%= locals[:project].likes.count %> <i class="fas fa-thumbs-up"></i></p>
+            <p class="metadata"><%= locals[:project].comments.count %> <i class="fas fa-comments"></i></p>
+          </div>
+        </div>
         <% unless locals[:hide_description].present? %>
           <div class="like-count">
             <% if @like.present? %>
@@ -28,8 +48,7 @@
               <%= @project.likes.count %>
             </div>
           </div>
-          <div class="trix-content"><%= locals[:project].content %></p></div>
-        <% end %>
+        <% end %> 
       </div>
     </div>
   </div>
