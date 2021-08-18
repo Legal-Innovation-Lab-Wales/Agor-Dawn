@@ -28,14 +28,14 @@
               <%= @project.likes.count %>
             </div>
           </div>
-            <div class="trix-content"><%= locals[:project].content %></p></div>
+          <div class="trix-content"><%= locals[:project].content %></div>
           </div>
         <% end %>
-      </div>
-    </div>
+        </div>
   </div>
 </div>
+</div>
 
-<% if action_name == 'show'%>
+<% if action_name == 'show' %>
   <%= render 'shared/liked' %>
 <% end %>
