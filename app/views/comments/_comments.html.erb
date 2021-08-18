@@ -5,9 +5,9 @@
         <img class="rounded-circle me-2" src="<%= comment.user.avatar %>" alt="avatar">
         <h5><%= comment.user.first_name %></h5>
       </div>
-      <div class="comment">
+      <div class="comment-text">
         <p class="small"><%= time_ago_in_words(comment.created_at) %> ago</p>
-        <p><%= comment.comment %></p>
+        <p><%= comment.comment_text %></p>
       </div>
   </div>
 <% end %>
