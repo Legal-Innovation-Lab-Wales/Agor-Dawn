@@ -3,15 +3,12 @@
   <% if @project.user == current_user %>
     <%= link_to project_path, 'Delete', method: :delete %>
   <% end %>
-  <section class="comments">
+  <div class="comments">
     <div class="row d-flex">
       <% @project.comments.each do |comment| %>
         <div class="col-md-11 col-lg-9 col-xl-7">
           <div class="d-flex flex-start mb-4">
-            <img
-              class="rounded-circle me-3"
-              src=<%= comment.user.avatar %>
-                alt="avatar">
+            <%= image_tag url_for(comment.user.avatar), class: 'rounded-circle me-3', alt: 'avatar' %>
             <div class="card">
               <div class="card-body">
                 <h5><%= comment.user.first_name %></h5>
@@ -28,5 +25,5 @@
         </div>
       <% end %>
     </div>
-  </section>
-</main>
+  </div>
+</section>
