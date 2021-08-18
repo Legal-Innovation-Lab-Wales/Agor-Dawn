@@ -2,18 +2,21 @@ print "#{pretty_print_name('Users')}\tStart: #{pretty_print(Time.now - @start_ti
 
 IMAGES_DIR = Rails.root.join('db/images')
 
-def attach_default(user)
-  image = "#{user.id - User.admins.count}.png"
+def attach_default(user, index)
+  image = "#{index}.png"
   user.avatar.attach(io: File.open("#{IMAGES_DIR}/defaults/#{image}"), filename: image)
+  user.avatar.blob.update!(default_avatar: true)
+  user.save
 end
 
 def attach_image(user)
   image = "#{user.first_name.downcase}.jpg"
   user.avatar.attach(io: File.open("#{IMAGES_DIR}/#{image}"), filename: image)
+  user.save
 end
 
 unless User.find_by_email('philr@purpleriver.dev').present?
-  user = User.create!(
+  user = User.new(
     first_name: 'Phil',
     last_name: 'Reynolds',
     bio: Faker::Job.title,
@@ -25,7 +28,7 @@ unless User.find_by_email('philr@purpleriver.dev').present?
 end
 
 unless User.find_by_email('ieuan.skinner@swansea.ac.uk').present?
-  user = User.create!(
+  user = User.new(
     first_name: 'Ieuan',
     last_name: 'Skinner',
     bio: Faker::Job.title,
@@ -37,7 +40,7 @@ unless User.find_by_email('ieuan.skinner@swansea.ac.uk').present?
 end
 
 unless User.find_by_email('a.j.wing@swansea.ac.uk').present?
-  user = User.create!(
+  user = User.new(
     first_name: 'Alex',
     last_name: 'Wing',
     bio: Faker::Job.title,
@@ -49,7 +52,7 @@ unless User.find_by_email('a.j.wing@swansea.ac.uk').present?
 end
 
 unless User.find_by_email('g.d.andrews@swansea.ac.uk').present?
-  user = User.create!(
+  user = User.new(
     first_name: 'Gareth',
     last_name: 'Andrews',
     bio: Faker::Job.title,
@@ -61,7 +64,7 @@ unless User.find_by_email('g.d.andrews@swansea.ac.uk').present?
 end
 
 20.times.each do |index|
-  user = User.create!(
+  user = User.new(
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
     bio: Faker::Job.title,
@@ -69,7 +72,7 @@ end
     password: 'test1234',
     admin: false
   )
-  attach_default(user)
+  attach_default(user, index + 1)
 end
 
 puts "\tDuration: #{pretty_print(Time.now - @start_time)}   Elapsed: #{pretty_print(Time.now - @start_time)}"
