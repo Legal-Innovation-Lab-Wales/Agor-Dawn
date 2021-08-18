@@ -8,9 +8,8 @@
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
-
     
-  a {
+  .project-card {
     margin: 1rem;
     text-decoration: none;
 
@@ -28,6 +27,14 @@
           transform: rotate(1deg);
           min-width: 20rem;
           max-width: 30rem;
+
+          .main {
+            padding: 2rem 1rem 0 1rem;
+          }
+
+          .footer {
+            padding: 0rem 1rem 2rem 1rem;
+          }
         }
       }
 
@@ -52,11 +59,92 @@
         transform: rotate(0.5deg);
         display: flex;
         flex-direction: column;
+        align-items: center;
         text-align: center;
-        padding: 2rem 1rem;
         border: 0.25rem solid $primary-light;
         background-color: $white;
-        color: $dark-font-color;
+        
+        .main {
+          color: $dark-font-color;
+
+          .name {
+            
+          }
+
+          .summary {
+            margin-bottom: 0;
+          }
+
+          &:hover {
+            color: $complementary;
+          }
+        }
+
+        .trix-content {
+          margin-top: 1rem;
+        }
+
+        .footer {
+          max-width: 20rem;
+          display: flex;
+          flex-flow: row nowrap;
+          align-items: center;
+
+          .left {
+            flex-grow: 1;
+            display: flex;
+            flex-flow: row;
+            align-items: center;
+            color: $dark-font-color;
+
+            .image {
+              background-color: $secondary-2;
+              border-radius: 50%;
+              height: 3rem;
+            }
+
+            .owner {
+              margin-bottom: 0;
+              padding: 0 1rem 0 0.5rem;
+              font-size: 1rem;
+              text-align: left;
+            }
+
+            &:hover {
+              color: $complementary;
+
+              & .image {
+                filter: $filter;
+              }
+            }
+          }
+
+          .right {
+            flex-grow: 1;
+            display: flex;
+            flex-flow: column;
+            text-align: right;
+            font-size: 0.75rem;
+            font-weight: 600;
+
+            .metadata {
+              display: flex;
+              flex-flow: row nowrap;
+              align-items: center;
+              justify-content: flex-end;
+              margin-bottom: 0.15rem;
+              color: #b2bec3;
+
+              i {
+                margin-left: 0.15rem;
+              }
+
+              &:last-child {
+                margin-bottom: 0;
+              }
+            }
+          }
+        }
 
         .description {
           margin-top: 1rem;
@@ -65,17 +153,7 @@
           align-content: center;
         }
 
-        .owner {
-          font-size: 0.85rem;
-          font-weight: 600;
-          margin-bottom: 0;
-        }
-
-        .created-date {
-          font-size: 0.85rem;
-          font-weight: 300;
-          margin-bottom: 0;
-        }
+        
       }
     }
   }

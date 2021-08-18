@@ -38,7 +38,7 @@ $avatar-size: 15rem;
 
             &:hover {
               cursor: pointer;
-              filter: grayscale(1) blur(1px);
+              filter: $filter;
               transition: filter 0.15s linear;
             }
           }

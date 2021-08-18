@@ -5,29 +5,33 @@
     .project-card {
       margin: 2rem auto;
 
-      .like-count {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-top: 1rem;
+      .card-content {
+        padding: 2rem 1rem;
 
-        .count {
-          margin-left: 0.5rem;
-
-          &:hover {
-            cursor: pointer;
-            text-decoration: underline;
-          }
-        }
-
-        .btn.like {
-          border-radius: 50%;
-          font-size: 0.75rem;
-          width: 30px;
-          height: 30px;
+        .like-count {
           display: flex;
-          align-items: center;
           justify-content: center;
+          align-items: center;
+          margin-top: 1rem;
+
+          .count {
+            margin-left: 0.5rem;
+
+            &:hover {
+              cursor: pointer;
+              text-decoration: underline;
+            }
+          }
+
+          .btn.like {
+            border-radius: 50%;
+            font-size: 0.75rem;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
         }
       }
     }
