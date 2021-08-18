@@ -53,17 +53,10 @@ body#overboot {
   }
 
   main {
-    @media screen and (min-width: $screen-sm) {
-      padding: $padding-screen-sm;
-    }
+    padding: 0 1rem;
 
-    @media screen and (min-width: $screen-md) {
-      padding: $padding-screen-md;
-    }
-
-    @media screen and (min-width: $screen-lg) {
-      padding: $padding-screen-lg;
+    @media screen and (max-width: $screen-sm) {
+      padding: 0 0.5rem;
     }
   }
-
 }

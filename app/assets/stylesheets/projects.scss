@@ -2,8 +2,17 @@
 
 .projects {
   &.show {
+    .actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      position: relative;
+      z-index: 1;
+      margin-bottom: 1rem;
+    }
+
     .project-card {
-      margin: 2rem auto;
+      margin-bottom: 2rem;
 
       .card-content {
         padding: 2rem;
