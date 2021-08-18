@@ -21,6 +21,9 @@ def pretty_print(value)
   end
 end
 
+# Clear Local ActiveStorage
+FileUtils.rm_rf(Rails.root.join('storage'))
+
 puts ('-' * DOTTED_LINE_LENGTH).to_s
 puts 'Running Seeds'
 Dir[File.join(Rails.root, 'db', 'seeds', '*.rb')].sort.each { |seed| load seed }
