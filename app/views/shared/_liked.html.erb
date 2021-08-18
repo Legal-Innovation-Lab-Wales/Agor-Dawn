@@ -1,33 +1,25 @@
-<!-- Modal -->
-<div class="modal fade" id="likeModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-modal="true" role="dialog">
+<div class="modal fade" id="liked-modal" tabindex="-1" aria-labelledby="liked-modal-Label" aria-modal="true" role="dialog">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Liked By</h5>
-        <button type="button" class="btn btn-primary" id="close_liked_modal">X</button>
+        <h5 class="modal-title" id="liked-modal-Label">Liked By</h5>
+        <button type="button" class="btn btn-primary" id="close-liked-modal">X</button>
       </div>
       <div class="modal-body likes">
         <% @project.likes.each do |liked_by| %>
           <div class="like">
-            <img
-              class="user-icon"
-              src=<%= liked_by.user.avatar %>
-                alt="avatar">
+            <img class="user-icon" src=<%= liked_by.user.avatar %> alt="avatar">
             <%= liked_by.user.full_name %>
           </div>
         <% end %>
-      </div>
-      <div class="modal-footer">
       </div>
     </div>
   </div>
 </div>
 <div class="modal-backdrop fade show" id="backdrop" style="display: none;"></div>
-<div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content"></div>
   </div>
 </div>
 
-
-<%= javascript_pack_tag 'like_modal' %>
+<%= javascript_pack_tag 'liked_modal' %>
