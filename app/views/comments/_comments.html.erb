@@ -6,7 +6,7 @@
         <h5><%= comment.user.first_name %></h5>
       </div>
       <div class="comment">
-        <p class="small"><%= time_ago_in_words(comment.created_at) %></p>
+        <p class="small"><%= time_ago_in_words(comment.created_at) %> ago</p>
         <p><%= comment.comment %></p>
       </div>
   </div>
