@@ -58,24 +58,29 @@ section.header {
 
   .info-links {
     margin: 1rem;
+    padding-top: 2rem;
 
     h3 a {
-      font-weight: 100;
+      font-weight: 150;
       text-decoration: none;
       color: $dark-font-color;
       font-size: 1.6rem;
+
+      &:hover {
+        color: $primary
+      }
+
 
       @media screen and (min-width: $screen-md) {
         font-size: 3rem;
       }
     }
   }
+}
 
-  .auth-prompt {
-
-  }
-
-
+.auth-prompt{
+  padding-bottom: 2rem;
+  font-weight: lighter;
 }
 
 .projects-container{
