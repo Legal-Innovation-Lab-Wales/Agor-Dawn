@@ -1,13 +1,19 @@
 print "#{pretty_print_name('Users')}\tStart: #{pretty_print(Time.now - @start_time)}"
 
+IMAGES_DIR = Rails.root.join('db/images')
+
 def attach_default(user)
   if user.id == 5
-    user.avatar.attach(io: File.open(Rails.root.join('db/images/default-avatar-1.jpg')),
-                       filename: 'default-avatar-1.jpg',
-                       content_type: 'image/jpeg')
+    image = 'default-avatar-1.jpg'
+    user.avatar.attach(io: File.open("#{IMAGES_DIR}/#{image}"), filename: image)
   else
     user.avatar.attach(User.find(5).avatar.blob)
   end
+end
+
+def attach_image(user)
+  image = "#{user.first_name.downcase}.jpg"
+  user.avatar.attach(io: File.open("#{IMAGES_DIR}/#{image}"), filename: image)
 end
 
 unless User.find_by_email('philr@purpleriver.dev').present?
@@ -19,9 +25,7 @@ unless User.find_by_email('philr@purpleriver.dev').present?
     password: 'password',
     admin: true
   )
-  user.avatar.attach(io: File.open(Rails.root.join('db/images/phil.jpg')),
-                     filename: 'phil.jpg',
-                     content_type: 'image/jpeg')
+  attach_image(user)
 end
 
 unless User.find_by_email('ieuan.skinner@swansea.ac.uk').present?
@@ -33,9 +37,7 @@ unless User.find_by_email('ieuan.skinner@swansea.ac.uk').present?
     password: 'password',
     admin: true
   )
-  user.avatar.attach(io: File.open(Rails.root.join('db/images/ieuan.jpg')),
-                     filename: 'ieuan.jpg',
-                     content_type: 'image/jpeg')
+  attach_image(user)
 end
 
 unless User.find_by_email('a.j.wing@swansea.ac.uk').present?
@@ -47,9 +49,7 @@ unless User.find_by_email('a.j.wing@swansea.ac.uk').present?
     password: 'password',
     admin: true
   )
-  user.avatar.attach(io: File.open(Rails.root.join('db/images/alex.jpg')),
-                     filename: 'alex.jpg',
-                     content_type: 'image/jpeg')
+  attach_image(user)
 end
 
 unless User.find_by_email('g.d.andrews@swansea.ac.uk').present?
@@ -61,9 +61,7 @@ unless User.find_by_email('g.d.andrews@swansea.ac.uk').present?
     password: 'password',
     admin: true
   )
-  user.avatar.attach(io: File.open(Rails.root.join('db/images/gareth.jpg')),
-                     filename: 'gareth.jpg',
-                     content_type: 'image/jpeg')
+  attach_image(user)
 end
 
 20.times.each do |index|
