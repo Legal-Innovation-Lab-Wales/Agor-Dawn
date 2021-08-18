@@ -2,18 +2,20 @@ print "#{pretty_print_name('Users')}\tStart: #{pretty_print(Time.now - @start_ti
 
 IMAGES_DIR = Rails.root.join('db/images')
 
+def attach(user, image)
+  user.avatar.attach(io: File.open("#{IMAGES_DIR}/#{image}"), filename: image)
+end
+
 def attach_default(user)
   if user.id == 5
-    image = 'default-avatar-1.jpg'
-    user.avatar.attach(io: File.open("#{IMAGES_DIR}/#{image}"), filename: image)
+    attach(user, 'default-avatar-1.jpg')
   else
     user.avatar.attach(User.find(5).avatar.blob)
   end
 end
 
 def attach_image(user)
-  image = "#{user.first_name.downcase}.jpg"
-  user.avatar.attach(io: File.open("#{IMAGES_DIR}/#{image}"), filename: image)
+  attach(user, "#{user.first_name.downcase}.jpg")
 end
 
 unless User.find_by_email('philr@purpleriver.dev').present?
