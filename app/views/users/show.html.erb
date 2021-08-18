@@ -7,7 +7,8 @@
       </div>
       <h1><%= "#{@user.first_name} #{@user.last_name}" %></h1>
       <p><%= @user.bio %></p>
-      <small>Member since <%= @user.created_date %> | Last online <%= @user.last_update_date%> </small>
+      <p>Member since <%= @user.created_date %> | Last online <%= @user.last_update_date%> </p>
+      <p><i class="fas fa-comments"></i> <%= @comments_count %> posted</p>
     </div>
   </div>
   <%= render 'projects/project_card_collection', projects: @user.projects.all %>
