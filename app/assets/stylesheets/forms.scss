@@ -1,21 +1,11 @@
 @import "variables";
 
 .form {
-  padding: 1.5rem;
   margin: 0 auto;
-  background-color: $white;
-  box-shadow: 0 0.1rem 0.1rem #8e80ef;
-  border-radius: 0.25rem;
-  max-width: 40rem;
+  max-width: 40rem !important;
   display: flex;
   flex-direction: column;
   justify-content: center;
-
-  @media screen and (max-width: $screen-sm) {
-    max-width: 100%;
-    background-color: $primary-background-color;
-    box-shadow: none;
-  }
 
   h2 {
     width: 100%;
