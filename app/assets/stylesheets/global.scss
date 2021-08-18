@@ -10,6 +10,10 @@ body#overboot {
   background-color: $primary-background-color;
   line-height: 1;
 
+  ::selection {
+    background: $primary-light;
+  }
+
   .alert, .notice {
     &:empty {
       height: 0;
@@ -22,13 +26,16 @@ body#overboot {
   .container {
     background-color: $white;
     border-radius: 0.25rem;
-    box-shadow: 0 0.1rem 0.1rem #8e80ef;
+    box-shadow: $primary-box-shadow;
     padding: 1.5rem;
 
     @media screen and (max-width: $screen-sm) {
       max-width: 100%;
-      background-color: $primary-background-color;
-      box-shadow: none;
+
+      &.form {
+        background-color: $primary-background-color;
+        box-shadow: none;
+      }
     }
   }
 
@@ -42,6 +49,7 @@ body#overboot {
 
   hr {
     background: -webkit-gradient(linear, 0 0, 100% 0, from(transparent), to(transparent), color-stop(50%, $primary));
+    width: 100%;
   }
 
   main {

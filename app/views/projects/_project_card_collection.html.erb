@@ -1,0 +1,13 @@
+<div class="summary">
+  <% if params[:query].present? %>
+    <%= "Search '#{params[:query]}' returned #{pluralize(projects.count, 'result')}." %>
+  <% else %>
+    <%= "Showing #{projects.count} of #{pluralize(projects.count, 'project')}." %>
+  <% end %>
+  <hr>
+</div>
+<div class="project-card-collection">
+  <% projects.each do |project| %>
+    <%= render 'projects/project_card', locals: { project: project, hide_description: true } %>
+  <% end %>
+</div>
