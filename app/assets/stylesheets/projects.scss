@@ -6,7 +6,7 @@
       margin: 2rem auto;
 
       .card-content {
-        padding: 2rem 1rem;
+        padding: 2rem;
 
         .like-count {
           display: flex;
@@ -14,20 +14,18 @@
           align-items: center;
           margin-top: 1rem;
 
-          .count {
+          .link-primary {
             margin-left: 0.5rem;
 
-            &:hover {
-              cursor: pointer;
+            @media screen and (max-width: $screen-sm) {
               text-decoration: underline;
             }
           }
 
           .btn.like {
             border-radius: 50%;
-            font-size: 0.75rem;
-            width: 30px;
-            height: 30px;
+            font-size: 1.5rem;
+            padding: 0.5rem !important;
             display: flex;
             align-items: center;
             justify-content: center;

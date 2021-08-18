@@ -44,25 +44,12 @@
                 <% end %>
               <% end %>
             <% end %>
-            <div class="count" title="<%= @liked_by %>" data-toggle="tooltip" data-placement="bottom">
-              <%= @project.likes.count %>
+            <div class="link-primary" title="<%= @liked_by %>" data-toggle="tooltip" data-placement="bottom">
+              <%= @project.likes.count %> likes
             </div>
           </div>
-        <% end %> 
+        <% end %>
       </div>
     </div>
   </div>
 </div>
-
-
-<%
-=begin%>
- <% if locals[:project].user == current_user %>
-  <% if locals[:project].public? %>
-    <i class="fas fa-unlock"> Public</i>
-  <% else %>
-    <i class="fas fa-lock"> Private</i>
-  <% end %>
-<% end %> 
-<%
-=end%>

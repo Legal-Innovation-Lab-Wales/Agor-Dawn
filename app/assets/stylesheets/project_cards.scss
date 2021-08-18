@@ -29,11 +29,11 @@
           max-width: 30rem;
 
           .main {
-            padding: 2rem 1rem 0 1rem;
+            padding: 2rem 2rem 0 2rem;
           }
 
           .footer {
-            padding: 0rem 1rem 2rem 1rem;
+            padding: 0 2rem 2rem 2rem;
           }
         }
       }
@@ -141,7 +141,7 @@
               align-items: center;
               justify-content: flex-end;
               margin-bottom: 0.25rem;
-              color: #b2bec3;
+              color: $grey-font-color;
 
               i {
                 margin-left: 0.15rem;
