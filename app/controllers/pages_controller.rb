@@ -4,7 +4,7 @@ class PagesController < ApplicationController
 
   def home
     @projects = Project.includes(:user)
-    render template: 'pages/home'
+    render 'home'
   end
 
 end
