@@ -58,9 +58,10 @@ body#overboot {
   }
 
   img.user-icon {
-    height: 5rem;
-    width: 5rem;
+    height: 4rem;
+    width: 4rem;
     border-radius: 50%;
+    background-color: $primary-background-color;
   }
 
   main {

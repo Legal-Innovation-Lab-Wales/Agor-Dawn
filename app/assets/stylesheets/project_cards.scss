@@ -94,7 +94,7 @@
         }
 
         .footer {
-          max-width: 20rem;
+          width: 20rem;
           display: flex;
           flex-flow: row nowrap;
           align-items: center;
@@ -119,6 +119,10 @@
 
             &:hover {
               color: $primary-light;
+
+              & .user-icon {
+                filter: grayscale(1);
+              }
             }
           }
 
