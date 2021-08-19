@@ -2,20 +2,22 @@
 
 .projects {
   &.show {
-    .actions {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      position: relative;
-      z-index: 1;
-      margin-bottom: 1rem;
-    }
-
     .project-card {
       margin-bottom: 2rem;
 
       .card-content {
         padding: 2rem;
+
+        .actions {
+          width: 100%;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+
+          @media screen and (max-width: $screen-sm) {
+            margin-bottom: 1rem;
+          }
+        }
 
         .like-count {
           display: flex;
