@@ -1,10 +1,6 @@
 <section class="projects index" id="projects-index">
   <% unless action_name == 'home' %>
-    <div class="create-btn">
-      <%= link_to new_project_path, class: 'btn btn-secondary-2' do %>
-        <span class="text">Add Project</span>
-        <i class="icon fas fa-plus-square"></i>
-      <% end %>
+    <%= render 'shared/floating_btn' %>
     </div>
   <% end %>
   <div class="content">
