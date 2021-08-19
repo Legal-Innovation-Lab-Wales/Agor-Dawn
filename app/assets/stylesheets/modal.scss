@@ -18,9 +18,6 @@
       color: $dark-font-color;
     }
     img.user-icon {
-      height: 6rem;
-      width: 6rem;
-      border-radius: 50%;
       float: left;
     }
     &:hover{
@@ -28,7 +25,7 @@
         text-decoration: underline;
       }
       img.user-icon {
-        background-color: $primary-background-color;
+        filter: grayscale(1);
       }
     }
   }
