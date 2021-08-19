@@ -15,4 +15,3 @@ ActiveStorage.start()
 
 require("trix")
 require("@rails/actiontext")
-require("trix_attachments")

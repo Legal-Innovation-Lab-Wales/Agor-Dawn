@@ -7,7 +7,7 @@ class ProjectsController < ApplicationController
 
   # GET /projects
   def index
-    @projects = Project.includes(:user)
+    @projects = Project.includes(:user, :likes)
 
     @projects = @projects.search(search_params[:query]) if search_params[:query].present?
 

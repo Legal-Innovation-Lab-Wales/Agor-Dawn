@@ -1,0 +1,13 @@
+<h2>Comments</h2>
+<% @project.comments.each do |comment| %>
+  <div class="comment-container">
+      <div class="comment-author">
+        <img class="rounded-circle me-2" src="<%= comment.user.avatar %>" alt="avatar">
+        <h5><%= comment.user.first_name %></h5>
+      </div>
+      <div class="comment-text">
+        <p class="small"><%= time_ago_in_words(comment.created_at) %> ago</p>
+        <p><%= comment.comment_text %></p>
+      </div>
+  </div>
+<% end %>
