@@ -105,12 +105,6 @@
               text-decoration: underline;
             }
 
-            .image {
-              background-color: $secondary-2;
-              border-radius: 50%;
-              height: 3rem;
-            }
-
             .owner {
               margin-bottom: 0;
               padding: 0 1rem 0 0.5rem;
@@ -121,9 +115,6 @@
             &:hover {
               color: $primary-light;
 
-              & .image {
-                filter: $filter;
-              }
             }
           }
 
