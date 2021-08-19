@@ -34,7 +34,7 @@
         <div class="footer">
           <%= link_to user_path(locals[:project].user) do %>
             <div class="left">
-              <img class="image" src=<%= locals[:project].user.avatar %> alt="avatar">
+              <img class="user-icon" src=<%= locals[:project].user.avatar %> alt="avatar">
               <p class="owner"><%= locals[:project].user.first_name + ' ' + locals[:project].user.last_name %></p>
             </div>
           <% end %>
@@ -48,27 +48,32 @@
         <% if controller_name == 'projects' && action_name == 'show' %>
           <div class="like-count">
             <% if @like.present? %>
-              <%= link_to project_like_path(@project, @like), method: 'delete', class: 'btn btn-primary like' do %>
+              <%= link_to project_like_path(@project, @like), method: 'delete', class: 'btn btn-primary' do %>
                 <i class="fas fa-thumbs-down"></i>
               <% end %>
             <% else %>
               <% if user_signed_in? %>
-                <%= link_to project_likes_path(@project), method: 'post', class: 'btn btn-primary like' do %>
+                <%= link_to project_likes_path(@project), method: 'post', class: 'btn btn-primary' do %>
                   <i class="fas fa-thumbs-up"></i>
                 <% end %>
               <% else %>
-                <%= link_to new_user_session_path, class: 'btn btn-primary like',
+                <%= link_to new_user_session_path, class: 'btn btn-primary',
                             data: { confirm: 'To do this action you must login.' } do %>
                   <i class="fas fa-thumbs-up"></i>
                 <% end %>
               <% end %>
             <% end %>
-            <div class="link-primary" title="<%= @liked_by %>" data-toggle="tooltip" data-placement="bottom">
-              <%= @project.likes.count %> likes
+            <div class="count btn btn-primary" title="<%= @liked_by %>" data-toggle="tooltip" data-placement="bottom" id="open-liked-modal">
+              Liked by <%= @project.likes.count %> Users
             </div>
           </div>
+          <div class="trix-content"><%= locals[:project].content %></div>
         <% end %>
       </div>
     </div>
   </div>
 </div>
+
+<% if controller_name == 'projects' && action_name == "show" %>
+  <%= render 'shared/liked' %>
+<% end %>
