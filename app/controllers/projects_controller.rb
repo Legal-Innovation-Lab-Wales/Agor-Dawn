@@ -17,6 +17,10 @@ class ProjectsController < ApplicationController
 
   # GET /projects/:id
   def show
+    unless @project.public || project.user == current_user
+      redirect_back(fallback_location: projects_path, flash: { error: 'Project not found' })
+    end
+
     @like = @project.likes.find_by(user: current_user)
     @count = @project.likes.count
     @liked_by = @project.likes.includes(:user)
@@ -25,8 +29,6 @@ class ProjectsController < ApplicationController
                         .map { |like| like.user.full_name.to_s }
                         .join("\n")
     @liked_by += "\nand #{@count - 20} more..." if @count > 20
-
-    render 'show'
   end
 
   # GET /projects/new
@@ -47,7 +49,6 @@ class ProjectsController < ApplicationController
       flash[:error] = 'Error creating project'
       render 'new'
     end
-
   end
 
   # GET /projects/:id/edit
@@ -78,9 +79,7 @@ class ProjectsController < ApplicationController
   private
 
   def project
-    @project = Project.includes(:user, :comments, :likes)
-                      .where(public: true)
-                      .find(params[:id])
+    @project = Project.includes(:user, :comments, :likes).find(params[:id])
   rescue ActiveRecord::RecordNotFound
     redirect_back(fallback_location: projects_path, flash: { error: 'Project was not found.' })
   end

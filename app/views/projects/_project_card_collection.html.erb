@@ -9,7 +9,7 @@
 <div class="project-card-collection">
   <% projects.each do |project| %>
     <% if project.public || project.user == current_user %>
-      <%= render 'projects/project_card', locals: { project: project, member_view: true } %>
+      <%= render 'projects/project_card', locals: { project: project } %>
     <% end %>
   <% end %>
 </div>
