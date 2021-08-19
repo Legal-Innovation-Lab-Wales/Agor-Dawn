@@ -17,6 +17,10 @@
       margin: 0.5rem 0;
     }
 
+    &.private {
+      filter: grayscale(1);
+    }
+
     .card-outer-1 {
       transform: rotate(-2deg);
 
@@ -29,11 +33,16 @@
           max-width: 30rem;
 
           .main {
-            padding: 2rem 1rem 0 1rem;
+            padding: 2rem 2rem 0 2rem;
+
+            .private-icon {
+              display: block;
+              margin-bottom: 0.5rem;
+            }
           }
 
           .footer {
-            padding: 0rem 1rem 2rem 1rem;
+            padding: 0 2rem 2rem 2rem;
           }
         }
       }
@@ -71,10 +80,6 @@
             text-decoration: underline;
           }
 
-          .name {
-            
-          }
-
           .summary {
             margin-bottom: 0;
           }
@@ -89,7 +94,7 @@
         }
 
         .footer {
-          width: 20rem;
+          max-width: 20rem;
           display: flex;
           flex-flow: row nowrap;
           align-items: center;
@@ -105,12 +110,6 @@
               text-decoration: underline;
             }
 
-            .image {
-              background-color: $secondary-2;
-              border-radius: 50%;
-              height: 3rem;
-            }
-
             .owner {
               margin-bottom: 0;
               padding: 0 1rem 0 0.5rem;
@@ -120,10 +119,6 @@
 
             &:hover {
               color: $primary-light;
-
-              & .image {
-                filter: $filter;
-              }
             }
           }
 
@@ -141,7 +136,7 @@
               align-items: center;
               justify-content: flex-end;
               margin-bottom: 0.25rem;
-              color: #b2bec3;
+              color: $grey-font-color;
 
               i {
                 margin-left: 0.15rem;

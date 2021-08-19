@@ -7,7 +7,7 @@ class CommentsController < ApplicationController
     @project.comments.create!(comment: comment_params[:comment_text], user: current_user)
     redirect_to project_path(@project), flash: { success: 'Comment Added.' }
   rescue ActiveRecord::RecordInvalid
-    redirect_to project_path(@project), flash: { error: 'Comment cannot be blank.' }
+    redirect_to project_path(@project), flash: { error: 'Failed to add comment, please try again.' }
   end
 
   private

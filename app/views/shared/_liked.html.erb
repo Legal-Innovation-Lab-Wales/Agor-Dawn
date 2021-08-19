@@ -1,0 +1,27 @@
+<div class="modal fade" id="liked-modal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5>Liked By</h5>
+        <button type="button" class="btn btn-primary" id="close-liked-modal">
+          <i class="fas fa-times-circle"></i>
+        </button>
+      </div>
+      <div class="likes">
+        <% @project.likes.each do |liked_by| %>
+          <%= link_to user_path(liked_by.user) do %>
+            <div class="like">
+              <img class="user-icon" src=<%= liked_by.user.avatar %> alt="avatar">
+              <div class="username">
+                <%= liked_by.user.full_name %>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal-backdrop fade show" id="backdrop" style="display: none;"></div>
+
+<%= javascript_pack_tag 'liked_modal' %>
