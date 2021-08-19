@@ -1,24 +1,21 @@
-<section class="header main-svg">
-  <h1 class="title">Agor Dawn</h1>
-  <h3 class="subtitle">A platform boosting the commercialisation of projects from humanities and
-    social sciences. Providing a space to foster collaboration and innovation.</h3>
+<section class="home">
+  <div class="header main-svg">
+    <h1 class="title">Agor Dawn</h1>
+    <h3 class="subtitle">A platform boosting the commercialisation of projects from humanities and
+      social sciences. Providing a space to foster collaboration and innovation.</h3>
 
-  <div class="info-links">
-    <a href="#" class="btn btn-secondary-2">About the project</a> 
-    <a href="https://www.agorip.com/" class="btn btn-secondary-2">AgorIP</a>
-    <a href="https://www.agorip.com/get-in-touch/" class="btn btn-secondary-2">Get in touch</a>
+    <div class="info-links">
+      <a href="#" class="btn btn-secondary-2">About the project</a> 
+      <a href="https://www.agorip.com/" class="btn btn-secondary-2">AgorIP</a>
+      <a href="https://www.agorip.com/get-in-touch/" class="btn btn-secondary-2">Get in touch</a>
+    </div>
   </div>
-
-  <% if current_user.nil? %>
-    <h4 class="auth-prompt">
-      If you haven't already, you might want
-      to <%= link_to 'Sign In', new_user_session_path %>
-      or <%= link_to 'Sign Up', new_user_registration_path %>
-    </h4>
-  <% end %>
+  <div class="browse-projects">
+    <%= link_to 'Browse All Projects', projects_path, class: 'btn btn-primary' %>
+  </div>
+  <div class="projects-container">
+    <h3>Recent Projects</h3>
+    <hr>
+    <%= render "projects/index" %>
+  </div>
 </section>
-
-<div class="projects-container">
-  <h3>Recent Projects</h3>
-  <%= render "projects/index" %>
-</div>
