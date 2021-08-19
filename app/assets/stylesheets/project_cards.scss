@@ -17,6 +17,10 @@
       margin: 0.5rem 0;
     }
 
+    &.private {
+      filter: grayscale(1);
+    }
+
     .card-outer-1 {
       transform: rotate(-2deg);
 

@@ -77,7 +77,9 @@ class ProjectsController < ApplicationController
   private
 
   def project
-    @project = Project.includes(:user, :comments, :likes).find(params[:id])
+    @project = Project.includes(:user, :comments, :likes)
+                      .where(public: true)
+                      .find(params[:id])
   rescue ActiveRecord::RecordNotFound
     redirect_back(fallback_location: projects_path, flash: { error: 'Project was not found.' })
   end

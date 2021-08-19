@@ -8,6 +8,8 @@
 </div>
 <div class="project-card-collection">
   <% projects.each do |project| %>
-    <%= render 'projects/project_card', locals: { project: project, hide_description: true } %>
+    <% if project.public || project.user == current_user %>
+      <%= render 'projects/project_card', locals: { project: project, member_view: true } %>
+    <% end %>
   <% end %>
 </div>

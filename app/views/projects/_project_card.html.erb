@@ -1,8 +1,8 @@
-<div class="project-card">
+<div class="project-card <%= locals[:project].public ? '' : 'private' %>">
   <div class="card-outer-1">
     <div class="card-outer-2">
       <div class="card-content">
-        <% unless locals[:hide_description].present? %>
+        <% unless locals[:member_view].present? %>
           <% if locals[:project].user == current_user %>
             <div class="actions">
               <span class="public">
@@ -24,7 +24,7 @@
             <p class="summary"><%= locals[:project].summary %></p>
           </div>
         <% end %>
-        <% unless locals[:hide_description].present? %>
+        <% unless locals[:member_view].present? %>
           <div class="trix-content"><%= locals[:project].content %></p></div>
         <% end %>
         <hr>
@@ -42,7 +42,7 @@
             <p class="metadata"><%= locals[:project].comments.count %> <i class="fas fa-comments"></i></p>
           </div>
         </div>
-        <% unless locals[:hide_description].present? %>
+        <% unless locals[:member_view].present? %>
           <div class="like-count">
             <% if @like.present? %>
               <%= link_to project_like_path(@project, @like), method: 'delete', class: 'btn btn-primary like' do %>
