@@ -15,10 +15,6 @@
   </head>
 
   <body id=overboot>
-    <% unless action_name == 'home' %>
-      <%= render 'shared/navbar' %>
-    <% end %>
-
     <% flash.each do |type, msg| %>
       <% if type != 'timedout' %>
         <div class="alert <%= alert_class_for(type) %> alert-dismissible fade show position-absolute top-0 start-50 translate-middle-x px-5" role="alert">
@@ -28,8 +24,13 @@
       <% end %>
     <% end %>
 
-    <main>
+    <% if action_name == 'home' %>
       <%= yield %>
-    </main>
+    <% else %>
+      <%= render 'shared/navbar' %>
+      <main>
+        <%= yield %>
+      </main>
+    <% end %>
   </body>
 </html>
