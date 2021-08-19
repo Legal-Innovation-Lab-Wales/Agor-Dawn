@@ -8,6 +8,7 @@ class ProjectsController < ApplicationController
   # GET /projects
   def index
     @projects = Project.includes(:user, :likes)
+                       .where(public: true)
 
     @projects = @projects.search(search_params[:query]) if search_params[:query].present?
 
@@ -21,7 +22,7 @@ class ProjectsController < ApplicationController
     @liked_by = @project.likes.includes(:user)
                         .order(created_at: :desc)
                         .limit(20)
-                        .map { |like| "#{like.user.full_name}" }
+                        .map { |like| like.user.full_name.to_s }
                         .join("\n")
     @liked_by += "\nand #{@count - 20} more..." if @count > 20
 

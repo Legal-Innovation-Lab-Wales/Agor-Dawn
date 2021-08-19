@@ -2,7 +2,7 @@
   <% if params[:query].present? %>
     <%= "Search '#{params[:query]}' returned #{pluralize(projects.count, 'result')}." %>
   <% else %>
-    <%= "Showing #{projects.count} of #{pluralize(projects.count, 'project')}." %>
+    <%= "Showing #{projects.where(public: true).count} of #{pluralize(projects.count, 'project')}." %>
   <% end %>
   <hr>
 </div>
