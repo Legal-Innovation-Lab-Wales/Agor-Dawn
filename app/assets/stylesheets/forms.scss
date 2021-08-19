@@ -22,12 +22,11 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
     margin-bottom: 1rem;
 
-    .user-image {
-      height: 300px;
-      width: 300px;
+    .user-icon {
+      height: 300px !important;
+      width: 300px !important;
       margin-bottom: 1rem;
     }
 
