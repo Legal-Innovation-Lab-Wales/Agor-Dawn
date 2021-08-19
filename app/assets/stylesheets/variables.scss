@@ -16,11 +16,11 @@ $color-secondary-2-2: #6EEDCD;
 $color-secondary-2-3: #22D7AA;
 $color-secondary-2-4: #00C795;
 
-$color-complement-0: #FFD94E;	// Main Complement color */
-$color-complement-1: #FFECA8;
-$color-complement-2: #FFE276;
-$color-complement-3: #FFD128;
-$color-complement-4: #FFC900;
+$color-complement-0: #FDCB6E;	// Main Complement color */
+$color-complement-1: #FFE8BE;
+$color-complement-2: #FFD994;
+$color-complement-3: #DEA945;
+$color-complement-4: #BD8622;
 
 $primary: $color-primary-0;
 $primary-light: $color-primary-2;
@@ -39,6 +39,7 @@ $white: #fff;
 $primary-background-color: #ebf1f4;
 $light-font-color: #ebf1f4;
 $dark-font-color: #212529;
+$grey-font-color: #b2bec3;
 
 $primary-box-shadow: 0 0.1rem 0.1rem $primary-light;
 $filter: grayscale(1) blur(0.5px);
@@ -48,7 +49,6 @@ $screen-sm: 576px;
 $screen-md: 768px;
 $screen-lg: 992px;
 
-// Padding for screen sizes
-$padding-screen-sm: 0 1rem;
-$padding-screen-md: 0 2rem;
-$padding-screen-lg: 0 4rem;
+:export {
+  screenSm: $screen-sm;
+}

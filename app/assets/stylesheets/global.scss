@@ -11,7 +11,7 @@ body#overboot {
   line-height: 1;
 
   ::selection {
-    background: $complementary;
+    background: $primary-light;
   }
 
   .alert, .notice {
@@ -52,18 +52,17 @@ body#overboot {
     width: 100%;
   }
 
-  main {
-    @media screen and (min-width: $screen-sm) {
-      padding: $padding-screen-sm;
-    }
-
-    @media screen and (min-width: $screen-md) {
-      padding: $padding-screen-md;
-    }
-
-    @media screen and (min-width: $screen-lg) {
-      padding: $padding-screen-lg;
-    }
+  img.user-icon {
+    height: 5rem;
+    width: 5rem;
+    border-radius: 50%;
   }
 
+  main {
+    padding: 0 1rem;
+
+    @media screen and (max-width: $screen-sm) {
+      padding: 0 0.5rem;
+    }
+  }
 }

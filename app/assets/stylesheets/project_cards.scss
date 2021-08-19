@@ -14,7 +14,11 @@
     text-decoration: none;
 
     @media screen and (max-width: $screen-md) {
-      margin: 0.5rem;
+      margin: 0.5rem 0;
+    }
+
+    &.private {
+      filter: grayscale(1);
     }
 
     .card-outer-1 {
@@ -29,11 +33,16 @@
           max-width: 30rem;
 
           .main {
-            padding: 2rem 1rem 0 1rem;
+            padding: 2rem 2rem 0 2rem;
+
+            .private-icon {
+              display: block;
+              margin-bottom: 0.5rem;
+            }
           }
 
           .footer {
-            padding: 0rem 1rem 2rem 1rem;
+            padding: 0 2rem 2rem 2rem;
           }
         }
       }
@@ -67,8 +76,8 @@
         .main {
           color: $dark-font-color;
 
-          .name {
-            
+          @media screen and (max-width: $screen-sm) {
+            text-decoration: underline;
           }
 
           .summary {
@@ -76,7 +85,7 @@
           }
 
           &:hover {
-            color: $complementary;
+            color: $primary-light;
           }
         }
 
@@ -97,10 +106,8 @@
             align-items: center;
             color: $dark-font-color;
 
-            .image {
-              background-color: $secondary-2;
-              border-radius: 50%;
-              height: 3rem;
+            @media screen and (max-width: $screen-sm) {
+              text-decoration: underline;
             }
 
             .owner {
@@ -111,11 +118,7 @@
             }
 
             &:hover {
-              color: $complementary;
-
-              & .image {
-                filter: $filter;
-              }
+              color: $primary-light;
             }
           }
 
@@ -132,8 +135,8 @@
               flex-flow: row nowrap;
               align-items: center;
               justify-content: flex-end;
-              margin-bottom: 0.15rem;
-              color: #b2bec3;
+              margin-bottom: 0.25rem;
+              color: $grey-font-color;
 
               i {
                 margin-left: 0.15rem;
@@ -152,8 +155,6 @@
           list-style: inside;
           align-content: center;
         }
-
-        
       }
     }
   }

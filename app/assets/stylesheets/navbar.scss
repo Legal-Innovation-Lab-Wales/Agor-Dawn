@@ -12,7 +12,7 @@ nav {
   margin-bottom: 2rem;
 
   @media screen and (max-width: $screen-sm) {
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
   }
 
   .left-navbar {
@@ -29,7 +29,7 @@ nav {
     }
 
     .search {
-      width: 100%;
+      width: 30rem;
 
       .search-input {
         @media screen and (max-width: $screen-sm) {
