@@ -27,6 +27,7 @@ gem 'bootstrap', '~> 5.0.1'
 gem 'font-awesome-sass', '~> 5.15.1'
 
 gem 'shrine'
+gem 'trix'
 gem 'image_processing', '~> 1.2'
 
 # Use Active Storage variant

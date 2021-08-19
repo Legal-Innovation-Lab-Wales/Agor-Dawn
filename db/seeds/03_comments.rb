@@ -5,7 +5,7 @@ Project.all.each do |project|
     Comment.create!(
       user_id: rand(1..User.count),
       project: project,
-      comment: Faker::Company.catch_phrase
+      comment_text: Faker::Company.catch_phrase
     )
   end
 end
