@@ -39,6 +39,7 @@ $white: #fff;
 $primary-background-color: #ebf1f4;
 $light-font-color: #ebf1f4;
 $dark-font-color: #212529;
+$grey-font-color: #b2bec3;
 
 $primary-box-shadow: 0 0.1rem 0.1rem $primary-light;
 $filter: grayscale(1) blur(0.5px);
@@ -51,8 +52,3 @@ $screen-lg: 992px;
 :export {
   screenSm: $screen-sm;
 }
-
-// Padding for screen sizes
-$padding-screen-sm: 0 1rem;
-$padding-screen-md: 0 2rem;
-$padding-screen-lg: 0 4rem;
