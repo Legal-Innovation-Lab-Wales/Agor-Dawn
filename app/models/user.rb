@@ -11,6 +11,8 @@ class User < ApplicationRecord
   scope :admins, -> { where(admin: true) }
   scope :non_admins, -> { where(admin: false) }
 
+  validates_presence_of :likes_given, :comments_posted
+
   def full_name
     "#{first_name} #{last_name}"
   end

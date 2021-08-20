@@ -38,6 +38,8 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.1]
       t.string    :first_name, null: false, default: ''
       t.string    :last_name, null: false, default: ''
       t.text      :bio
+      t.integer   :likes_given, null: false, default: 0
+      t.integer   :comments_posted, null: false, default: 0
 
       t.timestamps null: false
     end

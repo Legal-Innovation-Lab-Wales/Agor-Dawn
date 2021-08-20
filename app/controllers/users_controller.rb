@@ -10,7 +10,7 @@ class UsersController < ApplicationController
   private
 
   def user
-    @user = User.includes(:projects, :comments, :likes).find(params[:id])
+    @user = User.includes(:projects).find(params[:id])
   rescue ActiveRecord::RecordNotFound
     redirect_back(fallback_location: projects_path, flash: { error: 'User was not found.' })
   end

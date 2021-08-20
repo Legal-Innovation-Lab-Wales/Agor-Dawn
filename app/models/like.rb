@@ -9,9 +9,11 @@ class Like < ApplicationRecord
 
   def increment_count
     project.update!(like_count: project.like_count + 1)
+    user.update!(likes_given: user.likes_given + 1)
   end
 
   def decrement_count
     project.update!(like_count: project.like_count - 1)
+    user.update!(likes_given: user.likes_given - 1)
   end
 end
