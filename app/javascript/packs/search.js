@@ -22,7 +22,7 @@ const search = document.querySelector('nav .search'),
       },
       search_function = input => {
         if (!isFalseyOrWhiteSpace(input.value)) {
-          const url = new URL(`${location.origin}${location.pathname}`)
+          const url = new URL(`${location.origin}/projects`)
           url.searchParams.set('query', input.value)
           location.href = url.href
         }
