@@ -3,7 +3,7 @@
 .home {
   .header {
     box-shadow: $primary-box-shadow;
-    padding: 5rem 1rem;
+    padding: 0 1rem 5rem;
     display: flex;
     flex-flow: column;
     align-items: center;
@@ -11,7 +11,7 @@
     margin-bottom: 2rem;
 
     @media screen and (max-width: $screen-sm) {
-      padding: 2rem 1rem;
+      padding: 0 1rem 2rem;
       margin-bottom: 2rem;
     }
 

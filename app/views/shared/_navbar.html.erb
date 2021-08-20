@@ -1,8 +1,10 @@
-<nav>
-  <div class="left-navbar">
-    <%= link_to 'Agor Dawn', root_path, class: 'nav-logo btn btn-primary main-svg' %>
-    <%= render 'shared/search' %>
-  </div>
+<nav class="<%= controller_name != 'pages' && action_name != 'home' ? 'main-nav' : 'home-nav' %>">
+  <% if controller_name != 'pages' && action_name != 'home' %>
+    <div class="left-navbar">
+      <%= link_to 'Agor Dawn', root_path, class: 'nav-logo btn btn-primary main-svg' %>
+      <%= render 'shared/search' %>
+    </div>
+  <% end %>
   <div class="right-navbar">
     <% if current_user.nil? %>
       <%= link_to 'Sign In', new_user_session_path, class: 'nav-link link-primary' %>
@@ -29,8 +31,10 @@
   </div>
 </nav>
 
-<div class="mobile-search hide">
-  <%= render 'shared/search' %>
-</div>
+<% if controller_name != 'pages' && action_name != 'home' %>
+  <div class="mobile-search hide">
+    <%= render 'shared/search' %>
+  </div>
 
-<%= javascript_pack_tag 'search' %>
+  <%= javascript_pack_tag 'search' %>
+<% end %>

@@ -3,16 +3,24 @@
 nav {
   display: flex;
   flex-wrap: nowrap;
-  justify-content: space-between;
   align-items: center;
   width: 100%;
-  padding: 0.8rem 1rem;
-  background-color: $white;
-  box-shadow: $primary-box-shadow;
-  margin-bottom: 2rem;
 
-  @media screen and (max-width: $screen-sm) {
-    margin-bottom: 1rem;
+  &.home-nav {
+    justify-content: flex-end;
+    padding: 0.8rem 0;
+  }
+
+  &.main-nav {
+    justify-content: space-between;
+    background-color: $white;
+    box-shadow: $primary-box-shadow;
+    padding: 0.8rem 1rem;
+    margin-bottom: 2rem;
+
+    @media screen and (max-width: $screen-sm) {
+      margin-bottom: 1rem;
+    }
   }
 
   .left-navbar {
