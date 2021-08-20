@@ -4,7 +4,10 @@ class PagesController < ApplicationController
 
   def home
     @projects = Project.includes(:user)
-                       .where(public: true)
+                       .is_public
+                       .most_recent
+                       .limit(5)
+
     render 'home'
   end
 end

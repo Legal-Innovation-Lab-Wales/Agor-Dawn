@@ -15,6 +15,8 @@ class Project < ApplicationRecord
                        'or lower(users.last_name) similar to lower(:query)',
                        { query: "%#{query.split.join('%|%')}%" })
   }
+  scope :is_public, -> { where(public: true) }
+  scope :most_recent, -> { order(created_at: :desc) }
 
   has_rich_text :content
 end
