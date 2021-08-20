@@ -8,5 +8,7 @@ Rails.application.routes.draw do
     resources :likes, only: %i[create destroy]
   end
 
-  root 'projects#index'
+  resources :images, only: [:create]
+
+  root 'pages#home'
 end

@@ -1,8 +1,5 @@
 <section class="projects show">
   <%= render 'project_card', locals: { project: @project } %>
-  <% if @project.user == current_user %>
-    <%= link_to project_path, 'Delete', method: :delete %>
-  <% end %>
   <div class="comments-section">
     <%= render 'comments/form' %>
     <%= render 'comments/comments' %>

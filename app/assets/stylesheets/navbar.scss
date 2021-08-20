@@ -29,7 +29,8 @@ nav {
     }
 
     .search {
-      width: 30rem;
+      width: 100%;
+      max-width: 30rem;
 
       .search-input {
         @media screen and (max-width: $screen-sm) {

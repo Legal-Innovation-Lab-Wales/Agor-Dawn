@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>AgorDawn</title>
+    <title>Agor Dawn</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body id=overboot>
-    <%= render 'shared/navbar' %>
-
     <% flash.each do |type, msg| %>
       <% if type != 'timedout' %>
         <div class="alert <%= alert_class_for(type) %> alert-dismissible fade show position-absolute top-0 start-50 translate-middle-x px-5" role="alert">
@@ -21,9 +23,14 @@
         </div>
       <% end %>
     <% end %>
-    
-    <main>
+
+    <% if action_name == 'home' %>
       <%= yield %>
-    </main>
+    <% else %>
+      <%= render 'shared/navbar' %>
+      <main>
+        <%= yield %>
+      </main>
+    <% end %>
   </body>
 </html>

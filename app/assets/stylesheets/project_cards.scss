@@ -94,7 +94,7 @@
         }
 
         .footer {
-          max-width: 20rem;
+          width: 20rem;
           display: flex;
           flex-flow: row nowrap;
           align-items: center;
@@ -113,12 +113,16 @@
             .owner {
               margin-bottom: 0;
               padding: 0 1rem 0 0.5rem;
-              font-size: 1rem;
+              font-size: 0.9rem;
               text-align: left;
             }
 
             &:hover {
               color: $primary-light;
+
+              & .user-icon {
+                filter: grayscale(1);
+              }
             }
           }
 

@@ -79,6 +79,8 @@ ActiveRecord::Schema.define(version: 2021_08_05_084345) do
     t.boolean "public", default: true, null: false
     t.integer "view_count", default: 0, null: false
     t.string "summary", limit: 240, null: false
+    t.integer "like_count", default: 0, null: false
+    t.integer "comment_count", default: 0, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_projects_on_user_id"
