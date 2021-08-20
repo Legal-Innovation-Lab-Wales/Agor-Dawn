@@ -41,8 +41,8 @@
           <div class="right">
             <p class="metadata"><%= locals[:project].created_date %> <i class="fas fa-calendar-alt"></i></p>
             <p class="metadata"><%= locals[:project].view_count %> <i class="fas fa-eye"></i></p>
-            <p class="metadata"><%= locals[:project].likes.count %> <i class="fas fa-thumbs-up"></i></p>
-            <p class="metadata"><%= locals[:project].comments.count %> <i class="fas fa-comments"></i></p>
+            <p class="metadata"><%= locals[:project].like_count %> <i class="fas fa-thumbs-up"></i></p>
+            <p class="metadata"><%= locals[:project].comment_count %> <i class="fas fa-comments"></i></p>
           </div>
         </div>
         <% if controller_name == 'projects' && action_name == 'show' %>

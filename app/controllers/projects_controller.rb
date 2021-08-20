@@ -8,7 +8,7 @@ class ProjectsController < ApplicationController
 
   # GET /projects
   def index
-    @projects = Project.includes(:user, :likes)
+    @projects = Project.includes(:user)
                        .is_public
                        .most_recent
 
