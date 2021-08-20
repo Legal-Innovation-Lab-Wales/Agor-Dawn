@@ -29,7 +29,8 @@ nav {
     }
 
     .search {
-      width: 30rem;
+      width: 100%;
+      max-width: 30rem;
 
       .search-input {
         @media screen and (max-width: $screen-sm) {
@@ -52,7 +53,7 @@ nav {
     .dropdown {
       .dropdown-button {
         font-size: 1.5rem;
-        padding: 0.5rem 0rem 0.5rem;
+        padding: 0.5rem 0 0.5rem;
       }
 
       .dropdown-content {
