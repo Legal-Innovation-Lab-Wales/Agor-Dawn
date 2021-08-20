@@ -15,6 +15,14 @@ class User < ApplicationRecord
     "#{first_name} #{last_name}"
   end
 
+  def likes_received
+    projects.map(&:like_count).sum
+  end
+
+  def comments_received
+    projects.map(&:comment_count).sum
+  end
+
   private
 
   def set_default_avatar
