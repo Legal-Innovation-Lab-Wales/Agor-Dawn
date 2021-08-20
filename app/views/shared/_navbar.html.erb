@@ -1,40 +1,13 @@
-<nav class="<%= controller_name != 'pages' && action_name != 'home' ? 'main-nav' : 'home-nav' %>">
-  <% if controller_name != 'pages' && action_name != 'home' %>
-    <div class="left-navbar">
-      <%= link_to 'Agor Dawn', root_path, class: 'nav-logo btn btn-primary main-svg' %>
-      <%= render 'shared/search' %>
-    </div>
-  <% end %>
-  <div class="right-navbar">
-    <% if current_user.nil? %>
-      <%= link_to 'Sign In', new_user_session_path, class: 'nav-link link-primary' %>
-      <%= link_to 'Sign Up', new_user_registration_path, class: 'nav-link btn btn-primary' %>
-    <% else %>
-      <div class="dropdown">
-        <div class="dropdown-button link-primary">
-          <i class="fas fa-user"></i>
-          <i class="fa fa-caret-down"></i>
-        </div>
-        <div class="dropdown-content">
-          <%= link_to user_path(current_user), class: 'nav-link link-primary' do %>
-            Profile <i class="fas fa-address-card"></i>
-          <% end %>
-          <%= link_to edit_user_registration_path, class: 'nav-link link-primary' do %>
-            Settings <i class="fas fa-cog"></i>
-          <% end %>
-          <%= link_to destroy_user_session_path, method: 'delete', class: 'nav-link link-primary' do %>
-            Sign Out <i class="fas fa-sign-out-alt"></i>
-          <% end %>
-        </div>
-      </div>
-    <% end %>
-  </div>
-</nav>
-
-<% if controller_name != 'pages' && action_name != 'home' %>
-  <div class="mobile-search hide">
+<nav class="main-nav">
+  <div class="left-navbar">
+    <%= link_to 'Agor Dawn', root_path, class: 'nav-logo btn btn-primary main-svg' %>
     <%= render 'shared/search' %>
   </div>
+  <%= render 'shared/right_navbar' %>
+</nav>
 
-  <%= javascript_pack_tag 'search' %>
-<% end %>
+<div class="mobile-search hide">
+  <%= render 'shared/search' %>
+</div>
+
+<%= javascript_pack_tag 'search' %>
