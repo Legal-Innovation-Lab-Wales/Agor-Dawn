@@ -1,7 +1,7 @@
 <nav class="<%= controller_name != 'pages' && action_name != 'home' ? 'main-nav' : 'home-nav' %>">
   <% if controller_name != 'pages' && action_name != 'home' %>
     <div class="left-navbar">
-      <%= link_to 'Agor Dawn', root_path, class: 'nav-logo btn btn-primary main-svg' %>
+      <%= link_to 'Agor Dawn', root_path, class: 'nav-logo btn btn-primary' %>
       <%= render 'shared/search' %>
     </div>
   <% end %>

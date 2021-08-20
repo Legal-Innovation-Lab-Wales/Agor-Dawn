@@ -31,10 +31,19 @@ nav {
     .nav-logo {
       padding: 0.5rem !important;
       font-size: 1.5rem;
-      letter-spacing: -0.05rem;
+      letter-spacing: -0.1rem;
+      font-weight: 500;
       text-transform: lowercase;
       white-space: nowrap;
       margin-right: 0.5rem;
+
+      &:hover {
+        background-color: $primary !important;
+        background-image: $main-svg;
+        background-size: cover;
+        background-position: right;
+        text-shadow: 0.05rem 0.05rem 0.05rem $primary;
+      }
     }
 
     .search {
