@@ -1,16 +1,22 @@
-<%= render "devise/shared/error_messages", resource: @project %>
 <%= form_with model: @project do |form| %>
-  <%= form.label :name, 'Name' %>
-  <%= form.text_field :name %>
-  <br>
-  <%= form.label :summary, 'Summary' %>
-  <%= form.text_field :summary %>
-  <br>
-  <%= form.label :content, 'Content' %>
-  <%= form.rich_text_area :content %>
-  <br>
-  <%= form.label :public, 'Public' %>
-  <%= form.check_box :public %>
-  <br>
-  <%= form.submit 'Submit' %>
+  <div class="field">
+    <%= form.label :name, 'Name' %>
+    <%= form.text_field :name %>
+  </div>
+  <div class="field">
+    <%= form.label :summary, 'Summary' %>
+    (240 characters maximum) <br>
+    <%= form.text_field :summary %>
+  </div>
+  <div class="field">
+    <%= form.label :content, 'Content' %>
+    <%= form.rich_text_area :content %>
+  </div>
+  <div class="field checkbox">
+    <%= form.label :public, 'Public' %>
+    <%= form.check_box :public %>
+  </div>
+  <div class="actions">
+    <%= form.submit 'Submit', class: 'btn btn-primary' %>
+  </div>
 <% end %>

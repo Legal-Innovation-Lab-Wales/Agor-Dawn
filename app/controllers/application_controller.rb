@@ -1,6 +1,5 @@
 class ApplicationController < ActionController::Base
   before_action :authenticate_user!
-
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   protected
@@ -8,6 +7,6 @@ class ApplicationController < ActionController::Base
   def configure_permitted_parameters
     attributes = [:first_name, :last_name, :password, :email, :password_confirmation]
     devise_parameter_sanitizer.permit(:sign_up, keys: attributes)
-    devise_parameter_sanitizer.permit(:account_update, keys: attributes)
+    devise_parameter_sanitizer.permit(:account_update, keys: %i[attributes avatar])
   end
 end

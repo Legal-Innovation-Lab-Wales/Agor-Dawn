@@ -1,0 +1,25 @@
+<section class="projects index" id="projects-index">
+  <% unless action_name == 'home' %>
+    <%= render 'shared/floating_btn' %>
+    </div>
+  <% end %>
+  <div class="content">
+    <% unless action_name == 'home' %>
+      <div class="collection-summary">
+        <% if params[:query].present? %>
+          <%= "Search '#{params[:query]}' returned #{pluralize(@projects.count, 'result')}." %>
+        <% else %>
+          <%= "Showing #{@projects.count} of #{pluralize(@projects.count, 'project')}." %>
+        <% end %>
+        <hr>
+      </div>
+    <% end %>
+    <div class="project-card-collection">
+      <% @projects.each do |project| %>
+        <%= link_to project do %>
+            <%= render 'projects/project_card', locals: { project: project, hide_description: true } %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</section>

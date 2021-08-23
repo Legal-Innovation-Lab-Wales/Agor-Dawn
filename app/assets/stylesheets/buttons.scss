@@ -59,6 +59,16 @@ body#overboot {
     }
   }
 
+  .link-secondary-1 {
+    color: $secondary-1;
+
+    &:hover {
+      cursor: pointer;
+      color: $secondary-1-light;
+      transition: color 0.15s linear;
+    }
+  }
+
   .floating-btn {
     position: fixed;
     bottom: 2.5rem;

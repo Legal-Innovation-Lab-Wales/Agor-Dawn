@@ -3,16 +3,25 @@
 nav {
   display: flex;
   flex-wrap: nowrap;
-  justify-content: space-between;
   align-items: center;
   width: 100%;
-  padding: 0.8rem 1rem;
-  background-color: $white;
-  box-shadow: $primary-box-shadow;
-  margin-bottom: 2rem;
 
-  @media screen and (max-width: $screen-sm) {
+  &.home-nav {
+    justify-content: flex-end;
+    padding: 0.8rem 0;
     margin-bottom: 1rem;
+  }
+
+  &.main-nav {
+    justify-content: space-between;
+    background-color: $white;
+    box-shadow: $primary-box-shadow;
+    padding: 0.8rem 1rem;
+    margin-bottom: 2rem;
+
+    @media screen and (max-width: $screen-sm) {
+      margin-bottom: 1rem;
+    }
   }
 
   .left-navbar {
@@ -22,14 +31,24 @@ nav {
     .nav-logo {
       padding: 0.5rem !important;
       font-size: 1.5rem;
-      letter-spacing: -0.05rem;
+      letter-spacing: -0.1rem;
+      font-weight: 500;
       text-transform: lowercase;
       white-space: nowrap;
       margin-right: 0.5rem;
+
+      &:hover {
+        background-color: $primary !important;
+        background-image: $main-svg;
+        background-size: cover;
+        background-position: right;
+        text-shadow: 0.05rem 0.05rem 0.05rem $primary;
+      }
     }
 
     .search {
-      width: 30rem;
+      width: 100%;
+      max-width: 30rem;
 
       .search-input {
         @media screen and (max-width: $screen-sm) {
@@ -51,8 +70,12 @@ nav {
 
     .dropdown {
       .dropdown-button {
-        font-size: 1.5rem;
-        padding: 0.5rem 0rem 0.5rem;
+        display: flex;
+        align-items: center;
+
+        img.user-icon {
+          margin-right: 0.25rem;
+        }
       }
 
       .dropdown-content {

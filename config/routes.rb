@@ -1,17 +1,12 @@
 Rails.application.routes.draw do
   devise_for :users, path: 'users'
 
-  get '/users/:id', to: 'users#show', as: 'user'
-
-  put '/projects/:id/like', to: 'projects#like', as: 'like'
-  delete '/projects/:id/unlike', to: 'projects#unlike', as: 'unlike'
+  resources :users, only: :show
 
   resources :projects do
-    resources :comments
-    resources :likes, only: %i[create destroy], controller: 'likes'
+    resources :comments, only: :create
+    resources :likes, only: %i[create destroy]
   end
 
-  resources :images, only: [:create]
-
-  root 'projects#index'
+  root 'pages#home'
 end

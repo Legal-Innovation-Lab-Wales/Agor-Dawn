@@ -1,0 +1,80 @@
+@import "variables";
+
+.home {
+  .header {
+    box-shadow: $primary-box-shadow;
+    padding: 0 1rem 5rem;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    color: $white;
+    margin-bottom: 2rem;
+
+    @media screen and (max-width: $screen-sm) {
+      padding: 0 1rem 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .title {
+      font-size: 10rem;
+      letter-spacing: -0.75rem;
+      font-weight: 500 !important;
+      line-height: 0.75;
+      text-transform: lowercase;
+      text-shadow: 0.1rem 0.1rem 0.1rem $primary;
+      max-width: 4ch;
+      text-align: center;
+      margin-bottom: 2rem;
+
+      @media screen and (max-width: $screen-sm) {
+        font-size: 6rem;
+      }
+    }
+
+    .subtitle {
+      font-size: 2rem;
+      text-align: center;
+      text-shadow: 0.05rem 0.05rem 0.05rem $primary;
+      max-width: 40ch;
+      margin-bottom: 2rem;
+
+      @media screen and (max-width: $screen-sm) {
+        font-size: 1.2rem;
+      }
+    }
+
+    .info-links {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: space-evenly;
+      width: 80%;
+
+      a {
+        width: 20rem;
+        font-size: 1.25rem;
+        margin: 0.5rem;
+        box-shadow: 0.1rem 0.1rem 0.1rem $primary;
+
+        @media screen and (max-width: $screen-sm) {
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+
+  .browse-projects {
+    text-align: center;
+    margin: 2rem 0;
+
+    a.btn.btn-primary {
+      font-size: 1.5rem;
+      padding: 1rem !important;
+    }
+  }
+
+  .projects-container {
+    h3 {
+      text-align: center;
+    }
+  }
+}

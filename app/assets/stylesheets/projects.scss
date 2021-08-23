@@ -1,38 +1,252 @@
 @import "variables";
 
+.collection-summary {
+  text-align: center;
+  margin-top: 1.5rem;
+}
+
+.project-card-collection {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+    
+  .project-card {
+    margin: 1rem;
+    text-decoration: none;
+
+    @media screen and (max-width: $screen-md) {
+      margin: 0.5rem 0;
+    }
+
+    &.private {
+      filter: grayscale(1);
+    }
+
+    .card-outer-1 {
+      transform: rotate(-2deg);
+
+      .card-outer-2 {
+        transform: rotate(1deg);
+
+        .card-content {
+          transform: rotate(1deg);
+          min-width: 320px;
+          max-width: 480px;
+
+          .main {
+            padding: 2rem 2rem 0 2rem;
+
+            .private-icon {
+              display: block;
+              margin-bottom: 0.5rem;
+            }
+          }
+
+          .footer {
+            padding: 0 2rem 2rem 2rem;
+          }
+        }
+      }
+
+      &:hover {
+        transform: scale(1.1) rotate(-2deg);
+      }
+    }
+  }
+}
+
+.project-card {
+  .card-outer-1 {
+    border: 0.25rem solid $complementary-light;
+    transform: rotate(-1deg);
+    transition: transform .2s ease-in-out;
+
+    .card-outer-2 {
+      border: 0.25rem solid $secondary-1-light;
+      transform: rotate(0.5deg);
+
+      .card-content {
+        transform: rotate(0.5deg);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        border: 0.25rem solid $primary-light;
+        background-color: $white;
+        
+        .main {
+          color: $dark-font-color;
+
+          @media screen and (max-width: $screen-sm) {
+            text-decoration: underline;
+          }
+
+          .summary {
+            margin-bottom: 0;
+          }
+
+          &:hover {
+            color: $primary-light;
+          }
+        }
+
+        .trix-content {
+          margin-top: 1rem;
+        }
+
+        .footer {
+          width: 320px;
+          display: flex;
+          flex-flow: column nowrap;
+
+          .top {
+            display: flex;
+            flex-flow: row nowrap;
+
+            &:hover {
+              & .owner {
+                color: $primary-light;
+              }
+
+              & .user-icon {
+                filter: grayscale(1);
+              }
+            }
+
+            .left {
+              margin-right: 0.5rem;
+            }
+
+            .right {
+              display: flex;
+              align-items: flex-start;
+              flex-direction: column;
+              color: $dark-font-color;
+              
+              .owner {
+                font-size: 0.9rem;
+                margin-bottom: 0.4rem;
+
+                @media screen and (max-width: $screen-sm) {
+                  text-decoration: underline;
+                }
+              }
+
+              .date {
+                font-weight: 300;
+              }
+            }
+          }
+
+          .bottom {
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: center;
+            align-items: center;
+            color: $grey-font-color;
+          }
+
+          .metadata {
+            font-size: 0.7rem;
+            font-weight: 600;
+            margin-bottom: 0;
+          }
+        }
+
+        .description {
+          margin-top: 1rem;
+          margin-bottom: 0;
+          list-style: inside;
+          align-content: center;
+        }
+      }
+    }
+  }
+}
+
 .projects {
   &.show {
     .project-card {
-      margin: 2rem auto;
+      margin-bottom: 2rem;
 
       .card-content {
-        padding: 2rem 1rem;
+        padding: 2rem;
+
+        @media screen and (max-width: $screen-sm) {
+          padding: 1rem;
+        }
+
+        .actions {
+          width: 100%;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+
+          @media screen and (max-width: $screen-sm) {
+            margin-bottom: 1rem;
+          }
+        }
 
         .like-count {
           display: flex;
           justify-content: center;
           align-items: center;
-          margin-top: 1rem;
+          margin-top: 2rem;
 
           .count {
             margin-left: 0.5rem;
 
-            &:hover {
-              cursor: pointer;
+            @media screen and (max-width: $screen-sm) {
               text-decoration: underline;
             }
           }
 
           .btn.like {
             border-radius: 50%;
-            font-size: 0.75rem;
-            width: 30px;
-            height: 30px;
+            font-size: 1.5rem;
+            padding: 0.5rem !important;
             display: flex;
             align-items: center;
             justify-content: center;
+
           }
         }
+      }
+    }
+  }
+
+  &.new, &.edit {
+    .form {
+      max-width: none !important;
+
+      .trix-button-row {
+        flex-wrap: wrap;
+
+        .trix-button-group {
+          margin-bottom: 0.5rem;
+
+          .trix-button:hover {
+            background: $primary-light;
+          }
+
+          .trix-active {
+            background: $primary;
+          }
+        }
+      }
+
+      #project_content {
+        height: 160px;
+      }
+    }
+  }
+
+  &.edit {
+    .container.delete {
+      max-width: 360px !important;
+
+      .btn.btn-secondary-1 {
+        width: fit-content;
       }
     }
   }
