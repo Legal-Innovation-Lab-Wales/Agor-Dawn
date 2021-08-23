@@ -1,7 +1,5 @@
 @import "variables";
 
-$avatar-size: 15rem;
-
 .users {
   &.show {
     max-width: 80rem;
@@ -13,11 +11,11 @@ $avatar-size: 15rem;
       margin-bottom: 2rem;
 
       .main-svg {
-        height: 25vh;
+        height: $img-lg;
       }
 
       .bio {
-        margin-top: $avatar-size / -2;
+        margin-top: $img-lg / -2;
         padding: 0 1.5rem 1.5rem 1.5rem;
         text-align: center;
 
@@ -30,13 +28,9 @@ $avatar-size: 15rem;
             background-color: $secondary-2;
             margin: 0 1.5rem;
             border: $white 1rem solid;
-            width: $avatar-size !important;
-            height: $avatar-size !important;
 
             &:hover {
               cursor: pointer;
-              filter: $filter;
-              transition: filter 0.15s linear;
             }
           }
         }
@@ -45,8 +39,14 @@ $avatar-size: 15rem;
           font-size: 0.85rem;
           margin-bottom: 1rem;
 
-          div {
+          .stats-row {
+            display: flex;
+            justify-content: center;
             margin-bottom: 0.5rem;
+
+            i {
+              margin-right: 0.5rem;
+            }
           }
         }
       }

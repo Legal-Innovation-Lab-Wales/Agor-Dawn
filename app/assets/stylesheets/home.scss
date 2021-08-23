@@ -3,7 +3,7 @@
 .home {
   .header {
     box-shadow: $primary-box-shadow;
-    padding: 5rem 1rem;
+    padding: 0 1rem 5rem;
     display: flex;
     flex-flow: column;
     align-items: center;
@@ -11,7 +11,7 @@
     margin-bottom: 2rem;
 
     @media screen and (max-width: $screen-sm) {
-      padding: 2rem 1rem;
+      padding: 0 1rem 2rem;
       margin-bottom: 2rem;
     }
 
@@ -53,6 +53,7 @@
         width: 20rem;
         font-size: 1.25rem;
         margin: 0.5rem;
+        box-shadow: 0.1rem 0.1rem 0.1rem $primary;
 
         @media screen and (max-width: $screen-sm) {
           font-size: 1rem;

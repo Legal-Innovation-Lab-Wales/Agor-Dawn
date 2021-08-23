@@ -3,18 +3,27 @@
     <div class="main-svg"></div>
     <div class="bio">
       <div class="avatar">
-        <%= image_tag url_for(@user.avatar), class: 'user-icon', alt: 'avatar' %>
+        <%= image_tag url_for(@user.avatar), class: 'user-icon img-lg', alt: 'avatar' %>
       </div>
       <h1><%= @user.full_name %></h1>
       <p><%= @user.bio %></p>
-      <p>Member since <%= @user.created_date %> | Last online <%= @user.last_update_date %> </p>
       <div class="stats">
-        <div><i class="fas fa-comments"></i> <%= @user.comments_posted %> comments posted | <%= @user.comments_received %> received</div>
-        <div><i class="fas fa-thumbs-up"></i> <%= @user.likes_given %> likes given | <%= @user.likes_received %> received</div>
+        <div class="stats-row">
+          <i class="fas fa-comments"></i> 
+          <%= "#{@user.comments_posted} comments posted" %>
+          <div class="dot">·</div>
+          <%= "#{@user.comments_received} received" %>
+        </div>
+        <div class="stats-row">
+          <i class="fas fa-thumbs-up"></i>
+          <%= "#{@user.likes_given} likes given" %>
+          <div class="dot">·</div>
+          <%= "#{@user.likes_received} received" %>
+        </div>
       </div>
     </div>
   </div>
-  <div class="summary">
+  <div class="collection-summary">
     Showing <%= @user.projects.is_public.length %> of <%= pluralize(@user.projects.length, 'project') %>
   </div>
   <hr>

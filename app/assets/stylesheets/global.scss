@@ -47,8 +47,17 @@ body#overboot {
   }
 
   hr {
-    background: -webkit-gradient(linear, 0 0, 100% 0, from(transparent), to(transparent), color-stop(50%, $primary));
+    background: $primary; /* For browsers that do not support gradients */ 
+    background: -webkit-linear-gradient(90deg, transparent 0%, $primary 25%, $primary 75%, transparent 100%); /*For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(90deg, transparent 0%, $primary 25%, $primary 75%, transparent 100%); /* For Opera 11.1 to 12.0 */ 
+    background: -moz-linear-gradient(90deg, transparent 0%, $primary 25%, $primary 75%, transparent 100%); /* For Firefox 3.6 to 15 */ 
+    background: linear-gradient(90deg, transparent 0%, $primary 25%, $primary 75%, transparent 100%); /* Standard syntax */
+
     width: 100%;
+  }
+
+  .dot {
+    margin: 0 0.5rem;
   }
 
   .main-svg {
@@ -59,10 +68,27 @@ body#overboot {
   }
 
   img.user-icon {
-    height: 50px;
-    width: 50px;
     border-radius: 50%;
     background-color: $primary-background-color;
+
+    &.img-sm {
+      width: $img-sm;
+      height: $img-sm;
+    }
+
+    &.img-md {
+      width: $img-md;
+      height: $img-md;
+    }
+
+    &.img-lg {
+      width: $img-lg;
+      height: $img-lg;
+    }
+
+    &:hover {
+      filter: grayscale(1);
+    }
   }
 
   main {

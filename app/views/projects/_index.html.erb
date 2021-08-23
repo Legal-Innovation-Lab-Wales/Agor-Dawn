@@ -5,7 +5,7 @@
   <% end %>
   <div class="content">
     <% unless action_name == 'home' %>
-      <div class="summary">
+      <div class="collection-summary">
         <% if params[:query].present? %>
           <%= "Search '#{params[:query]}' returned #{pluralize(@projects.count, 'result')}." %>
         <% else %>
