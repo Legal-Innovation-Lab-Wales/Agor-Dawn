@@ -192,10 +192,6 @@
             justify-content: center;
             align-items: center;
             color: $grey-font-color;
-
-            .dot {
-              margin: 0 0.5rem;
-            }
           }
 
           .metadata {
@@ -203,59 +199,6 @@
             font-weight: 600;
             margin-bottom: 0;
           }
-
-          // .left {
-          //   flex-grow: 1;
-          //   display: flex;
-          //   flex-flow: row;
-          //   align-items: center;
-          //   color: $dark-font-color;
-
-          //   @media screen and (max-width: $screen-sm) {
-          //     text-decoration: underline;
-          //   }
-
-          //   .owner {
-          //     margin-bottom: 0;
-          //     padding: 0 1rem 0 0.5rem;
-          //     font-size: 0.9rem;
-          //     text-align: left;
-          //   }
-
-          //   &:hover {
-          //     color: $primary-light;
-
-          //     & .user-icon {
-          //       filter: grayscale(1);
-          //     }
-          //   }
-          // }
-
-          // .right {
-          //   flex-grow: 1;
-          //   display: flex;
-          //   flex-flow: column;
-          //   text-align: right;
-          //   font-size: 0.75rem;
-          //   font-weight: 600;
-
-          //   .metadata {
-          //     display: flex;
-          //     flex-flow: row nowrap;
-          //     align-items: center;
-          //     justify-content: flex-end;
-          //     margin-bottom: 0.25rem;
-          //     color: $grey-font-color;
-
-          //     i {
-          //       margin-left: 0.15rem;
-          //     }
-
-          //     &:last-child {
-          //       margin-bottom: 0;
-          //     }
-          //   }
-          // }
         }
 
         .description {
