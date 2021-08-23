@@ -10,9 +10,11 @@ class Comment < ApplicationRecord
 
   def increment_count
     project.update!(comment_count: project.comment_count + 1)
+    user.update!(comments_posted: user.comments_posted + 1)
   end
 
   def decrement_count
     project.update!(comment_count: project.comment_count - 1)
+    user.update!(comments_posted: user.comments_posted - 1)
   end
 end

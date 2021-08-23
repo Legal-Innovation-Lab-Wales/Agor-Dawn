@@ -1,29 +1,38 @@
 @import "variables";
 
 #close_liked_modal {
-  height: 2.4rem;
-  width: 2.4rem;
+  height: 42px;
+  width: 42px;
 }
+
 .likes {
+  display: flex;
+  flex-flow: row wrap;
+  height: 70vh;
   overflow-y: auto;
-  div: flex;
-  height: 30rem;
-  .like {
-    float: left;
-    width: 50%;
-    padding: 0.2rem;
-    text-align: center;
-    .username{
-      padding-top: 3rem;
-      color: $dark-font-color;
+  padding: 0.5rem;
+
+  a {
+    flex: 50%;
+    margin-bottom: 0.5rem;
+
+    .like {
+      display: flex;
+      align-items: center;
+      padding: 0.2rem;
+      text-align: center;
+
+      .username {
+        padding-left: 1rem;
+        color: $dark-font-color;
+      }
     }
-    img.user-icon {
-      float: left;
-    }
+
     &:hover{
       .username{
         text-decoration: underline;
       }
+
       img.user-icon {
         filter: grayscale(1);
       }

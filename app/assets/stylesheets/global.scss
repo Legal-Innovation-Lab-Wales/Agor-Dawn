@@ -64,10 +64,23 @@ body#overboot {
   }
 
   img.user-icon {
-    height: 4rem;
-    width: 4rem;
     border-radius: 50%;
     background-color: $primary-background-color;
+
+    &.img-sm {
+      width: $img-sm;
+      height: $img-sm;
+    }
+
+    &.img-md {
+      width: $img-md;
+      height: $img-md;
+    }
+
+    &.img-lg {
+      width: $img-lg;
+      height: $img-lg;
+    }
   }
 
   main {

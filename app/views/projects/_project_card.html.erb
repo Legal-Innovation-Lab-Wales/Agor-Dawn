@@ -34,7 +34,7 @@
         <div class="footer">
           <%= link_to user_path(locals[:project].user) do %>
             <div class="left">
-              <img class="user-icon" src=<%= locals[:project].user.avatar %> alt="avatar">
+              <%= image_tag url_for(locals[:project].user.avatar), class: 'user-icon img-md', alt: 'avatar' %>
               <p class="owner"><%= locals[:project].user.first_name + ' ' + locals[:project].user.last_name %></p>
             </div>
           <% end %>
@@ -72,7 +72,3 @@
     </div>
   </div>
 </div>
-
-<% if controller_name == 'projects' && action_name == "show" %>
-  <%= render 'shared/liked' %>
-<% end %>
