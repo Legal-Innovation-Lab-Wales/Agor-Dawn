@@ -31,20 +31,26 @@
           <div class="trix-content"><%= locals[:project].content %></p></div>
         <% end %>
         <hr>
-        <div class="footer">
-          <%= link_to user_path(locals[:project].user) do %>
-            <div class="left">
-              <%= image_tag url_for(locals[:project].user.avatar), class: 'user-icon img-md', alt: 'avatar' %>
-              <p class="owner"><%= locals[:project].user.first_name + ' ' + locals[:project].user.last_name %></p>
+        <%= link_to user_path(locals[:project].user), class: 'footer-link' do %>
+          <div class="footer">
+            <div class="top">
+              <div class="left">
+                <%= image_tag url_for(locals[:project].user.avatar), class: 'user-icon img-md', alt: 'avatar' %>
+              </div>
+              <div class="right">
+                <p class="owner"><%= locals[:project].user.first_name + ' ' + locals[:project].user.last_name %></p>
+                <p class="date metadata"><i class="far fa-calendar-alt"></i> <%= locals[:project].created_date %></p>
+              </div>
             </div>
-          <% end %>
-          <div class="right">
-            <p class="metadata"><%= locals[:project].created_date %> <i class="fas fa-calendar-alt"></i></p>
-            <p class="metadata"><%= locals[:project].view_count %> <i class="fas fa-eye"></i></p>
-            <p class="metadata"><%= locals[:project].like_count %> <i class="fas fa-thumbs-up"></i></p>
-            <p class="metadata"><%= locals[:project].comment_count %> <i class="fas fa-comments"></i></p>
+            <div class="bottom">
+              <p class="metadata"><%= locals[:project].view_count %> <i class="fas fa-eye"></i></p>
+              <div class="dot">·</div>
+              <p class="metadata"><%= locals[:project].like_count %> <i class="fas fa-thumbs-up"></i></p>
+              <div class="dot">·</div>
+              <p class="metadata"><%= locals[:project].comment_count %> <i class="fas fa-comments"></i></p>
+            </div>
           </div>
-        </div>
+        <% end %>
         <% if controller_name == 'projects' && action_name == 'show' %>
           <div class="like-count">
             <% if @like.present? %>

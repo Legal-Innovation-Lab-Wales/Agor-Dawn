@@ -81,6 +81,10 @@ body#overboot {
       width: $img-lg;
       height: $img-lg;
     }
+
+    &:hover {
+      filter: grayscale(1);
+    }
   }
 
   main {
