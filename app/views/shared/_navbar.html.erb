@@ -1,6 +1,6 @@
 <nav>
   <div class="left-navbar">
-    <%= link_to 'Agor Dawn', root_path, class: 'nav-logo btn btn-primary' %>
+    <%= link_to 'Agor Dawn', root_path, class: 'nav-logo btn btn-primary main-svg' %>
     <%= render 'shared/search' %>
   </div>
   <div class="right-navbar">
@@ -10,7 +10,7 @@
     <% else %>
       <div class="dropdown">
         <div class="dropdown-button link-primary">
-          <i class="fas fa-user"></i>
+          <%= image_tag url_for(current_user.avatar), class: 'user-icon', alt: 'avatar' %>
           <i class="fa fa-caret-down"></i>
         </div>
         <div class="dropdown-content">

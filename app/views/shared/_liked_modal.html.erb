@@ -11,7 +11,7 @@
         <% @project.likes.each do |liked_by| %>
           <%= link_to user_path(liked_by.user) do %>
             <div class="like">
-              <img class="user-icon" src=<%= liked_by.user.avatar %> alt="avatar">
+              <%= image_tag url_for(liked_by.user.avatar), class: 'user-icon', alt: 'avatar' %>
               <div class="username">
                 <%= liked_by.user.full_name %>
               </div>

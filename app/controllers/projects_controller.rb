@@ -4,23 +4,21 @@ class ProjectsController < ApplicationController
   before_action :project_params, only: %i[create update]
   before_action :project, except: %i[index new create]
   before_action :redirect, only: %i[edit update destroy], unless: -> { @project.user == current_user }
+  before_action :verify_public, only: :show
 
   # GET /projects
   def index
-    @projects = Project.includes(:user, :likes)
-                       .where(public: true)
+    @projects = Project.includes(:user)
+                       .is_public
+                       .most_recent
 
     @projects = @projects.search(search_params[:query]) if search_params[:query].present?
 
-    render 'index'
+    render '_index'
   end
 
   # GET /projects/:id
   def show
-    unless @project.public || project.user == current_user
-      redirect_back(fallback_location: projects_path, flash: { error: 'Project not found' })
-    end
-
     @like = @project.likes.find_by(user: current_user)
     @count = @project.likes.count
     @liked_by = @project.likes.includes(:user)
@@ -98,5 +96,11 @@ class ProjectsController < ApplicationController
 
   def success(action)
     { success: "Project successfully #{action}d." }
+  end
+
+  def verify_public
+    return if @project.public || current_user == @project.user
+
+    redirect_back(fallback_location: projects_path, flash: { error: 'Project was not found.' })
   end
 end

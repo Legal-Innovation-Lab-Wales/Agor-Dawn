@@ -4,7 +4,7 @@ class CommentsController < ApplicationController
 
   # POST /projects/:project_id/comments
   def create
-    @project.comments.create!(comment: comment_params[:comment_text], user: current_user)
+    @project.comments.create!(comment_text: comment_params[:comment_text], user: current_user)
     redirect_to project_path(@project), flash: { success: 'Comment Added.' }
   rescue ActiveRecord::RecordInvalid
     redirect_to project_path(@project), flash: { error: 'Failed to add comment, please try again.' }

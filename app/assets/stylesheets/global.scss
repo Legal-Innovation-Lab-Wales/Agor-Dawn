@@ -2,7 +2,6 @@
 
 html, body {
   min-height: 100vh;
-  overflow-x: hidden;
   color: $dark-font-color;
 }
 
@@ -52,10 +51,18 @@ body#overboot {
     width: 100%;
   }
 
+  .main-svg {
+    background-color: $primary;
+    background-image: $main-svg;
+    background-size: cover;
+    background-position: right;
+  }
+
   img.user-icon {
-    height: 5rem;
-    width: 5rem;
+    height: 50px;
+    width: 50px;
     border-radius: 50%;
+    background-color: $primary-background-color;
   }
 
   main {

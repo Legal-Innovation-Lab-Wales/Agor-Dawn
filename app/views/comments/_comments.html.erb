@@ -2,7 +2,7 @@
 <% @project.comments.each do |comment| %>
   <div class="comment-container">
       <div class="comment-author">
-        <img class="user-icon" src="<%= comment.user.avatar %>" alt="avatar">
+        <%= image_tag url_for(comment.user.avatar), class: 'user-icon', alt: 'avatar' %>
         <h5><%= comment.user.first_name %></h5>
       </div>
       <div class="comment-text">
