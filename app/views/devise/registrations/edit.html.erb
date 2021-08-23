@@ -2,7 +2,7 @@
   <h2>Account settings</h2>
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |form| %>
     <div class="field">
-      <%= image_tag url_for(resource.avatar), class: 'user-icon', alt: 'avatar' %>
+      <%= image_tag url_for(resource.avatar), class: 'user-icon img-lg', alt: 'avatar' %>
       <%= form.file_field :avatar, accept: ".jpg, .jpeg, .png, .gif" %>
     </div>
     <div class="field">

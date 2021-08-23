@@ -55,54 +55,6 @@
   }
 }
 
-.projects {
-  &.show {
-    .project-card {
-      margin-bottom: 2rem;
-
-      .card-content {
-        padding: 2rem;
-
-        .actions {
-          width: 100%;
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-
-          @media screen and (max-width: $screen-sm) {
-            margin-bottom: 1rem;
-          }
-        }
-
-        .like-count {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          margin-top: 2rem;
-
-          .count {
-            margin-left: 0.5rem;
-
-            @media screen and (max-width: $screen-sm) {
-              text-decoration: underline;
-            }
-          }
-
-          .btn.like {
-            border-radius: 50%;
-            font-size: 1.5rem;
-            padding: 0.5rem !important;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-          }
-        }
-      }
-    }
-  }
-}
-
 .project-card {
   .card-outer-1 {
     border: 0.25rem solid $complementary-light;
@@ -207,6 +159,94 @@
           list-style: inside;
           align-content: center;
         }
+      }
+    }
+  }
+}
+
+.projects {
+  &.show {
+    .project-card {
+      margin-bottom: 2rem;
+
+      .card-content {
+        padding: 2rem;
+
+        @media screen and (max-width: $screen-sm) {
+          padding: 1rem;
+        }
+
+        .actions {
+          width: 100%;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+
+          @media screen and (max-width: $screen-sm) {
+            margin-bottom: 1rem;
+          }
+        }
+
+        .like-count {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin-top: 2rem;
+
+          .count {
+            margin-left: 0.5rem;
+
+            @media screen and (max-width: $screen-sm) {
+              text-decoration: underline;
+            }
+          }
+
+          .btn.like {
+            border-radius: 50%;
+            font-size: 1.5rem;
+            padding: 0.5rem !important;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+          }
+        }
+      }
+    }
+  }
+
+  &.new, &.edit {
+    .form {
+      max-width: none !important;
+
+      .trix-button-row {
+        flex-wrap: wrap;
+
+        .trix-button-group {
+          margin-bottom: 0.5rem;
+
+          .trix-button:hover {
+            background: $primary-light;
+          }
+
+          .trix-active {
+            background: $primary;
+          }
+        }
+      }
+
+      #project_content {
+        height: 160px;
+      }
+    }
+  }
+
+  &.edit {
+    .container.delete {
+      max-width: 360px !important;
+
+      .btn.btn-secondary-1 {
+        width: fit-content;
       }
     }
   }
