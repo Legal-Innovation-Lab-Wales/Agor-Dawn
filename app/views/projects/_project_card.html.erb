@@ -31,18 +31,16 @@
           <div class="trix-content"><%= project.content %></p></div>
         <% end %>
         <hr>
-        <%= link_to user_path(project.user), class: 'footer-link' do %>
-          <div class="footer">
-            <%= render 'shared/author_info', entity: project %>
-            <div class="stats">
-              <p class="metadata"><%= project.view_count %> <i class="fas fa-eye"></i></p>
-              <span class="dot">·</span>
-              <p class="metadata"><%= project.like_count %> <i class="fas fa-thumbs-up"></i></p>
-              <span class="dot">·</span>
-              <p class="metadata"><%= project.comment_count %> <i class="fas fa-comments"></i></p>
-            </div>
+        <div class="footer">
+          <%= render 'shared/author_info', entity: project %>
+          <div class="stats">
+            <p class="metadata"><%= project.view_count %> <i class="fas fa-eye"></i></p>
+            <span class="dot">·</span>
+            <p class="metadata"><%= project.like_count %> <i class="fas fa-thumbs-up"></i></p>
+            <span class="dot">·</span>
+            <p class="metadata"><%= project.comment_count %> <i class="fas fa-comments"></i></p>
           </div>
-        <% end %>
+        </div>
         <% if controller_name == 'projects' && action_name == 'show' %>
           <div class="like-count">
             <% if @like.present? %>
