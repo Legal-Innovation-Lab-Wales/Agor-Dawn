@@ -14,8 +14,12 @@
       <%= form.text_field :last_name, autofocus: true, autocomplete: 'email', required: true %>
     </div>
     <div class="field">
+      <%= form.label :bio %><br>
+      <%= form.text_field :bio, autofocus: true, autocomplete: 'bio' %>
+    </div>
+    <div class="field">
       <%= form.label :email %><br>
-      <%= form.email_field :email, autofocus: true, autocomplete: 'email' %>
+      <%= form.email_field :email, autofocus: true, autocomplete: 'email', required: true %>
     </div>
     <hr>
     <div class="field">
