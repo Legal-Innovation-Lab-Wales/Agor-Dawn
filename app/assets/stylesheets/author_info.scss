@@ -3,7 +3,7 @@
 .author-info {
   display: flex;
   flex-flow: row nowrap;
-  width: 320px;
+  width: 240px;
 
   &:hover {
     & .owner {
@@ -35,7 +35,15 @@
     }
 
     .date {
-      font-weight: 300 !important;
+      display: flex;
+      flex-flow: row nowrap;
+      font-weight: 300;
+      font-size: 0.7rem;
+      margin-bottom: 0;
+
+      i {
+        margin-right: 0.25rem;
+      }
     }
   }
 }

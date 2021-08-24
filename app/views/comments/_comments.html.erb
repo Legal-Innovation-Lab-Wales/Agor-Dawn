@@ -1,12 +1,9 @@
 <% @project.comments.each do |comment| %>
-  <div class="comment-container">
-      <div class="comment-author">
-        <%= image_tag url_for(comment.user.avatar), class: 'user-icon img-md', alt: 'avatar' %>
-        <h5><%= comment.user.first_name %></h5>
-      </div>
-      <div class="comment-text">
-        <p class="small"><%= time_ago_in_words(comment.created_at) %> ago</p>
-        <p><%= comment.comment_text %></p>
-      </div>
+  <div class="comment container">
+    <%= render 'shared/author_info', entity: comment %>
+    <hr>
+    <div class="comment-text">
+      <%= comment.comment_text %>
+    </div>
   </div>
 <% end %>

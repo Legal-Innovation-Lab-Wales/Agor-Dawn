@@ -10,7 +10,7 @@ class ApplicationRecord < ActiveRecord::Base
   end
 
   def created_time
-    created_at.strftime('%I:%M %p')
+    created_at.strftime('%I:%M')
   end
 
   def last_update
