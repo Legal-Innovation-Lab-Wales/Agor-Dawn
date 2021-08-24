@@ -1,0 +1,9 @@
+<div class="author-info">
+  <div class="left">
+    <%= image_tag url_for(locals[:project].user.avatar), class: 'user-icon img-md', alt: 'avatar' %>
+  </div>
+  <div class="right">
+    <p class="owner"><%= locals[:project].user.first_name + ' ' + locals[:project].user.last_name %></p>
+    <p class="date metadata"><i class="far fa-calendar-alt"></i> <%= locals[:project].created_date %></p>
+  </div>
+</div>
