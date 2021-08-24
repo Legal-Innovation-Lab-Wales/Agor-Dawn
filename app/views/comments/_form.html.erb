@@ -1,13 +1,9 @@
-<% if user_signed_in? %>
-  <div class="form">
-    <%= form_with model: @comment, url: project_comments_path(@project) do |f| %>
-      <div class="field">
-        <%= f.label "New comment" %>
-        <%= f.text_area :comment_text, class: "form-control" %>
-      </div>
-      <div class="actions">
-        <%= f.submit "Submit", class: "btn btn-primary" %>
-      </div>
-    <% end %>
+<%= form_with model: @comment, url: project_comments_path(@project) do |f| %>
+  <div class="field">
+    <%= f.label "New comment" %>
+    <%= f.text_area :comment_text, class: "form-control" %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Submit", class: "btn btn-primary" %>
   </div>
 <% end %>

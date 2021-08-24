@@ -4,7 +4,11 @@
     <h2>Comments</h2>
     <hr>
     <%= render 'comments/comments' %>
-    <%= render 'comments/form' %>
+    <% if user_signed_in? %>
+      <div class="form container">
+        <%= render 'comments/form' %>
+      </div>
+    <% end %>
   </div>
 </section>
 
