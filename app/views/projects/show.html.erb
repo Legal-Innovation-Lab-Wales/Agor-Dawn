@@ -1,8 +1,9 @@
 <section class="projects show">
   <%= render 'project_card', locals: { project: @project } %>
   <div class="comments-section">
-    <%= render 'comments/form' %>
+    <h2>Comments</h2>
     <%= render 'comments/comments' %>
+    <%= render 'comments/form' %>
   </div>
 </section>
 
