@@ -1,4 +1,4 @@
-ActionView::Base.field_error_proc = Proc.new do |html_tag, instance|
+ActionView::Base.field_error_proc = proc do |html_tag, instance|
   fragment = Nokogiri::HTML.fragment(html_tag)
   field = fragment.at('input,select,textarea')
   error_messages = instance.object.errors.messages
@@ -12,7 +12,7 @@ ActionView::Base.field_error_proc = Proc.new do |html_tag, instance|
                  .match(/\[(.*?)\]/)[0]
                  .delete('[]')
                  .gsub('_', ' ')
-    
+
     error_message = error_messages[value.to_sym][0]
     error_message = 'is invalid' unless error_message.present?
 

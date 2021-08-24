@@ -30,6 +30,7 @@ body#overboot {
 
     @media screen and (max-width: $screen-sm) {
       max-width: 100%;
+      padding: 1rem 0;
 
       &.form {
         background-color: $primary-background-color;
@@ -40,10 +41,6 @@ body#overboot {
 
   a {
     text-decoration: none;
-  }
-
-  li {
-    list-style: none;
   }
 
   hr {
@@ -93,9 +90,5 @@ body#overboot {
 
   main {
     padding: 0 1rem;
-
-    @media screen and (max-width: $screen-sm) {
-      padding: 0 0.5rem;
-    }
   }
 }
