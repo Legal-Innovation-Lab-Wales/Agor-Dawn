@@ -8,10 +8,13 @@
         </button>
       </div>
       <div class="likes">
+        <% if @project.likes.length.zero? %>
+          Looks like no one has liked this yet.
+        <% end %>
         <% @project.likes.each do |liked_by| %>
           <%= link_to user_path(liked_by.user) do %>
             <div class="like">
-              <%= image_tag url_for(liked_by.user.avatar), class: 'user-icon', alt: 'avatar' %>
+              <%= image_tag url_for(liked_by.user.avatar), class: 'user-icon img-md', alt: 'avatar' %>
               <div class="username">
                 <%= liked_by.user.full_name %>
               </div>

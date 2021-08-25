@@ -11,13 +11,13 @@
         <div class="stats-row">
           <i class="fas fa-comments"></i> 
           <%= "#{@user.comments_posted} comments posted" %>
-          <div class="dot">·</div>
+          <span class="dot">·</span>
           <%= "#{@user.comments_received} received" %>
         </div>
         <div class="stats-row">
           <i class="fas fa-thumbs-up"></i>
           <%= "#{@user.likes_given} likes given" %>
-          <div class="dot">·</div>
+          <span class="dot">·</span>
           <%= "#{@user.likes_received} received" %>
         </div>
       </div>
@@ -29,7 +29,7 @@
   <hr>
   <div class="project-card-collection">
     <% @user.projects.each do |project| %>
-      <%= render 'projects/project_card', locals: { project: project } %>
+      <%= render 'projects/project_card', project: project %>
     <% end %>
   </div>
 </section>

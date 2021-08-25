@@ -1,0 +1,19 @@
+<%= link_to user_path(entity.user) do %>
+  <div class="author-info">
+    <div class="left">
+      <%= image_tag url_for(entity.user.avatar), class: 'user-icon img-md', alt: 'avatar' %>
+    </div>
+    <div class="right">
+      <div class="owner"><%= entity.user.first_name + ' ' + entity.user.last_name %></div>
+      <div class="date">
+        <% if entity.created_at > 1.day.ago %>
+          <%= time_ago_in_words(entity.created_at) %> ago
+        <% else %>
+          <i class="far fa-calendar-alt"></i> <%= entity.created_date %>
+          <div class="dot">·</div>
+          <i class="far fa-clock"></i> <%= entity.created_time %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>

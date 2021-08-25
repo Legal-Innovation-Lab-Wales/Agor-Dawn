@@ -1,5 +1,6 @@
+# app/models/comment.rb
 class Comment < ApplicationRecord
-  default_scope { order('created_at DESC') }
+  default_scope { order('created_at ASC') }
   belongs_to :user
   belongs_to :project
 

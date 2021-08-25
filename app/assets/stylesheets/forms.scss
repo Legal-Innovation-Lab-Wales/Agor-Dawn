@@ -31,10 +31,9 @@
       font-weight: 400;
     }
 
-    input, trix-editor {
+    input, textarea, trix-editor {
       width: 100%;
       padding: 0.5rem;
-      height: 2.5rem;
       background-color: $primary-background-color;
       border-style: solid;
       border-width: 0.1rem;
@@ -69,6 +68,14 @@
       }
     }
 
+    input {
+      height: 40px;
+    }
+
+    textarea {
+      height: 80px;
+    }
+
     .error {
       margin-top: 0.5rem;
       color: $secondary-1;
@@ -93,7 +100,7 @@
     text-align: center;
 
     input {
-      width: 320px;
+      width: 240px;
     }
   }
 
