@@ -48,7 +48,7 @@ nav {
 
     .search {
       width: 100%;
-      max-width: 30rem;
+      max-width: 7680px;
 
       .search-input {
         @media screen and (max-width: $screen-sm) {
@@ -84,7 +84,7 @@ nav {
         right: 0;
         left: auto;
         background-color: $white;
-        min-width: 8rem;
+        min-width: 128px;
         box-shadow: $primary-box-shadow;
         z-index: 1;
 
