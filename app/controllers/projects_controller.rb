@@ -3,8 +3,8 @@ class ProjectsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
   before_action :project_params, only: %i[create update]
   before_action :project, except: %i[index new create]
-  before_action :redirect, only: %i[edit update destroy], unless: -> { @project.user == current_user }
-  before_action :verify_public, only: :show
+  before_action :redirect, only: %i[edit update destroy], unless: -> { project_owner? }
+  before_action :verify_public, :increment_viewcount, only: :show
 
   # GET /projects
   def index
@@ -98,9 +98,19 @@ class ProjectsController < ApplicationController
     { success: "Project successfully #{action}d." }
   end
 
+  def increment_viewcount
+    return if project_owner?
+
+    @project.update!(view_count: @project.view_count + 1)
+  end
+
   def verify_public
     return if @project.public || current_user == @project.user
 
     redirect_back(fallback_location: projects_path, flash: { error: 'Project was not found.' })
+  end
+
+  def project_owner?
+    @project.user == current_user
   end
 end
