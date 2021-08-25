@@ -3,22 +3,24 @@
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |form| %>
     <div class="field">
       <%= image_tag url_for(resource.avatar), class: 'user-icon img-lg', alt: 'avatar' %>
+      Avatar
       <%= form.file_field :avatar, accept: ".jpg, .jpeg, .png, .gif" %>
     </div>
     <div class="field">
-      <%= form.label :first_name %><br>
+      <%= form.label :first_name %>*<br>
       <%= form.text_field :first_name, autofocus: true, autocomplete: 'email', required: true %>
     </div>
     <div class="field">
-      <%= form.label :last_name %><br>
+      <%= form.label :last_name %>*<br>
       <%= form.text_field :last_name, autofocus: true, autocomplete: 'email', required: true %>
     </div>
     <div class="field">
-      <%= form.label :bio %><br>
-      <%= form.text_field :bio, autofocus: true, autocomplete: 'bio' %>
+      <%= form.label :bio %>
+      (240 characters maximum) <br>
+      <%= form.text_area :bio, autofocus: true, autocomplete: 'bio', class: "form-control" %>
     </div>
     <div class="field">
-      <%= form.label :email %><br>
+      <%= form.label :email %>*<br>
       <%= form.email_field :email, autofocus: true, autocomplete: 'email', required: true %>
     </div>
     <hr>
@@ -35,13 +37,16 @@
     </div>
     <hr>
     <div class="field">
-      <%= form.label :current_password %> (we need your current password to confirm your changes)<br>
+      <%= form.label :current_password %>* (We need your current password to confirm your changes)<br>
       <%= form.password_field :current_password, autocomplete: 'current-password', required: true %>
     </div>
     <div class="actions">
       <%= form.submit 'Save', class: 'btn btn-primary' %>
     </div>
   <% end %>
+  <div class="extra-info">
+  Fields marked with * are required fields
+  </div>
 </section>
 
 <br>
