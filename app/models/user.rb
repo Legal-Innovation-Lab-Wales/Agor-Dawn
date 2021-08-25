@@ -12,6 +12,7 @@ class User < ApplicationRecord
   scope :non_admins, -> { where(admin: false) }
 
   validates_presence_of :likes_given, :comments_posted
+  validates :bio, length: { maximum: 240 }
 
   def full_name
     "#{first_name} #{last_name}"
