@@ -1,0 +1,49 @@
+@import "variables";
+
+.author-info {
+  display: flex;
+  flex-flow: row nowrap;
+  width: 240px;
+
+  &:hover {
+    & .owner {
+      color: $primary-light;
+    }
+
+    & .user-icon {
+      filter: grayscale(1);
+    }
+  }
+
+  .left {
+    margin-right: 0.5rem;
+  }
+
+  .right {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    color: $dark-font-color;
+    
+    .owner {
+      font-size: 0.9rem;
+
+      @media screen and (max-width: $screen-sm) {
+        text-decoration: underline;
+      }
+    }
+
+    .date {
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: center;
+      font-weight: 300;
+      font-size: 0.7rem;
+      margin-bottom: 0;
+
+      i {
+        margin-right: 0.25rem;
+      }
+    }
+  }
+}

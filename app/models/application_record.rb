@@ -1,3 +1,4 @@
+# app/models/application_record.rb
 class ApplicationRecord < ActiveRecord::Base
   self.abstract_class = true
 
@@ -10,7 +11,7 @@ class ApplicationRecord < ActiveRecord::Base
   end
 
   def created_time
-    created_at.strftime('%I:%M %p')
+    created_at.strftime('%I:%M')
   end
 
   def last_update
