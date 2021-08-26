@@ -1,19 +1,23 @@
 <section class="projects index" id="projects-index">
-  <% unless action_name == 'home' %>
-    <%= render 'shared/floating_btn' %>
-    </div>
-  <% end %>
+  <%= render 'shared/floating_btn' %>
   <div class="content">
-    <% unless action_name == 'home' %>
-      <div class="collection-summary">
-        <% if params[:query].present? %>
-          <%= "Search '#{params[:query]}' returned #{pluralize(@projects.count, 'result')}." %>
-        <% else %>
-          <%= "Showing #{@projects.count} of #{pluralize(@projects.count, 'project')}." %>
-        <% end %>
-        <hr>
+    <div class="collection-summary">
+      <% if params[:query].present? %>
+        <%= "Search '#{params[:query]}' returned #{pluralize(@projects.count, 'result')}." %>
+      <% else %>
+        <%= "Showing #{@projects.count} of #{pluralize(@projects.count, 'project')}." %>
+      <% end %>
+      <div class="filter-row">
+        <div class="filter-categories">
+          <span class="category selected">Recent</span>
+          <span class="category">Popular</span>
+          <span class="category">Profiles</span>
+        </div>
+        <div class="filter-order">
+          <span>Ascending</span>
+        </div>
       </div>
-    <% end %>
+    </div>
     <div class="project-card-collection">
       <% @projects.each do |project| %>
         <%= link_to project do %>

@@ -125,6 +125,40 @@
 }
 
 .projects {
+  &.index {
+    .filter-row {
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 0.1rem solid $primary-light;
+      font-size: 1.1rem;
+      margin: 1rem 0;
+
+      .filter-categories {
+        display: flex;
+        flex-flow: row nowrap;
+
+        .category {
+          padding: 0.5rem 1rem;
+
+          @media screen and (max-width: $screen-sm) {
+            padding: 0.5rem 0.5rem;
+          }
+
+          &:hover {
+            cursor: pointer;
+            color: $primary-light;
+            border-bottom: 0.25rem solid $primary-light;
+          }
+
+          &.selected {
+            color: $primary;
+            border-bottom: 0.25rem solid $primary;
+          }
+        }
+      }
+    }
+  }
+
   &.show {
     .project-card {
       margin-bottom: 2rem;
