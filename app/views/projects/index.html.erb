@@ -9,21 +9,17 @@
       <% end %>
       <div class="filter-row">
         <div class="filter-categories">
-          <span class="category selected">Recent</span>
-          <span class="category">Popular</span>
-          <span class="category">Profiles</span>
+          <% @categories.each do |category| %>
+            <span class="category <%= @category == category ? 'selected' : '' %>" data-filter="<%= category%>"><%= category.capitalize %></span>
+          <% end %>
         </div>
         <div class="filter-order">
           <span>Ascending</span>
         </div>
       </div>
     </div>
-    <div class="project-card-collection">
-      <% @projects.each do |project| %>
-        <%= link_to project do %>
-            <%= render 'projects/project_card', project: project %>
-        <% end %>
-      <% end %>
-    </div>
+    <%= render 'project_card_collection' %>
   </div>
 </section>
+
+<%= javascript_pack_tag 'filter_row' %>

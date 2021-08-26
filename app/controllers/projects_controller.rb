@@ -8,13 +8,14 @@ class ProjectsController < ApplicationController
 
   # GET /projects
   def index
+    @categories = %w[recent popular profiles]
     @projects = Project.includes(:user)
                        .is_public
                        .most_recent
 
     @projects = @projects.search(search_params[:query]) if search_params[:query].present?
 
-    render '_index'
+    category
   end
 
   # GET /projects/:id
@@ -88,6 +89,14 @@ class ProjectsController < ApplicationController
 
   def search_params
     params.permit(:query)
+  end
+
+  def category
+    @category = if params[:category].present? && params[:category].downcase.in?(@categories)
+                  params[:category]
+                else
+                  'recent'
+                end
   end
 
   def redirect
