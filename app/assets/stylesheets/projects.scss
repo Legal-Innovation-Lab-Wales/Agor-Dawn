@@ -156,6 +156,24 @@
           }
         }
       }
+
+      .filter-order {
+        .sort {
+          color: $primary;
+          padding: 0.5rem 0;
+          border: none;
+          background-color: $primary-background-color;
+
+          &:hover {
+            cursor: pointer;
+            color: $primary-light;
+          }
+
+          &:focus-visible {
+            outline: $primary auto 0.1rem;
+          }
+        }
+      }
     }
   }
 

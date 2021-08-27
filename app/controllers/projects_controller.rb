@@ -8,10 +8,10 @@ class ProjectsController < ApplicationController
 
   # GET /projects
   def index
-    @categories = %w[recent popular profiles]
+    @categories = %w[recent popular]
     @projects = Project.includes(:user)
                        .is_public
-                       .most_recent
+                       .order(sort)
 
     @projects = @projects.search(search_params[:query]) if search_params[:query].present?
 
@@ -97,6 +97,15 @@ class ProjectsController < ApplicationController
                 else
                   'recent'
                 end
+  end
+
+  def sort
+    category
+    if @category == 'recent'
+      { 'created_at': 'desc' }
+    elsif @category == 'popular'
+      { 'created_at': 'asc' }
+    end
   end
 
   def redirect
