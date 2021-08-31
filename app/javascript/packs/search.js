@@ -4,9 +4,7 @@ const search = document.querySelector('.search'),
       search_btn = search.querySelector('.search-icon'),
       search_input = search.querySelector('.search-input')
 
-const mobile_search = document.querySelector('.mobile-search'),
-      mobile_search_btn = mobile_search.querySelector('.search-icon'),
-      mobile_search_input = mobile_search.querySelector('.search-input')
+const mobile_search = document.querySelector('.mobile-search')
 
 const isFalseyOrWhiteSpace = (str) => {
         return (!str || str.length === 0 || /^\s*$/.test(str))
@@ -30,9 +28,16 @@ const isFalseyOrWhiteSpace = (str) => {
         }
       }
 
-if (mobile_search === null) {
+search_input.addEventListener('keyup', e => { 
+  if (e.key === 'Enter') {
+    search_function(search_input)
+  }
+})
 
-} else {
+if (mobile_search !== null) {
+  const mobile_search_btn = mobile_search.querySelector('.search-icon'),
+        mobile_search_input = mobile_search.querySelector('.search-input')
+
   search_btn.addEventListener('click', () => {
     if (is_desktop_view()) {
       search_function(search_input)
@@ -43,12 +48,6 @@ if (mobile_search === null) {
       } else {
         toggle_mobile_search()
       }
-    }
-  })
-
-  search_input.addEventListener('keyup', e => { 
-    if (e.key === 'Enter') {
-      search_function(search_input)
     }
   })
 
@@ -70,5 +69,9 @@ if (mobile_search === null) {
         toggle_mobile_search()
       }
     }
+  })
+} else {
+  search_btn.addEventListener('click', () => {
+    search_function(search_input)
   })
 }

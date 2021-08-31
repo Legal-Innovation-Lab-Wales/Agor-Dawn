@@ -9,20 +9,18 @@ class ProjectsController < ApplicationController
 
   # GET /projects
   def index
-    @projects = Project.includes(:user)
-                       .is_public
-                       
-    @projects = if @category == 'recent'
+    @projects = Project.includes(:user).is_public
+
+    @projects = case @category
+                when 'recent'
                   @projects.most_recent
-                elsif @category == 'popular'
+                when 'popular'
                   @projects.most_popular
-                elsif @category == 'discussed'
+                when 'discussed'
                   @projects.most_discussed
                 end
 
     @projects = @projects.search(search_params[:query]) if search_params[:query].present?
-
-    render 'index'
   end
 
   # GET /projects/:id
@@ -35,8 +33,6 @@ class ProjectsController < ApplicationController
                         .map { |like| like.user.full_name.to_s }
                         .join("\n")
     @liked_by += "\nand #{@count - 20} more..." if @count > 20
-
-    render 'show'
   end
 
   # GET /projects/new
