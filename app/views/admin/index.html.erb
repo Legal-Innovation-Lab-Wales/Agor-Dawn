@@ -5,7 +5,7 @@
         <th scope="col">Icon</th>
         <th scope="col">First</th>
         <th scope="col">Last</th>
-        <th scope="col">Options</th>
+        <th scope="col">Admin</th>
       </tr>
     </thead>
   <% @users.each do |user| %>
@@ -22,8 +22,9 @@
         <%= user.last_name %>
       </td>
       <td>
-        <i class="fas fa-edit"></i>
-        <i class="fas fa-trash-alt"></i>
+        <%= link_to toggle_admin_index_path(user), method: :put do %>
+          <i class="fas fa-<%= user.admin ? 'check' : 'times' %> text-<%= user.admin ? 'success' : 'danger' %>"></i>
+        <% end %>
       </td>
     <% end %>
     </tr>
