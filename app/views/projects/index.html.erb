@@ -13,12 +13,6 @@
             <span class="category <%= @category == category ? 'selected' : '' %>" data-filter="<%= category%>"><%= category.capitalize %></span>
           <% end %>
         </div>
-        <div class="filter-order">
-          <select class="sort">
-            <option value="descending" selected>Descending</option>
-            <option value="ascending">Ascending</option>
-          </select>
-        </div>
       </div>
     </div>
     <%= render 'project_card_collection' %>

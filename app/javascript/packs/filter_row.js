@@ -11,12 +11,10 @@ const filter_categories = document.querySelectorAll('.filter-categories .categor
       }
 
 filter_categories.forEach(category => {
-  const category_value = category.dataset.filter,
-        sort_value = document.querySelector('.filter-order .sort').value
+  const category_value = category.dataset.filter
   
   category.addEventListener('click', () => {
     url.searchParams.set('category', category_value)
-    url.searchParams.set('sort', sort_value)
     toggle_selected(category_value)
     location.href = url.href
   })
