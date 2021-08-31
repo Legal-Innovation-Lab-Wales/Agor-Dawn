@@ -1,0 +1,31 @@
+<div class="admin">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Icon</th>
+        <th scope="col">First</th>
+        <th scope="col">Last</th>
+        <th scope="col">Options</th>
+      </tr>
+    </thead>
+  <% @users.each do |user| %>
+    <tr>
+      <td>
+        <%= link_to user_path(user) do %>
+          <%= image_tag url_for(user.avatar), class: 'user-icon img-md', alt: 'avatar' %>
+        <% end %>
+      </td>
+      <td>
+        <%= user.first_name %>
+      </td>
+      <td>
+        <%= user.last_name %>
+      </td>
+      <td>
+        <i class="fas fa-edit"></i>
+        <i class="fas fa-trash-alt"></i>
+      </td>
+    <% end %>
+    </tr>
+  </table>
+</div>
