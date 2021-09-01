@@ -1,0 +1,22 @@
+<section class="projects index" id="projects-index">
+  <%= render 'shared/floating_btn' %>
+  <div class="content">
+    <div class="collection-summary">
+      <% if params[:query].present? %>
+        <%= "Search '#{params[:query]}' returned #{pluralize(@projects.count, 'result')}." %>
+      <% else %>
+        <%= "Showing #{@projects.count} of #{pluralize(@projects.count, 'project')}." %>
+      <% end %>
+      <div class="filter-row">
+        <div class="filter-categories">
+          <% @categories.each do |category| %>
+            <span class="category <%= @category == category ? 'selected' : '' %>" data-filter="<%= category%>"><%= category.capitalize %></span>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <%= render 'project_card_collection' %>
+  </div>
+</section>
+
+<%= javascript_pack_tag 'filter_row' %>

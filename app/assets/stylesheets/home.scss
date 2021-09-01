@@ -35,7 +35,7 @@
       font-size: 2rem;
       text-align: center;
       text-shadow: 0.05rem 0.05rem 0.05rem $primary;
-      max-width: 40ch;
+      max-width: 850px;
       margin-bottom: 2rem;
 
       @media screen and (max-width: $screen-sm) {
@@ -62,15 +62,30 @@
     }
   }
 
-  .browse-projects {
+  .search-browse {
+    max-width: 850px !important;
     text-align: center;
-    margin: 2rem 0;
+    margin: 0 auto 2rem auto;
 
-    a.btn.btn-primary {
-      font-size: 1.5rem;
-      padding: 1rem !important;
+    h3 {
+      margin: 1rem 0 2rem 0;
+    }
+
+    p {
+      margin: 1rem 0;
+    }
+
+    .browse-projects {
+      margin-bottom: 1rem;
+      
+      a.btn.btn-primary {
+        font-size: 1.5rem;
+        padding: 1rem !important;
+      }
     }
   }
+
+  
 
   .projects-container {
     h3 {

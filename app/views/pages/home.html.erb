@@ -13,12 +13,20 @@
       <a href="https://www.agorip.com/get-in-touch/" class="btn btn-secondary-2">Get in touch</a>
     </div>
   </div>
+  <div class="container search-browse">
+    <h3>Find your next collaboration today!</h3>
+    <%= render 'shared/search' %>
+    <p>or</p>
+    <div class="browse-projects">
+      <%= link_to 'Browse All Projects', projects_path, class: 'btn btn-primary' %>
+    </div>
+  </div>
   <div class="projects-container">
     <h3>Recent Projects</h3>
     <hr>
-    <%= render "projects/index" %>
+    <%= render "projects/project_card_collection" %>
   </div>
-  <div class="browse-projects">
-    <%= link_to 'Browse All Projects', projects_path, class: 'btn btn-primary' %>
-  </div>
+  
 </section>
+
+<%= javascript_pack_tag 'search' %>

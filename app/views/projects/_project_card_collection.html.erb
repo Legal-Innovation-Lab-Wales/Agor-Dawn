@@ -1,0 +1,7 @@
+<div class="project-card-collection">
+  <% @projects.each do |project| %>
+    <%= link_to project do %>
+        <%= render 'projects/project_card', project: project %>
+    <% end %>
+  <% end %>
+</div>

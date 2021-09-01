@@ -6,7 +6,7 @@ class PagesController < ApplicationController
     @projects = Project.includes(:user)
                        .is_public
                        .most_recent
-                       .limit(5)
+                       .limit(4)
 
     render 'home'
   end

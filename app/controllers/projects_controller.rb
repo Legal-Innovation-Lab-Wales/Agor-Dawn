@@ -3,18 +3,24 @@ class ProjectsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
   before_action :project_params, only: %i[create update]
   before_action :project, except: %i[index new create]
+  before_action :category, only: :index
   before_action :redirect, only: %i[edit update destroy], unless: -> { project_owner? }
   before_action :verify_public, :increment_viewcount, only: :show
 
   # GET /projects
   def index
-    @projects = Project.includes(:user)
-                       .is_public
-                       .most_recent
+    @projects = Project.includes(:user).is_public
+
+    @projects = case @category
+                when 'recent'
+                  @projects.most_recent
+                when 'popular'
+                  @projects.most_popular
+                when 'discussed'
+                  @projects.most_discussed
+                end
 
     @projects = @projects.search(search_params[:query]) if search_params[:query].present?
-
-    render '_index'
   end
 
   # GET /projects/:id
@@ -88,6 +94,15 @@ class ProjectsController < ApplicationController
 
   def search_params
     params.permit(:query)
+  end
+
+  def category
+    @categories = %w[recent popular discussed]
+    @category = if params[:category].present? && @categories.include?(params[:category].downcase)
+                  params[:category]
+                else
+                  'recent'
+                end
   end
 
   def redirect

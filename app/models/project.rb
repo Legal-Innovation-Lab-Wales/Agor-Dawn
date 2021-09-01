@@ -17,6 +17,8 @@ class Project < ApplicationRecord
   }
   scope :is_public, -> { where(public: true) }
   scope :most_recent, -> { order(created_at: :desc) }
+  scope :most_popular, -> { order(like_count: :desc) }
+  scope :most_discussed, -> { order(comment_count: :desc) }
 
   has_rich_text :content
 end

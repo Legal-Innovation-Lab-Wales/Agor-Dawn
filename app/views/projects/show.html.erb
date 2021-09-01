@@ -8,6 +8,8 @@
       <div class="form container">
         <%= render 'comments/form' %>
       </div>
+    <% else %>
+      <p class="sign-in-comment">You must <%= link_to 'sign in', new_user_session_path %> to comment on this.</p>
     <% end %>
   </div>
 </section>
