@@ -92,6 +92,7 @@
 
         .trix-content {
           margin-top: 1rem;
+          width: 100%;
         }
 
         .footer {
@@ -230,7 +231,7 @@
       }
 
       #project_content {
-        height: 160px;
+        min-height: 160px;
       }
     }
   }
