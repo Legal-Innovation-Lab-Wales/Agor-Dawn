@@ -1,6 +1,6 @@
 <%= form_with model: @comment, url: project_comments_path(@project) do |f| %>
   <div class="field">
-    <%= f.label 'New comment' %>
+    <%= f.label 'Post Comment' %>
     <%= f.text_area :comment_text %>
   </div>
   <div class="actions">
