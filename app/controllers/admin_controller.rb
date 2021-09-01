@@ -1,6 +1,7 @@
 # app/controllers/admin_controller.rb
 class AdminController < ApplicationController
   before_action :users
+  before_action :authorize_admin, only: :index
 
   # GET /user/admin
   def show
@@ -18,6 +19,10 @@ class AdminController < ApplicationController
 
 
   private
+
+  def authorize_admin
+    redirect_to root_path, flash: { error: 'You do not have access to this page '} unless current_user.admin
+  end
 
   def users
     @users = User.all.order(:first_name)

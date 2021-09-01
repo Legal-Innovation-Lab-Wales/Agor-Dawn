@@ -88,6 +88,15 @@ body#overboot {
     }
   }
 
+  .table {
+    width: 90% !important;
+    text-align: center !important;
+
+      @media screen and (max-width: $screen-sm) {
+        max-width: 100% !important;
+      }
+    }
+
   main {
     padding: 0 1rem;
   }
