@@ -51,7 +51,7 @@
 
       &:focus-visible {
         background-color: $white;
-        outline: $primary auto 0.1rem;
+        outline: $primary solid 0.1rem;
       }
 
       &.invalid {
@@ -63,7 +63,7 @@
         }
 
         &:focus-visible {
-          outline: $secondary-1 auto 0.1rem;
+          outline: $secondary-1 solid 0.1rem;
         }
       }
     }
