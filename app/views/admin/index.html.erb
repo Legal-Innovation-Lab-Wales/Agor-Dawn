@@ -1,0 +1,36 @@
+<div class="row justify-content-center">
+    <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Avatar</th>
+        <th scope="col">First</th>
+        <th scope="col">Last</th>
+        <th scope="col">Email</th>
+        <th scope="col">Admin</th>
+      </tr>
+    </thead>
+  <% @users.each do |user| %>
+    <tr>
+      <td>
+        <%= link_to user_path(user) do %>
+          <%= image_tag url_for(user.avatar), class: 'user-icon img-md', alt: 'avatar' %>
+        <% end %>
+      </td>
+      <td>
+        <%= user.first_name %>
+      </td>
+      <td>
+        <%= user.last_name %>
+      </td>
+      <td>
+        <%= user.email %>
+      </td>
+      <td>
+        <%= link_to toggle_admin_index_path(user), method: :put do %>
+          <i class="fas fa-<%= user.admin ? 'check' : 'times' %> text-<%= user.admin ? 'success' : 'danger' %> user-icon"></i>
+        <% end %>
+      </td>
+    <% end %>
+    </tr>
+  </table>
+</div>

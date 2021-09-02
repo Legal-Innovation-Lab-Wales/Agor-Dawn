@@ -89,6 +89,19 @@ body#overboot {
     }
   }
 
+  .table {
+    width: 90% !important;
+    text-align: center !important;
+
+    tr {
+      vertical-align: middle;
+    }
+
+      @media screen and (max-width: $screen-sm) {
+        max-width: 100% !important;
+      }
+    }
+
   main {
     min-height: 80vh;
     padding: 0 1rem;
