@@ -2,7 +2,7 @@
 class User < ApplicationRecord
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable, :trackable
   after_save :set_default_avatar
-  after_update :purge_previous_avatar, if: -> { avatar.changed? }
+  after_update :purge_unattached_avatars, if: -> { avatar.changed? }
 
   has_many :comments
   has_many :projects
@@ -34,7 +34,7 @@ class User < ApplicationRecord
     avatar.attach(ActiveStorage::Blob.where(default_avatar: true).order('RANDOM()').first)
   end
 
-  def purge_previous_avatar
+  def purge_unattached_avatars
     ActiveStorage::Blob.unattached.where(default_avatar: false).each(&:purge_later)
   end
 end
