@@ -2,9 +2,10 @@
     <table class="table">
     <thead>
       <tr>
-        <th scope="col">Icon</th>
+        <th scope="col">Avatar</th>
         <th scope="col">First</th>
         <th scope="col">Last</th>
+        <th scope="col">Email</th>
         <th scope="col">Admin</th>
       </tr>
     </thead>
@@ -22,8 +23,11 @@
         <%= user.last_name %>
       </td>
       <td>
+        <%= user.email %>
+      </td>
+      <td>
         <%= link_to toggle_admin_index_path(user), method: :put do %>
-          <i class="fas fa-<%= user.admin ? 'check' : 'times' %> text-<%= user.admin ? 'success' : 'danger' %>"></i>
+          <i class="fas fa-<%= user.admin ? 'check' : 'times' %> text-<%= user.admin ? 'success' : 'danger' %> user-icon"></i>
         <% end %>
       </td>
     <% end %>

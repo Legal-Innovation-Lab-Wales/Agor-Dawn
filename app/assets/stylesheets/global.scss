@@ -92,6 +92,10 @@ body#overboot {
     width: 90% !important;
     text-align: center !important;
 
+    tr {
+      vertical-align: middle;
+    }
+
       @media screen and (max-width: $screen-sm) {
         max-width: 100% !important;
       }
