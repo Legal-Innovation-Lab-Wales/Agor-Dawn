@@ -1,6 +1,9 @@
 @import "variables";
 
 .home {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+
   .header {
     box-shadow: $primary-box-shadow;
     padding: 0 1rem 5rem;
