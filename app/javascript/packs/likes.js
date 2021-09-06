@@ -22,6 +22,7 @@ like_btn.addEventListener('click', () => {
     .then(() => {
       like_icon.classList.remove('far')
       like_icon.classList.add('fas')
+      like_icon.title = 'Unlike'
       increment_counter(like_count)
       increment_counter(like_metadata)
       modal_like.classList.remove('hide-like')
@@ -37,6 +38,7 @@ like_btn.addEventListener('click', () => {
     .then(() => {
       like_icon.classList.remove('fas')
       like_icon.classList.add('far')
+      like_icon.title = 'Like'
       decrement_counter(like_count)
       decrement_counter(like_metadata)
       modal_like.classList.add('hide-like')

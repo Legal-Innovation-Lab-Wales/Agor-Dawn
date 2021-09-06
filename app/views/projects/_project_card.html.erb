@@ -52,9 +52,9 @@
 =end%>
             <div class="like-button link-primary">
               <% if @current_user_like %>
-                <i class="fas fa-thumbs-up"></i>
+                <i title="Unlike" class="fas fa-thumbs-up"></i>
               <% else %>
-                <i class="far fa-thumbs-up"></i>
+                <i title="Like" class="far fa-thumbs-up"></i>
               <% end %>
             </div>
             <div class="count link-primary" title="<%= @liked_by %>" data-toggle="tooltip" data-placement="bottom" id="open-liked-modal">
