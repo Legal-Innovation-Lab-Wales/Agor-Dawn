@@ -25,7 +25,7 @@ class ProjectsController < ApplicationController
 
   # GET /projects/:id
   def show
-    @like = @project.likes.find_by(user: current_user)
+    @current_user_like = @project.likes.find_by(user: current_user)
     @count = @project.likes.count
     @liked_by = @project.likes.includes(:user)
                         .order(created_at: :desc)
@@ -33,6 +33,7 @@ class ProjectsController < ApplicationController
                         .map { |like| like.user.full_name.to_s }
                         .join("\n")
     @liked_by += "\nand #{@count - 20} more..." if @count > 20
+    @project.likes.build(user: current_user, project: @project) unless @current_user_like
   end
 
   # GET /projects/new

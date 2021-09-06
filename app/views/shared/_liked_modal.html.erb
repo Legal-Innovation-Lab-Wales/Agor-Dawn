@@ -12,7 +12,7 @@
           Looks like no one has liked this yet.
         <% end %>
         <% @project.likes.each do |liked_by| %>
-          <%= link_to user_path(liked_by.user) do %>
+          <%= link_to user_path(liked_by.user), class: liked_by.user == current_user ? @current_user_like.nil? ? 'current-user hide-like' : 'current-user' : '' do %>
             <div class="like">
               <%= image_tag url_for(liked_by.user.avatar), class: 'user-icon img-md', alt: 'avatar' %>
               <div class="username">

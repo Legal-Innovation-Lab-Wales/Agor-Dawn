@@ -5,14 +5,13 @@ const url = new URL(`${location.href}/likes`),
       like_icon = like_btn.querySelector('i'),
       like_count = document.querySelector('.like-count .count'),
       like_metadata = document.querySelector('.stats .metadata.metadata-likes'),
+      modal_like = document.querySelector('.modal .likes .current-user'),
       increment_counter = (count) => {
         count.innerHTML = count.innerHTML.replace(/\d+/, parseInt(count.innerText) + 1)
       },
       decrement_counter = (count) => {
         count.innerHTML = count.innerHTML.replace(/\d+/, parseInt(count.innerText) - 1)
       }
-
-
 
 like_btn.addEventListener('click', () => {
   if (like_icon.classList.contains('far')) { // like
@@ -25,6 +24,7 @@ like_btn.addEventListener('click', () => {
       like_icon.classList.add('fas')
       increment_counter(like_count)
       increment_counter(like_metadata)
+      modal_like.classList.remove('hide-like')
     })
     .catch(e => {
       console.log(e);
@@ -39,6 +39,7 @@ like_btn.addEventListener('click', () => {
       like_icon.classList.add('far')
       decrement_counter(like_count)
       decrement_counter(like_metadata)
+      modal_like.classList.add('hide-like')
     })
     .catch(e => {
       console.log(e)
