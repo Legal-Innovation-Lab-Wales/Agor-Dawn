@@ -43,13 +43,6 @@
         </div>
         <% if controller_name == 'projects' && action_name == 'show' %>
           <div class="like-count">
-            <%
-=begin%>
- <% if @like.present? %>
-              <%= hidden_field_tag 'like_id', @like.id, { :id => "like_id" } %>
-            <% end %> 
-<%
-=end%>
             <div class="like-button link-primary">
               <% if @current_user_like %>
                 <i title="Unlike" class="fas fa-thumbs-up"></i>
