@@ -188,22 +188,18 @@
           align-items: center;
           margin-top: 2rem;
 
+          .like-button {
+            i {
+              font-size: 1.5rem;
+            }
+          }
+
           .count {
             margin-left: 0.5rem;
 
             @media screen and (max-width: $screen-sm) {
               text-decoration: underline;
             }
-          }
-
-          .btn.like {
-            border-radius: 50%;
-            font-size: 1.5rem;
-            padding: 0.5rem !important;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
           }
         }
       }
