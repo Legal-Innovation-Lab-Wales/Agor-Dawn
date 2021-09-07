@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   resources :projects do
     resources :comments, only: :create
-    resources :likes, only: %i[create destroy]
+    resource :likes, only: %i[create destroy]
   end
 
   root 'pages#home'

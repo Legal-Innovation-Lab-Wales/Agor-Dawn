@@ -2,21 +2,16 @@
 class LikesController < ApplicationController
   before_action :project
 
-  # POST /projects/:project_id
+  # POST /projects/:project_id/likes
   def create
     Like.create!(user: current_user, project: @project)
-
-    redirect_to project_path(@project), flash: { success: 'Project was successfully liked.' }
   end
 
-  # DELETE /projects/:project_id/like/:id
+  # DELETE /projects/:project_id/likes
   def destroy
-    @like = Like.find(params[:id])
-    @like.destroy
-
-    redirect_to project_path(@project), flash: { success: 'Project was successfully unliked.' }
+    @project.likes.where(user_id: current_user).first.destroy
   rescue ActiveRecord::RecordNotFound
-    redirect_back(fallback_location: projects_path, flash: { error: 'Like was not found.' })
+    redirect_back(fallback_location: projects_path, flash: { error: 'We encountered an error. Please try again.' })
   end
 
   private

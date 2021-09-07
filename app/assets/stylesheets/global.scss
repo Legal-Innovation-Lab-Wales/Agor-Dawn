@@ -2,6 +2,7 @@
 
 html, body {
   min-height: 100vh;
+  position: relative;
   color: $dark-font-color;
 }
 
@@ -103,7 +104,9 @@ body#overboot {
     }
 
   main {
-    min-height: 80vh;
-    padding: 0 1rem;
+    // Shorthand not preferred here as individual styles need to be overridden
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-bottom: 92px; // 92px is the height of the footer
   }
 }

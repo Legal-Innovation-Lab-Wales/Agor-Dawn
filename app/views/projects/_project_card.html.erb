@@ -36,31 +36,22 @@
           <div class="stats">
             <p class="metadata"><%= project.view_count %> <i class="fas fa-eye"></i></p>
             <span class="dot">·</span>
-            <p class="metadata"><%= project.like_count %> <i class="fas fa-thumbs-up"></i></p>
+            <p class="metadata metadata-likes"><%= project.like_count %> <i class="fas fa-thumbs-up"></i></p>
             <span class="dot">·</span>
             <p class="metadata"><%= project.comment_count %> <i class="fas fa-comments"></i></p>
           </div>
         </div>
         <% if controller_name == 'projects' && action_name == 'show' %>
           <div class="like-count">
-            <% if @like.present? %>
-              <%= link_to project_like_path(@project, @like), method: 'delete', class: 'btn btn-primary' do %>
-                <i class="fas fa-thumbs-down"></i>
-              <% end %>
-            <% else %>
-              <% if user_signed_in? %>
-                <%= link_to project_likes_path(@project), method: 'post', class: 'btn btn-primary' do %>
-                  <i class="fas fa-thumbs-up"></i>
-                <% end %>
+            <div class="like-button link-primary">
+              <% if @current_user_like %>
+                <i title="Unlike" class="fas fa-thumbs-up"></i>
               <% else %>
-                <%= link_to new_user_session_path, class: 'btn btn-primary',
-                            data: { confirm: 'To do this action you must login.' } do %>
-                  <i class="fas fa-thumbs-up"></i>
-                <% end %>
+                <i title="Like" class="far fa-thumbs-up"></i>
               <% end %>
-            <% end %>
+            </div>
             <div class="count link-primary" title="<%= @liked_by %>" data-toggle="tooltip" data-placement="bottom" id="open-liked-modal">
-              Liked by <%= @project.likes.count %> Users
+              <%= @project.likes.count %> likes
             </div>
           </div>
         <% end %>
