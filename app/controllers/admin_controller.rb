@@ -17,7 +17,6 @@ class AdminController < ApplicationController
                   flash: { success: "#{@user.full_name} is #{@user.admin ? 'now' : 'no longer'} an admin."})
   end
 
-
   private
 
   def authorize_admin

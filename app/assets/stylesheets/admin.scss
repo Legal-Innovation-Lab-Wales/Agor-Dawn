@@ -1,0 +1,19 @@
+@import "variables";
+
+.admin {
+  &.show {
+    .table-wrapper {
+      display: block;
+      overflow-x: auto;
+
+      .table {
+        margin: 0 auto;
+        overflow: scroll;
+
+        .admin-toggle {
+          font-size: 1.5rem;
+        }
+      }
+    }
+  }
+}
