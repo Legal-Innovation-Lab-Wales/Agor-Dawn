@@ -4,9 +4,10 @@
         <thead>
           <tr>
             <th scope="col">Avatar</th>
+            <th scope="col">Email</th>
             <th scope="col">First</th>
             <th scope="col">Last</th>
-            <th scope="col">Email</th>
+            <th scope="col">Profile</th>
             <th scope="col">Admin</th>
           </tr>
         </thead>
@@ -18,17 +19,24 @@
             <% end %>
           </td>
           <td>
+            <%= user.email %>
+          </td>
+          <td>
             <%= user.first_name %>
           </td>
           <td>
             <%= user.last_name %>
           </td>
-          <td>
-            <%= user.email %>
+          <td class="table-action">
+            <%= link_to user_path(user), class: 'link-primary' do %>
+              <i class="fas fa-address-card"></i>
+            <% end %>
           </td>
-          <td class="admin-toggle">
-            <%= link_to toggle_admin_index_path(user), method: :put do %>
-              <i class="fas fa-<%= user.admin ? 'check' : 'times' %> text-<%= user.admin ? 'success' : 'danger' %> user-icon"></i>
+          <td class="table-action">
+            <% unless user == current_user %>
+              <%= link_to toggle_admin_index_path(user), method: :put, data: { confirm: 'Are you sure?' } do %>
+                <i class="fas fa-<%= user.admin ? 'check' : 'times' %> text-<%= user.admin ? 'success' : 'danger' %> user-icon"></i>
+              <% end %>
             <% end %>
           </td>
         </tr>
