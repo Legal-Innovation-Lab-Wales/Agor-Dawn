@@ -4,9 +4,9 @@ class User < ApplicationRecord
   after_save :set_default_avatar
   after_update :purge_unattached_avatars, if: -> { avatar.changed? }
 
-  has_many :comments
-  has_many :projects
-  has_many :likes
+  has_many :comments, dependent: :destroy
+  has_many :projects, dependent: :destroy
+  has_many :likes, dependent: :destroy
   has_one_attached :avatar, dependent: :detach
 
   scope :admins, -> { where(admin: true) }
