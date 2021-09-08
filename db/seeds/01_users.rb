@@ -22,7 +22,8 @@ unless User.find_by_email('philr@purpleriver.dev').present?
     bio: Faker::Job.title,
     email: 'philr@purpleriver.dev',
     password: 'password',
-    admin: true
+    admin: true,
+    approved: true
   )
   attach_image(user)
 end
@@ -34,7 +35,8 @@ unless User.find_by_email('ieuan.skinner@swansea.ac.uk').present?
     bio: Faker::Job.title,
     email: 'ieuan.skinner@swansea.ac.uk',
     password: 'password',
-    admin: true
+    admin: true,
+    approved: true
   )
   attach_image(user)
 end
@@ -46,7 +48,8 @@ unless User.find_by_email('a.j.wing@swansea.ac.uk').present?
     bio: Faker::Job.title,
     email: 'a.j.wing@swansea.ac.uk',
     password: 'password',
-    admin: true
+    admin: true,
+    approved: true
   )
   attach_image(user)
 end
@@ -58,7 +61,8 @@ unless User.find_by_email('g.d.andrews@swansea.ac.uk').present?
     bio: Faker::Job.title,
     email: 'g.d.andrews@swansea.ac.uk',
     password: 'password',
-    admin: true
+    admin: true,
+    approved: true
   )
   attach_image(user)
 end
@@ -70,7 +74,8 @@ end
     bio: Faker::Job.title,
     email: "AD-test-user-#{index + 1}@purpleriver.dev",
     password: 'test1234',
-    admin: false
+    admin: false,
+    approved: true
   )
   attach_default(user, index + 1)
 end
