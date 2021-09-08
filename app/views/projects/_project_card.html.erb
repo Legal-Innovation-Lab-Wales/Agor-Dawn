@@ -3,8 +3,8 @@
     <div class="card-outer-2">
       <div class="card-content">
         <% if controller_name == 'projects' && action_name == 'show' %>
-          <% if project.user == current_user %>
-            <div class="actions">
+          <div class="actions">
+            <% if project.user == current_user %>
               <span class="public">
                 <% if project.public %>
                   <i class="fas fa-eye"></i> Public
@@ -15,8 +15,10 @@
               <%= link_to edit_project_path, class: 'btn btn-primary' do %>
                 <i class="fas fa-edit"></i> Edit
               <% end %>
-            </div>
-          <% end %>
+            <% elsif current_user.admin %>
+              <span class="flag link-primary">Flag <i class="fas fa-flag"></i></span>
+            <% end %>
+          </div>
         <% end %>
         <%= link_to project_path(project) do %>
           <div class="main">

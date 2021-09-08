@@ -1,6 +1,11 @@
 <% @project.comments.each do |comment| %>
   <div class="comment container">
-    <%= render 'shared/author_info', entity: comment %>
+    <div class="comment-header">
+      <%= render 'shared/author_info', entity: comment %>
+      <% if comment.user != current_user && current_user.admin %>
+        <span class="flag link-primary">Flag <i class="fas fa-flag"></i></span>
+      <% end %>
+    </div>
     <hr>
     <div class="comment-text">
       <%= comment.comment_text %>

@@ -1,5 +1,5 @@
-<%= link_to user_path(entity.user) do %>
-  <div class="author-info">
+<div class="author-info">
+  <%= link_to user_path(entity.user), class: 'user-link' do %>
     <div class="left">
       <%= image_tag url_for(entity.user.avatar), class: 'user-icon img-md', alt: 'avatar' %>
     </div>
@@ -15,5 +15,5 @@
         <% end %>
       </div>
     </div>
-  </div>
-<% end %>
+  <% end %>
+</div>
