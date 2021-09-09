@@ -27,6 +27,7 @@ nav {
   .left-navbar {
     display: flex;
     width: 600px;
+    margin-right: 0.5rem;
 
     .nav-logo {
       padding: 0.5rem !important;
@@ -62,6 +63,7 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-left: 0.5rem;
 
     .nav-link {
       white-space: nowrap;
