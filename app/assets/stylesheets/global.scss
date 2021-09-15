@@ -90,17 +90,21 @@ body#overboot {
     }
   }
 
-  .table {
-    width: 90% !important;
+  .table-wrapper {
+    display: block;
+    overflow-x: auto;
 
-    tr {
-      vertical-align: middle;
-    }
+    .table {
+      margin: 0 auto;
+      overflow: scroll;
 
-      @media screen and (max-width: $screen-sm) {
-        max-width: 100% !important;
+      .table-action {
+        width: 0.1%;
+        font-size: 1.5rem;
+        text-align: center;
       }
     }
+  }
 
   main {
     // Shorthand not preferred here as individual styles need to be overridden

@@ -5,8 +5,12 @@ class ApplicationController < ActionController::Base
 
   protected
 
+  def authorize_admin
+    redirect_to root_path, flash: { error: 'You do not have access to this page '} unless current_user.admin
+  end
+
   def configure_permitted_parameters
-    attributes = [:first_name, :last_name, :password, :email, :password_confirmation]
+    attributes = %i[first_name last_name password email password_confirmation]
     devise_parameter_sanitizer.permit(:sign_up, keys: attributes)
     devise_parameter_sanitizer.permit(:account_update, keys: %i[attributes avatar bio])
   end

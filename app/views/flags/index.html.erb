@@ -1,0 +1,35 @@
+<section class="flags index">
+  <div class="table-wrapper">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Type</th>
+          <th scope="col">Created by</th>
+          <th scope="col">Reason</th>
+          <th scope="col">Resource</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @flags.each do |flag| %>
+          <% next unless flag.status == 'under_review' %>
+          <tr>
+            <td>
+              <%= flag.flaggable_type %>
+            </td>
+            <td>
+              <%= "#{flag.user.first_name} #{flag.user.last_name}" %>
+            </td>
+            <td>
+              <%= flag.reason %>
+            </td>
+            <td class="table-action">
+              <%= link_to root_path, class: 'link-primary' do %>
+                <i class="fas fa-external-link-alt"></i>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</section>
