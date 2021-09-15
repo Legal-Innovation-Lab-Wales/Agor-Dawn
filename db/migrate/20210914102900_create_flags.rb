@@ -3,7 +3,8 @@ class CreateFlags < ActiveRecord::Migration[6.1]
     create_table :flags do |t|
       t.belongs_to :user, null: false, foreign_key: true
       t.text :reason
-      t.column :status, :integer, default: 0
+      t.boolean :admin_resolved, null: false, default: false
+      t.boolean :user_resolved, null: false, default: false
       t.references :flaggable, polymorphic: true
 
       t.timestamps

@@ -57,6 +57,7 @@ ActiveRecord::Schema.define(version: 2021_09_14_102900) do
   create_table "comments", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.text "comment_text"
+    t.boolean "public", default: true, null: false
     t.bigint "project_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -67,7 +68,8 @@ ActiveRecord::Schema.define(version: 2021_09_14_102900) do
   create_table "flags", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.text "reason"
-    t.integer "status", default: 0
+    t.boolean "admin_resolved", default: false, null: false
+    t.boolean "user_resolved", default: false, null: false
     t.string "flaggable_type"
     t.bigint "flaggable_id"
     t.datetime "created_at", precision: 6, null: false
