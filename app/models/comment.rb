@@ -3,6 +3,7 @@ class Comment < ApplicationRecord
   default_scope { order('created_at ASC') }
   belongs_to :user
   belongs_to :project
+  has_many :flags, as: :flaggable
 
   after_create :increment_count
   after_destroy :decrement_count
