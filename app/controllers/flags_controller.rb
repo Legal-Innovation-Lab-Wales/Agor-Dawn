@@ -11,7 +11,6 @@ class FlagsController < ApplicationController
 
   def flags
     @flags = Flag.includes(:user)
-                 .is_under_review
                  .most_recent
   end
 end

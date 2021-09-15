@@ -7,7 +7,6 @@ class Flag < ApplicationRecord
 
   validates_presence_of :user_id, :reason, :flaggable
 
-  scope :is_under_review, -> { where(status: 'under_review') }
   scope :most_recent, -> { order(created_at: :desc) }
 
   private
