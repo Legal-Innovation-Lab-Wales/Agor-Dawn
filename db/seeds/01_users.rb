@@ -80,18 +80,5 @@ end
   attach_default(user, index + 1)
 end
 
-5.times.each do |index|
-  user = User.new(
-    first_name: Faker::Name.first_name,
-    last_name: Faker::Name.last_name,
-    bio: Faker::Job.title,
-    email: "AD-test-user-#{index + 100}@purpleriver.dev",
-    password: 'test1234',
-    admin: false,
-    approved: false
-  )
-  attach_default(user, index + 1)
-end
-
 puts "\tDuration: #{pretty_print(Time.now - @start_time)}   Elapsed: #{pretty_print(Time.now - @start_time)}"
 @last_time = Time.now

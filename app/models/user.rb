@@ -1,8 +1,9 @@
 # app/models/user.rb
 class User < ApplicationRecord
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable, :trackable
-  after_save :set_default_avatar
+  after_save :set_default_avatar # Cannot occur after_create because of seed
   after_update :purge_unattached_avatars, if: -> { avatar.changed? }
+  after_create :mail_admins, if: -> { !approved? }
 
   has_many :comments, dependent: :destroy
   has_many :projects, dependent: :destroy
@@ -37,5 +38,9 @@ class User < ApplicationRecord
 
   def purge_unattached_avatars
     ActiveStorage::Blob.unattached.where(default_avatar: false).each(&:purge_later)
+  end
+
+  def mail_admins
+    User.admins.each { |admin| AdminMailer.new_user_signup(self, admin).deliver_now }
   end
 end
