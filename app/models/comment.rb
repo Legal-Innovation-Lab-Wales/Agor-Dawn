@@ -1,6 +1,8 @@
 # app/models/comment.rb
 class Comment < ApplicationRecord
-  default_scope { order('created_at ASC') }
+  include FlaggableScope
+
+  default_scope { order('comments.created_at ASC') }
   belongs_to :user
   belongs_to :project
   has_many :flags, as: :flaggable

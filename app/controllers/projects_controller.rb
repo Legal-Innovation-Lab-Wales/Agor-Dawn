@@ -29,13 +29,10 @@ class ProjectsController < ApplicationController
   def show
     @current_user_like = @project.likes.find_by(user: current_user)
     @count = @project.likes.count
-    @liked_by = @project.likes.includes(:user)
-                        .order(created_at: :desc)
-                        .limit(20)
-                        .map { |like| like.user.full_name.to_s }
-                        .join("\n")
-    @liked_by += "\nand #{@count - 20} more..." if @count > 20
+    @tooltip = @project.likes.tooltip + (@count > 20 ? "\nand #{@count - 20} more..." : '')
     @project.likes.build(user: current_user, project: @project) unless @current_user_like
+    @comments = @project.comments
+    @comments = @comments.not_flagged(current_user) unless current_user.admin
   end
 
   # GET /projects/new

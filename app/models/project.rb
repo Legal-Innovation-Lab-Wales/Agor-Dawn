@@ -1,5 +1,7 @@
 # app/models/project.rb
 class Project < ApplicationRecord
+  include FlaggableScope
+
   belongs_to :user
   has_many :comments, dependent: :destroy
   has_many :likes
@@ -17,15 +19,16 @@ class Project < ApplicationRecord
                        { query: "%#{query.split.join('%|%')}%" })
   }
   scope :is_public, -> { where(public: true) }
-  scope :is_flagged, ->(user_id) { joins(:flags).where('projects.user_id != ? and (flags.admin_resolved is False and flags.user_resolved is False)', user_id) }
-  scope :not_flagged, ->(user_id) { where.not(id: is_flagged(user_id)) }
+  # scope :is_flagged, ->(user_id) { joins(:flags).where('projects.user_id != ? and (flags.admin_resolved is False and flags.user_resolved is False)', user_id) }
+  # scope :not_flagged, ->(user_id) { where.not(id: is_flagged(user_id)) }
+
   scope :most_recent, -> { order(created_at: :desc) }
   scope :most_popular, -> { order(like_count: :desc) }
   scope :most_discussed, -> { order(comment_count: :desc) }
 
   has_rich_text :content
 
-  def check_flagged
-    Flag.project.include?(self)
+  def class_name
+    'projects'
   end
 end

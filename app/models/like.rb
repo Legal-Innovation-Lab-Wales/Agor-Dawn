@@ -8,6 +8,8 @@ class Like < ApplicationRecord
 
   validates :user_id, uniqueness: { scope: :project_id }
 
+  scope :tooltip, -> { includes(:user).order(created_at: :desc).limit(20).map { |like| like.user.full_name.to_s }.join("\n") }
+
   def increment_count
     project.update!(like_count: project.like_count + 1)
     user.update!(likes_given: user.likes_given + 1)
