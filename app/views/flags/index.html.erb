@@ -5,7 +5,8 @@
         <tr>
           <th scope="col">Type</th>
           <th scope="col">Created by</th>
-          <th scope="col">Reason</th>
+          <th scope="col">Admin Resolved</th>
+          <th scope="col">User Resolved</th>
           <th scope="col">Resource</th>
         </tr>
       </thead>
@@ -16,10 +17,13 @@
               <%= flag.flaggable_type %>
             </td>
             <td>
-              <%= "#{flag.user.first_name} #{flag.user.last_name}" %>
+              <%= flag.user.full_name %>
             </td>
-            <td>
-              <%= flag.reason %>
+            <td class="table-action">
+              <%= flag.admin_resolved %>
+            </td>
+            <td class="table-action">
+              <%= flag.user_resolved %>
             </td>
             <td class="table-action">
               <%= link_to root_path, class: 'link-primary' do %>

@@ -57,7 +57,7 @@ ActiveRecord::Schema.define(version: 2021_09_14_102900) do
   create_table "comments", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.text "comment_text"
-    t.boolean "public", default: true, null: false
+    t.boolean "flagged", default: false, null: false
     t.bigint "project_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -91,6 +91,7 @@ ActiveRecord::Schema.define(version: 2021_09_14_102900) do
     t.bigint "user_id", null: false
     t.string "name", null: false
     t.boolean "public", default: true, null: false
+    t.boolean "flagged", default: false, null: false
     t.integer "view_count", default: 0, null: false
     t.string "summary", limit: 240, null: false
     t.integer "like_count", default: 0, null: false

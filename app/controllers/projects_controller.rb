@@ -11,6 +11,8 @@ class ProjectsController < ApplicationController
   def index
     @projects = Project.includes(:user).is_public
 
+    @projects = @projects.not_flagged(current_user.id) unless current_user.admin
+
     @projects = case @category
                 when 'recent'
                   @projects.most_recent
@@ -84,7 +86,9 @@ class ProjectsController < ApplicationController
   private
 
   def project
-    @project = Project.includes(:user, :comments, :likes).find(params[:id])
+    projects = Project.includes(:user, :comments, :likes)
+    projects = projects.not_flagged(current_user) unless current_user.admin
+    @project = projects.find(params[:id])
   rescue ActiveRecord::RecordNotFound
     redirect_back(fallback_location: projects_path, flash: { error: 'Project was not found.' })
   end
