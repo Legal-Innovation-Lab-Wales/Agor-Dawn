@@ -13,8 +13,6 @@
       <a href="https://www.agorip.com/get-in-touch/" class="btn btn-secondary-2">Get in touch</a>
     </div>
   </div>
-
-  <% if current_user.approved? %>
     <div class="container search-browse">
       <h3>Find your next collaboration today!</h3>
       <%= render 'shared/search' %>
@@ -28,14 +26,6 @@
       <hr>
       <%= render "projects/project_card_collection" %>
     </div>
-    <% else %>
-    <div class="projects-container">
-      <h3>Awaiting Approval</h3>
-      <hr>
-  <p>You must wait till an admin approves your signup. You will get an email confirmation when this is done.</p>
-    </div>
-  <% end %>
-
 </main>
 
 <%= javascript_pack_tag 'search' %>
