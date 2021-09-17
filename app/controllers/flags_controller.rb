@@ -10,7 +10,6 @@ class FlagsController < ApplicationController
   private
 
   def flags
-    @flags = Flag.includes(:user)
-                 .most_recent
+    @flags = Flag.includes(:user).most_recent
   end
 end
