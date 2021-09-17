@@ -27,6 +27,14 @@ class User < ApplicationRecord
     projects.map(&:comment_count).sum
   end
 
+  def flagged_comments
+    comments.filter(&:flagged?)
+  end
+
+  def flagged_projects
+    projects.filter(&:flagged?)
+  end
+
   private
 
   def set_default_avatar

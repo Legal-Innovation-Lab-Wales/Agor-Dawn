@@ -1,4 +1,4 @@
-<div class="project-card <%= project.public || !project.flagged ? '' : 'private' %>">
+<div class="project-card <%= project.public ? '' : 'private' %> <%= project.flagged? ? 'flagged' : '' %>">
   <div class="card-outer-1">
     <div class="card-outer-2">
       <div class="card-content">

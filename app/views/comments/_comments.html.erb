@@ -1,9 +1,10 @@
 <% @comments.each do |comment| %>
-  <div class="comment container">
+  <div class="comment container <%= comment.flagged? ? 'flagged' : '' %>">
     <div class="comment-header">
       <%= render 'shared/author_info', entity: comment %>
       <% if comment.user != current_user && current_user.admin %>
-        <span class="flag link-primary" data-open-modal="flag-modal" data-resource-type="comment" data-resouce-id="<%= comment.id %>">Flag <i class="fas fa-flag"></i></span>
+        <span class="flag link-primary" data-open-modal="flag-modal"
+              data-resource-type="comment" data-resource-id="<%= comment.id %>">Flag <i class="fas fa-flag"></i></span>
       <% end %>
     </div>
     <hr>
