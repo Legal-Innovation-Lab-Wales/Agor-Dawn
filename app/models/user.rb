@@ -12,6 +12,8 @@ class User < ApplicationRecord
 
   scope :admins, -> { where(admin: true) }
   scope :non_admins, -> { where(admin: false) }
+  scope :unauthenticated, -> { where(approved: false) }
+  scope :authenticated, -> { where(approved: true) }
 
   validates_presence_of :likes_given, :comments_posted
   validates :bio, length: { maximum: 240 }

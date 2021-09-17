@@ -12,10 +12,10 @@ class AdminController < ApplicationController
   # PUT /admin/users/:id
   def toggle_admin
     @user = User.find(params[:id])
-    @user.update!(admin: !@user.admin)
+    @user.update!(admin: true)
 
     redirect_back(fallback_location: projects_path,
-                  flash: { success: "#{@user.full_name} is #{@user.admin ? 'now' : 'no longer'} an admin." })
+                  flash: { success: "#{@user.full_name} is now an admin." })
   end
 
   # PUT /admin/users/:id/approve
@@ -47,8 +47,8 @@ class AdminController < ApplicationController
   end
 
   def users
-    @users = User.all.order(:first_name)
-    @unauthenticated_users = User.all.where(approved: false)
+    @unauthenticated_users = User.unauthenticated.order(:first_name)
+    @authenticated_users = User.authenticated.order(:first_name)
   end
 
 end

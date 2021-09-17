@@ -14,8 +14,6 @@ class ApplicationController < ActionController::Base
 
   def require_approval
     return unless current_user && !current_user.approved?
-
-    flash[:notice] = "You require approval to use the system"
     sign_out_and_redirect(current_user)
   end
 end

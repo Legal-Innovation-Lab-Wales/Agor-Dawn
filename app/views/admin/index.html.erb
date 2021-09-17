@@ -52,7 +52,7 @@
       <th scope="col">Admin</th>
     </tr>
     </thead>
-    <% @users.each do |user| %>
+    <% @authenticated_users.each do |user| %>
       <tr>
         <td>
           <%= link_to user_path(user) do %>
@@ -69,8 +69,14 @@
           <%= user.email %>
         </td>
         <td>
-          <%= link_to toggle_admin_index_path(user), method: :put do %>
-            <i class="fas fa-<%= user.admin ? 'check' : 'times' %> text-<%= user.admin ? 'success' : 'danger' %> user-icon"></i>
+          <% unless user.admin? %>
+            <%= link_to toggle_admin_index_path(user), method: :put do %>
+              <i class="fas fa-times text-danger user-icon"></i>
+            <% end %>
+          <% else %>
+            <div class="btn disabled">
+              <i class="fas fa-check text-success user-icon"></i>
+            </div>
           <% end %>
         </td>
     <% end %>
