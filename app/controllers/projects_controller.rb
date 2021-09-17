@@ -1,6 +1,5 @@
 # app/controllers/projects_controller.rb
 class ProjectsController < ApplicationController
-  skip_before_action :authenticate_user!, only: %i[index show]
   before_action :project_params, only: %i[create update]
   before_action :project, except: %i[index new create]
   before_action :category, only: :index

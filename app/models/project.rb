@@ -4,8 +4,8 @@ class Project < ApplicationRecord
 
   belongs_to :user
   has_many :comments, dependent: :destroy
-  has_many :likes
   has_many :flags, as: :flaggable
+  has_many :likes, dependent: :destroy
 
   validates_presence_of :user_id, :name, :summary, :like_count, :comment_count
   validates :name, presence: true
