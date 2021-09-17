@@ -1,6 +1,6 @@
 <div class="row justify-content-center">
-  <h2>Unauthenticated Users</h2>
   <% if @unauthenticated_users.present? %>
+    <h2>Unauthenticated Users</h2>
     <p>Below are the users who have signed up but not been approved yet.</p>
     <table class="table">
       <thead>
@@ -40,8 +40,6 @@
       <% end %>
       </tr>
     </table>
-    <% else %>
-  <p>There are no new sign-ups</p>
   <% end %>
   <h2>Authenticated Users</h2>
   <table class="table">
