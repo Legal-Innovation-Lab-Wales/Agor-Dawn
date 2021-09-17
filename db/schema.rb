@@ -65,7 +65,7 @@ ActiveRecord::Schema.define(version: 2021_09_14_102900) do
   end
 
   create_table "flags", force: :cascade do |t|
-    t.bigint "user_id", null: false
+    t.bigint "flagged_by_id", null: false
     t.text "reason"
     t.boolean "admin_resolved", default: false, null: false
     t.boolean "user_resolved", default: false, null: false
@@ -74,7 +74,7 @@ ActiveRecord::Schema.define(version: 2021_09_14_102900) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["flaggable_type", "flaggable_id"], name: "index_flags_on_flaggable"
-    t.index ["user_id"], name: "index_flags_on_user_id"
+    t.index ["flagged_by_id"], name: "index_flags_on_flagged_by_id"
   end
 
   create_table "likes", force: :cascade do |t|
@@ -126,7 +126,7 @@ ActiveRecord::Schema.define(version: 2021_09_14_102900) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "comments", "projects"
   add_foreign_key "comments", "users"
-  add_foreign_key "flags", "users"
+  add_foreign_key "flags", "users", column: "flagged_by_id"
   add_foreign_key "likes", "projects"
   add_foreign_key "likes", "users"
   add_foreign_key "projects", "users"

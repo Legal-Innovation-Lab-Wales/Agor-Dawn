@@ -9,8 +9,13 @@
       </div>
       <section class="flag-modal form container">
         <div class="field">
-          <label>Reason</label>
-          <textarea class="reason"></textarea>
+          <%= form_with model: Flag.new do |f| %>
+            <%= f.hidden_field :resource_type, required: true %>
+            <%= f.hidden_field :resource_id, required: true %>
+            <%= f.label :reason %>
+            <%= f.text_area :reason, class: 'reason', required: true %>
+            <%= f.submit %>
+          <% end %>
         </div>
       </section>
     </div>

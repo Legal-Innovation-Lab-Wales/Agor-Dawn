@@ -5,7 +5,7 @@ if Flag.count.zero?
     next unless (project.id % 5).zero?
 
     Flag.create!(
-      user_id: User.where(admin: true).order('RANDOM()').first.id,
+      flagged_by: User.where(admin: true).order('RANDOM()').first,
       reason: Faker::TvShows::TheITCrowd.quote,
       flaggable: project
     )
@@ -15,7 +15,7 @@ if Flag.count.zero?
     next unless (comment.id % 5).zero?
 
     Flag.create!(
-      user_id: User.where(admin: true).order('RANDOM()').first.id,
+      flagged_by: User.where(admin: true).order('RANDOM()').first,
       reason: Faker::TvShows::TheITCrowd.quote,
       flaggable: comment
     )

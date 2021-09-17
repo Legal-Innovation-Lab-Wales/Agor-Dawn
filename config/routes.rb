@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     resource :likes, only: %i[create destroy]
   end
 
-  resources :flags, only: :index
+  resources :flags, only: %i[index create update]
 
   root 'pages#home'
 end
