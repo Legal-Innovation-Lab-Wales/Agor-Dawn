@@ -39,7 +39,7 @@ class AdminController < ApplicationController
   private
 
   def authorize_admin
-    redirect_back(root_path) unless current_user.admin
+    redirect_back(authenticated_root_path) unless current_user.admin
   end
 
   def user
