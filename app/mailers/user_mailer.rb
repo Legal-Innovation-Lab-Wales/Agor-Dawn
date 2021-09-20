@@ -1,7 +1,7 @@
 # app/mailers/user_mailer.rb
 class UserMailer < ApplicationMailer
 
-  def new_verify(user)
+  def approved(user)
     @user = user
     mail(to: @user.email, subject: 'Signup Approved',
          body: "#{user.full_name} your signup has been approved. You can now login here #{root_url}")

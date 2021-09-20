@@ -21,7 +21,6 @@ class AdminController < ApplicationController
   # PUT /admin/users/:id/approve
   def approve
     @user.update(approved: true)
-    UserMailer.new_verify(@user)
 
     redirect_back(fallback_location: admin_index_path, flash: { success: "#{@user.full_name} is now approved" })
   end
