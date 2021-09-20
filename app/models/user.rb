@@ -4,7 +4,7 @@ class User < ApplicationRecord
   after_save :set_default_avatar # Cannot occur after_create because of seed
   after_update :purge_unattached_avatars, if: -> { avatar.changed? }
   after_create :mail_admins, unless: -> { approved? }
-  before_update :mail_user, if: -> { approved? && saved_change_to_approved? }
+  before_update :mail_user, if: -> { !approved_was() && approved? }
 
   has_many :comments, dependent: :destroy
   has_many :projects, dependent: :destroy
