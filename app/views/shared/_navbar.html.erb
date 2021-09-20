@@ -2,7 +2,7 @@
   <div class="left-navbar">
     <%= link_to 'Agor Dawn', root_path, class: 'nav-logo btn btn-primary' %>
     <% unless current_user.nil? %>
-    <%=  render 'shared/search'  %>
+      <%= render 'shared/search' %>
     <% end %>
   </div>
   <%= render 'shared/right_navbar' %>
