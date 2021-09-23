@@ -29,11 +29,11 @@
             <%= user.email %>
           </td>
           <td>
-            <%= link_to approve_admin_path(user), method: :put do %>
+            <%= link_to approve_path(user), method: :put do %>
               <i class="fas fa-check fa-lg text-success user-icon"></i>
             <% end %>
             |
-            <%= link_to reject_admin_path(user), method: :put do %>
+            <%= link_to reject_path(user), method: :put do %>
               <i class="fas fa-times fa-lg text-danger user-icon"></i>
             <% end %>
           </td>
@@ -70,7 +70,7 @@
         </td>
         <td>
           <% unless user.admin? %>
-            <%= link_to toggle_admin_index_path(user), method: :put do %>
+            <%= link_to make_admin_path(user), method: :put do %>
               <i class="fas fa-times text-danger user-icon"></i>
             <% end %>
           <% else %>

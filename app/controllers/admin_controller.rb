@@ -2,15 +2,10 @@
 class AdminController < ApplicationController
   before_action :user, only: %i[approve reject]
   before_action :users
-  before_action :authorize_admin, only: :index
+  before_action :authorize_admin
 
-  # GET /user/admin
-  def show
-    render 'show'
-  end
-
-  # PUT /admin/users/:id
-  def toggle_admin
+  # PUT /admin/users/:id/admin
+  def make_admin
     @user = User.find(params[:id])
     @user.update!(admin: true)
 
@@ -29,11 +24,10 @@ class AdminController < ApplicationController
   def reject
     return if @user.approved
 
-    if @user.destroy
-      redirect_to admin_index_path, flash: { success: "#{@user.full_name} has been rejected" }
-    else
-      redirect_to admin_index_path, flash: { error: "#{@user.full_name} couldn't be rejected" }
-    end
+    flash[:success] = "#{@user.full_name} has been rejected" if @user.destroy
+    flash[:error] = "#{@user.full_name} couldn't be rejected" unless flash[:success].present?
+
+    redirect_back(fallback_location: admin_index_path)
   end
 
   private
@@ -50,5 +44,4 @@ class AdminController < ApplicationController
     @unauthenticated_users = User.unauthenticated.order(:first_name)
     @authenticated_users = User.authenticated.order(:first_name)
   end
-
 end
