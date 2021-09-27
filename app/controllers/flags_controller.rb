@@ -12,7 +12,7 @@ class FlagsController < ApplicationController
 
   # POST /flags
   def create
-    @flag = Flag.create!(flagged_by: current_user, reason: flag_params[:reason], flaggable: @resource)
+    @flag = Flag.create!(flagged_by: current_user, reason: "Admin: #{flag_params[:reason]}", flaggable: @resource)
 
     redirect_back(fallback_location: root_path, flash: { success: "#{@resource.class.name} has been flagged." })
   end
