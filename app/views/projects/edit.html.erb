@@ -1,4 +1,12 @@
 <section class="projects edit">
+  <% if @project.flagged? %>
+    <div class="form container">
+      <h2>Flag Information</h2>
+      <p>Created: <%= @last_unresolved_flag.created %></p>
+      <p>Last Updated: <%= @last_unresolved_flag.last_update %></p>
+      <p>Comments Thus Far:<br><%= simple_format(@last_unresolved_flag.reason) %></p>
+    </div>
+  <% end %>
   <div class="form container">
     <h2>Edit Project</h2>
     <%= render 'form' %>

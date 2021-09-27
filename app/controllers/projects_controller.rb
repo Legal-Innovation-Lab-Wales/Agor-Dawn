@@ -5,6 +5,7 @@ class ProjectsController < ApplicationController
   before_action :category, only: :index
   before_action :redirect, only: %i[edit update destroy], unless: -> { project_owner? }
   before_action :verify_public, :increment_viewcount, only: :show
+  before_action :update_flag, only: :update, if: -> { flag_resolved? }
 
   # GET /projects
   def index
@@ -19,6 +20,8 @@ class ProjectsController < ApplicationController
                   @projects.most_popular
                 when 'discussed'
                   @projects.most_discussed
+                else
+                  raise "Unknown Project Category [#{@category}]"
                 end
 
     @projects = @projects.search(search_params[:query]) if search_params[:query].present?
@@ -61,15 +64,13 @@ class ProjectsController < ApplicationController
 
   # PUT /projects/:id
   def update
-    @project.update(project_params)
+    @project.update(name: project_params[:name], summary: project_params[:summary],
+                    public: project_params[:public], content: project_params[:content])
 
-    if @project.valid?
-      flash[:success] = 'Successfully updated project!'
-      redirect_to project_path(@project)
-    else
-      flash[:error] = 'Error updating project'
-      render 'edit'
-    end
+    flash[:success] = 'Successfully updated project!' if @project.valid?
+    flash[:error] = 'Error updating project' unless @project.valid?
+
+    redirect_to @project.valid? ? project_path(@project) : edit_project_path(@project)
   end
 
   # DELETE /projects/:id
@@ -85,12 +86,13 @@ class ProjectsController < ApplicationController
     projects = Project.includes(:user, :comments, :likes)
     projects = projects.not_flagged(current_user) unless current_user.admin
     @project = projects.find(params[:id])
+    @last_unresolved_flag = @project.last_unresolved_flag
   rescue ActiveRecord::RecordNotFound
     redirect_back(fallback_location: projects_path, flash: { error: 'Project was not found.' })
   end
 
   def project_params
-    params.require(:project).permit(:name, :summary, :public, :content)
+    params.require(:project).permit(:name, :summary, :public, :content, :flag_comment, :flag_resolved)
   end
 
   def search_params
@@ -128,5 +130,19 @@ class ProjectsController < ApplicationController
 
   def project_owner?
     @project.user == current_user
+  end
+
+  def flag_resolved?
+    project_params[:flag_resolved].present? && !project_params[:flag_resolved].to_i.zero?
+  end
+
+  def update_flag
+    @last_unresolved_flag.update!(user_resolved: true, reason: additional_reason)
+  end
+
+  def additional_reason
+    return @last_unresolved_flag.reason unless project_params[:flag_comment].present?
+
+    "#{@last_unresolved_flag.reason}\n#{current_user.first_name}: #{project_params[:flag_comment]}"
   end
 end

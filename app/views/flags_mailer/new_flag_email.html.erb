@@ -1,7 +1,0 @@
-<h2>Hi <%= @flag.flaggable.user.first_name %></h2>
-<p>Our admins have flagged your <%= @flag_type %> for review for the following reason:</p>
-<br>
-<p><%= @flag.reason %></p>
-<br>
-<p>Please <%= link_to 'login', project_path(@project_id) %> and make the appropriate changes.</p>
-<p>You have 24 hours to make the changes or your <%= @flag_type %> will be automatically removed.</p>

@@ -7,7 +7,15 @@ module FlaggableScope
     scope :not_flagged, ->(user_id) { where.not(id: is_flagged(user_id)) }
 
     def flagged?
-      flags.where(user_resolved: false).or(flags.where(admin_resolved: false)).any?
+      unresolved_flags.any?
+    end
+
+    def last_unresolved_flag
+      unresolved_flags.order(created_at: :desc).first
+    end
+
+    def unresolved_flags
+      flags.where(user_resolved: false).or(flags.where(admin_resolved: false))
     end
   end
 end

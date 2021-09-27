@@ -4,7 +4,6 @@ class FlagsController < ApplicationController
   before_action :flags, only: :index
   before_action :flag, only: :update
   before_action :resource, only: :create
-  after_action :email, only: %i[create update]
 
   # GET /flags
   def index
@@ -24,15 +23,6 @@ class FlagsController < ApplicationController
   end
 
   private
-
-  def email
-    case action_name
-    when 'create'
-      FlagsMailer.new_flag_email(@flag)
-    when 'update'
-      FlagsMailer.updated_flag_email(@flag)
-    end
-  end
 
   def flags
     @flags = Flag.includes(:flagged_by).most_recent

@@ -12,10 +12,17 @@
                   <i class="fas fa-eye-slash"></i> Private
                 <% end %>
               </span>
+              <% if project.flagged? %>
+                <span>
+                  <i class="fas fa-flag"></i> Flagged
+                </span>
+              <% end %>
               <%= link_to edit_project_path, class: 'btn btn-primary' do %>
                 <i class="fas fa-edit"></i> Edit
               <% end %>
-            <% elsif current_user.admin %>
+            <% end %>
+
+            <% if current_user.admin && !project.flagged? %>
               <span class="flag link-primary" data-open-modal="flag-modal"
                     data-resource-type="project" data-resource-id="<%= project.id %>">Flag <i class="fas fa-flag"></i></span>
             <% end %>

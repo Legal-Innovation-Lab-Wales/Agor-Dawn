@@ -16,6 +16,18 @@
     <%= form.label :public, 'Public' %>
     <%= form.check_box :public %>
   </div>
+  <% if @project.flagged? %>
+    <div class="field">
+      <%= form.label :flag_comment do %>
+        Additional Flag Comments <small>- These comments will be shown to the platforms admin team.</small>
+      <% end %>
+      <%= form.text_area :flag_comment %>
+    </div>
+    <div class="field checkbox">
+      <%= form.label :flag_resolved, 'Flag Resolved' %>
+      <%= form.check_box :flag_resolved %>
+    </div>
+  <% end %>
   <div class="actions">
     <%= form.submit 'Submit', class: 'btn btn-primary' %>
   </div>

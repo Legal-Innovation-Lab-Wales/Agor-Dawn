@@ -6,7 +6,7 @@ if Flag.count.zero?
 
     Flag.create!(
       flagged_by: User.where(admin: true).order('RANDOM()').first,
-      reason: Faker::TvShows::TheITCrowd.quote,
+      reason: "Admin: #{Faker::TvShows::TheITCrowd.quote}",
       flaggable: project
     )
   end
@@ -16,7 +16,7 @@ if Flag.count.zero?
 
     Flag.create!(
       flagged_by: User.where(admin: true).order('RANDOM()').first,
-      reason: Faker::TvShows::TheITCrowd.quote,
+      reason: "Admin: #{Faker::TvShows::TheITCrowd.quote}",
       flaggable: comment
     )
   end
