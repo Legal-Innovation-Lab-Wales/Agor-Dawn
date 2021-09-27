@@ -14,7 +14,7 @@ class Flag < ApplicationRecord
   private
 
   def mail_user
-    FlagMailer.new_flag(flaggable.user, reason, flaggable_type.downcase, flaggable[:project_id] || flaggable.id)
+    FlagMailer.new_flag(flaggable.user, reason, flaggable_type.downcase, flaggable[:project_id] || flaggable.id).deliver_now
   end
 
   def mail_admin
