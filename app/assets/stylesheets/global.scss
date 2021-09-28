@@ -90,9 +90,14 @@ body#overboot {
     }
   }
 
+  .title-header {
+    text-align: center;
+  }
+
   .table-wrapper {
     display: block;
     overflow-x: auto;
+    margin-bottom: 1rem;
 
     .table {
       margin: 0 auto;

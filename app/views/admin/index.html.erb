@@ -1,6 +1,6 @@
 <section class="admin show">
   <% if @unauthenticated_users.present? %>
-    <h2>Unauthenticated Users</h2>
+    <h2 class="title-header">Unauthenticated Users <i class="fas fa-users-slash"></i></h2>
     <p>Below are the users who have signed up but not been approved yet.</p>
     <div class="table-wrapper">
       <table class="table">
@@ -12,7 +12,7 @@
           </tr>
         </thead>
         <tbody>
-          <% @users.each do |user| %>
+          <% @unauthenticated_users.each do |user| %>
             <tr>
               <td>
                 <%= user.email %>
@@ -22,11 +22,11 @@
               </td>
               <td class="table-action">
                 <%= link_to approve_admin_path(user), method: :put do %>
-                  <i class="fas fa-check fa-lg text-success user-icon"></i>
+                  <i class="fas fa-check text-success user-icon"></i>
                 <% end %>
                 |
                 <%= link_to reject_admin_path(user), method: :put do %>
-                  <i class="fas fa-times fa-lg text-danger user-icon"></i>
+                  <i class="fas fa-times text-danger user-icon"></i>
                 <% end %>
               </td>
             </tr>
@@ -35,7 +35,7 @@
       </table>
     </div>
   <% end %>
-  <h2>Approved Users</h2>
+  <h2 class="title-header">Users <i class="fas fa-users"></i></h2>
   <div class="table-wrapper">
     <table class="table">
       <thead>

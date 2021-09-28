@@ -1,12 +1,14 @@
 <section class="flags index">
+  <h2 class="title-header">Flags <i class="fas fa-flag"></i></h2>
   <div class="table-wrapper">
     <table class="table">
       <thead>
         <tr>
+          <th scope="col">Author</th>
           <th scope="col">Type</th>
-          <th scope="col">Created by</th>
-          <th scope="col">Admin Resolved</th>
+          <th scope="col">Flagged By</th>
           <th scope="col">User Resolved</th>
+          <th scope="col">Admin Resolved</th>
           <th scope="col">Resource</th>
         </tr>
       </thead>
@@ -14,16 +16,19 @@
         <% @flags.each do |flag| %>
           <tr>
             <td>
+              <%= flag.flaggable.user.full_name %>
+            </td>
+            <td>
               <%= flag.flaggable_type %>
             </td>
             <td>
               <%= flag.flagged_by.full_name %>
             </td>
             <td class="table-action">
-              <%= flag.admin_resolved %>
+              <i class="fas fa-<%= flag.user_resolved ? 'check' : 'times' %>"></i>
             </td>
             <td class="table-action">
-              <%= flag.user_resolved %>
+              <i class="fas fa-<%= flag.admin_resolved ? 'check' : 'times' %>"></i>
             </td>
             <td class="table-action">
               <%= link_to root_path, class: 'link-primary' do %>
