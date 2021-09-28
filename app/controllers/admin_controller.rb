@@ -4,7 +4,7 @@ class AdminController < ApplicationController
   before_action :user, only: %i[approve reject]
   before_action :users
 
-  # PUT /admin/users/:id/admin
+  # PUT /admin/users/:id/make_admin
   def make_admin
     @user = User.find(params[:id])
     @user.update!(admin: true)
