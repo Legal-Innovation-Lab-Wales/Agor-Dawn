@@ -14,5 +14,6 @@ class ApplicationController < ActionController::Base
   def require_approval
     return unless current_user && !current_user.approved?
     sign_out_and_redirect(current_user)
+    flash[:error] = "You require approval from an admin before you can sign in."
   end
 end
