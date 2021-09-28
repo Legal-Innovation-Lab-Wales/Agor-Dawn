@@ -29,11 +29,13 @@
             <%= user.email %>
           </td>
           <td>
-            <%= link_to approve_path(user), method: :put do %>
+            <%= link_to approve_path(user), method: :put, data: {
+              confirm: "Are you sure you want to approve #{user.full_name}?"} do %>
               <i class="fas fa-check fa-lg text-success user-icon"></i>
             <% end %>
             |
-            <%= link_to reject_path(user), method: :put do %>
+            <%= link_to reject_path(user), method: :put, data: {
+              confirm: "Are you sure you want to reject #{user.full_name}?"} do %>
               <i class="fas fa-times fa-lg text-danger user-icon"></i>
             <% end %>
           </td>
@@ -70,7 +72,8 @@
         </td>
         <td>
           <% unless user.admin? %>
-            <%= link_to make_admin_path(user), method: :put do %>
+            <%= link_to make_admin_path(user), method: :put, data: {
+              confirm: "Are you sure you wish to promote #{user.full_name} to admin?"} do %>
               <i class="fas fa-times text-danger user-icon"></i>
             <% end %>
           <% else %>
