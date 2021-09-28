@@ -1,5 +1,5 @@
 <div class="row justify-content-center">
-  <% if @unauthenticated_users.present? %>
+  <% if @unapproved_users.present? %>
     <h2>Unauthenticated Users</h2>
     <p>Below are the users who have signed up but not been approved yet.</p>
     <table class="table">
@@ -12,7 +12,7 @@
         <th scope="col">Approve</th>
       </tr>
       </thead>
-      <% @unauthenticated_users.each do |user| %>
+      <% @unapproved_users.each do |user| %>
         <tr>
           <td>
             <%= link_to user_path(user) do %>
@@ -52,7 +52,7 @@
       <th scope="col">Admin</th>
     </tr>
     </thead>
-    <% @authenticated_users.each do |user| %>
+    <% @approved_users.each do |user| %>
       <tr>
         <td>
           <%= link_to user_path(user) do %>
