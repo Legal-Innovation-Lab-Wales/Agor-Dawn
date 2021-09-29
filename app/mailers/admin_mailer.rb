@@ -5,6 +5,6 @@ class AdminMailer < ApplicationMailer
     @admin = admin
     @user = user
     mail(to: @admin.email, subject: 'New User Signup',
-         body: "A new user, #{user.full_name} has signed up with the email address #{user.email}. Sign in to approve them #{admin_index_url}")
+         body: "A new user, #{user.full_name} has signed up with the email address #{user.email}. Sign in to approve them #{root_url}")
   end
 end
