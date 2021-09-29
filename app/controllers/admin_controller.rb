@@ -1,7 +1,7 @@
 # app/controllers/admin_controller.rb
 class AdminController < ApplicationController
   before_action :authorize_admin
-  before_action :user, only: %i[approve reject make_admin]
+  before_action :user, except: :index
   before_action :users
 
   # PUT /admin/users/:id/make_admin
