@@ -31,8 +31,14 @@
               <i class="fas fa-<%= flag.admin_resolved ? 'check' : 'times' %>"></i>
             </td>
             <td class="table-action">
-              <%= link_to root_path, class: 'link-primary' do %>
-                <i class="fas fa-external-link-alt"></i>
+              <% if flag.flaggable_type == 'Project' %>
+                <%= link_to project_path(flag.flaggable), class: 'link-primary' do %>
+                  <i class="fas fa-external-link-alt"></i>
+                <% end %>
+              <% elsif flag.flaggable_type == 'Comment' %>
+                <%= link_to project_path(flag.flaggable.project), class: 'link-primary' do %>
+                  <i class="fas fa-external-link-alt"></i>
+                <% end %>
               <% end %>
             </td>
           </tr>

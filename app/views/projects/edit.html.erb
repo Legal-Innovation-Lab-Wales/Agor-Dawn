@@ -11,6 +11,9 @@
         <div class="header">Comments:</div>
         <%= simple_format(@last_unresolved_flag.reason) %>
       </div>
+      <% if @last_unresolved_flag.user_resolved %>
+        <p class="user-resolved">Your response is currently being reviewed by our team.</p>
+      <% end %>
       <div class="metadata">Created: <%= @last_unresolved_flag.created %><span class="dot">·</span>Last Updated: <%= @last_unresolved_flag.last_update %></div>
     </div>
   <% end %>
@@ -27,5 +30,3 @@
     </div>
   </div>
 </section>
-
-<%= javascript_pack_tag 'flags' %>
