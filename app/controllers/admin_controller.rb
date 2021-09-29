@@ -8,14 +8,14 @@ class AdminController < ApplicationController
   def make_admin
     @user.update!(admin: true)
 
-    redirect_to projects_path, flash: { success: "#{@user.full_name} is now an admin." }
+    redirect_back(fallback_location: projects_path, flash: { success: "#{@user.full_name} is now an admin." })
   end
 
   # PUT /admin/users/:id/approve
   def approve
     @user.update(approved: true)
 
-    redirect_to admin_index_path, flash: { success: "#{@user.full_name} is now approved" }
+    redirect_back(fallback_location: admin_index_path, flash: { success: "#{@user.full_name} is now approved" })
   end
 
   # PUT /admin/users/:id/reject
@@ -25,7 +25,7 @@ class AdminController < ApplicationController
     flash[:success] = "#{@user.full_name} has been rejected" if @user.destroy
     flash[:error] = "#{@user.full_name} couldn't be rejected" unless flash[:success].present?
 
-    redirect_to admin_index_path
+    redirect_back(fallback_location: admin_index_path)
   end
 
   private
