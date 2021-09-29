@@ -241,6 +241,18 @@
   }
 
   &.edit {
+    .flag-info {
+      .comments {
+        .header {
+          font-weight: 600;
+        }
+      }
+      .metadata {
+        font-size: 0.875rem;
+        text-align: center;
+      }
+    }
+
     .container.delete {
       max-width: 360px !important;
 

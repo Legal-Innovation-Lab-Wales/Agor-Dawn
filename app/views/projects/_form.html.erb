@@ -17,15 +17,16 @@
     <%= form.check_box :public %>
   </div>
   <% if @project.flagged? %>
-    <div class="field">
+    <hr>
+    <div class="field checkbox flag-resolved">
+      <%= form.label :flag_resolved, 'Flag Resolved' %>
+      <%= form.check_box :flag_resolved %>
+    </div>
+    <div class="field flag-comments" style="display:none;">
       <%= form.label :flag_comment do %>
         Additional Flag Comments <small>- These comments will be shown to the platforms admin team.</small>
       <% end %>
       <%= form.text_area :flag_comment %>
-    </div>
-    <div class="field checkbox">
-      <%= form.label :flag_resolved, 'Flag Resolved' %>
-      <%= form.check_box :flag_resolved %>
     </div>
   <% end %>
   <div class="actions">
