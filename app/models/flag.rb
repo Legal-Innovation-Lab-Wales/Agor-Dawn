@@ -18,10 +18,10 @@ class Flag < ApplicationRecord
   end
 
   def mail_admin
-    # Send mail to admin that user thinks they've solved it...
+    FlagMailer.user_resolved(flagged_by, flaggable.user, reason, flaggable_type.downcase, flaggable[:project_id] || flaggable.id).deliver_now
   end
 
   def mail_flag_resolved
-    # Send mail to user that the flag is considered resolved...
+    FlagMailer.admin_resolved(flaggable.user, reason, flaggable_type.downcase, flaggable[:project_id] || flaggable.id).deliver_now
   end
 end

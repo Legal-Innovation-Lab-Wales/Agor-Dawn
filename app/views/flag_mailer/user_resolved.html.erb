@@ -1,0 +1,6 @@
+<h2>Hello <%= @admin.first_name %>,</h2>
+<p>This message is regarding a flag you raised on a <strong><%= @type %></strong> by <strong><%= @user.full_name %></strong>.</p>
+<p><%= @user.full_name %> has marked the flag has resolved.</p>
+<p>Comments:</p>
+<%= simple_format(@reason) %>
+<p>Please <%= link_to 'login', project_url(@project_id) %> to review the flag.</p>
