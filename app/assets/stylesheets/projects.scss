@@ -250,7 +250,7 @@
     }
   }
 
-  &.show, .edit {
+  &.show, &.edit {
     .flag-info {
       max-width: none !important;
       
