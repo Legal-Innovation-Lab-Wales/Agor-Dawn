@@ -13,7 +13,7 @@ class AdminController < ApplicationController
 
   # PUT /admin/users/:id/approve
   def approve
-    @user.update(approved: true)
+    @user.update!(approved: true)
 
     redirect_back(fallback_location: admin_index_path, flash: { success: "#{@user.full_name} is now approved" })
   end
