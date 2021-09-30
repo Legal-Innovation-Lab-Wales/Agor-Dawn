@@ -2,7 +2,7 @@
 class FlagsController < ApplicationController
   before_action :authorize_admin, except: :update
   before_action :flags, only: :index
-  before_action :flag, only: :update
+  before_action :flag, only: %i[resolve remove]
   before_action :resource, only: :create
 
   # GET /flags
@@ -17,9 +17,18 @@ class FlagsController < ApplicationController
     redirect_back(fallback_location: root_path, flash: { success: "#{@resource.class.name} has been flagged." })
   end
 
-  # PUT /flags/:id
-  def update
-    # TODO: Update resolved status...
+  # PUT /flags/:id/resolve
+  def resolve
+    @flag.update!(admin_resolved: true)
+
+    redirect_back(fallback_location: root_path, flash: { success: 'Flag resolved.' })
+  end
+
+  # PUT /flags/:id/reject
+  def reject
+    @flag.flaggable.destroy
+
+    redirect_to projects_path, flash: { error: 'Resource removed' }
   end
 
   private

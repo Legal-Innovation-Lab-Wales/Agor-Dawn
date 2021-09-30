@@ -241,8 +241,20 @@
   }
 
   &.edit {
+    .container.delete {
+      max-width: 360px !important;
+
+      .btn.btn-secondary-1 {
+        width: fit-content;
+      }
+    }
+  }
+
+  &.show, &.edit {
     .flag-info {
-      .comments {
+      max-width: none !important;
+
+      .updates {
         .header {
           font-weight: 600;
         }
@@ -253,17 +265,19 @@
         text-align: center;
       }
 
+      .btn-container {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 1rem;
+
+        .btn {
+          margin: 0 0.25rem;
+        }
+      }
+
       .metadata {
         font-size: 0.875rem;
         text-align: center;
-      }
-    }
-
-    .container.delete {
-      max-width: 360px !important;
-
-      .btn.btn-secondary-1 {
-        width: fit-content;
       }
     }
   }

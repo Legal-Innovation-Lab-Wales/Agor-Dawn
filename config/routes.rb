@@ -13,7 +13,10 @@ Rails.application.routes.draw do
     resource :likes, only: %i[create destroy]
   end
 
-  resources :flags, only: %i[index create update]
+  resources :flags, only: %i[index create] do
+    put 'resolve', action: 'resolve', on: :member, as: :resolve
+    put 'reject', action: 'reject', on: :member, as: :reject
+  end
 
   root 'pages#home'
 end

@@ -1,22 +1,5 @@
 <section class="projects edit">
-  <% if @project.flagged? %>
-    <div class="form container flag-info">
-      <h2>Flag Information</h2>
-      <p>
-        Your project has been flagged for review by our admins. Please refer to their comments and make the appropriate changes.<br>
-        Once the issue(s) have been resolved, tick the 'flag resolved' box, located at the bottom of the page, and submit the changes.<br>
-        Our team will review the changes and respond accordingly.
-      </p>
-      <div class="comments">
-        <div class="header">Comments:</div>
-        <%= simple_format(@last_unresolved_flag.reason) %>
-      </div>
-      <% if @last_unresolved_flag.user_resolved %>
-        <p class="user-resolved">Your response is currently being reviewed by our team.</p>
-      <% end %>
-      <div class="metadata">Created: <%= @last_unresolved_flag.created %><span class="dot">·</span>Last Updated: <%= @last_unresolved_flag.last_update %></div>
-    </div>
-  <% end %>
+  <%= render 'flag_information' %>
   <div class="form container">
     <h2>Edit Project</h2>
     <%= render 'form' %>

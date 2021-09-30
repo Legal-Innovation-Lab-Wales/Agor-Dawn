@@ -1,0 +1,35 @@
+<% if @project.flagged? %>
+  <div class="form container flag-info">
+    <h2>Flag Information</h2>
+    <% if current_user.admin %>
+      <p><%= @last_unresolved_flag.flagged_by.full_name %> flagged this project for review.</p>
+    <% else %>
+      <p>
+        Your project has been flagged for review by our admins. Please refer to their comments and make the appropriate changes.<br>
+        Once the issue(s) have been resolved, tick the 'flag resolved' box, located at the bottom of the page, and submit the changes.<br>
+        Our team will review the changes and respond accordingly.
+      </p>
+    <% end %>
+    <div class="updates">
+      <div class="header">Updates:</div>
+      <%= simple_format(@last_unresolved_flag.reason) %>
+    </div>
+    <% if current_user.admin %>
+      <div class="btn-container">
+        <%= link_to reject_flag_path(@last_unresolved_flag), class: 'btn btn-secondary-1', method: :put, data: { confirm: 'Rejecting this flag will remove the project permenantly. Are you sure you want to continue?' } do %>
+          Remove Project <i class="fas fa-trash-alt"></i>
+        <% end %>
+        <% if @last_unresolved_flag.user_resolved %>
+          <%= link_to resolve_flag_path(@last_unresolved_flag), class: 'btn btn-secondary-2', method: :put, data: { confirm: 'Resolving this flag will make the project public. Are you sure you want to continue?' } do %>
+            Resolve Flag <i class="fas fa-check"></i>
+          <% end %>
+        <% end %>
+      </div>
+    <% else %>
+      <% if @last_unresolved_flag.user_resolved %>
+        <p class="user-resolved">Our team are currently reviewing your response.</p>
+      <% end %>
+    <% end %>
+    <div class="metadata">Created: <%= @last_unresolved_flag.created %><span class="dot">·</span>Last Updated: <%= @last_unresolved_flag.last_update %></div>
+  </div>
+<% end %>
