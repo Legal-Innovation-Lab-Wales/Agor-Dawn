@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     resources :users, only: :show
     resources :admin, only: :index
 
-    scope 'admin/users/:id', constraints: { id: /\d+/ }, controller: 'admin' do
+    scope 'admin/users/:id', controller: 'admin' do
       put '/make_admin', action: 'make_admin', as: :make_admin
       put '/approve', action: 'approve', as: :approve
       put '/reject', action: 'reject', as: :reject
