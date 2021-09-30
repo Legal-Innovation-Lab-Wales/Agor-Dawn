@@ -137,12 +137,6 @@ class ProjectsController < ApplicationController
   end
 
   def update_flag
-    @last_unresolved_flag.update!(user_resolved: true, reason: additional_reason)
-  end
-
-  def additional_reason
-    return @last_unresolved_flag.reason unless project_params[:flag_comment].present?
-
-    "#{@last_unresolved_flag.reason}\n#{current_user.first_name}: #{project_params[:flag_comment]}"
+    @last_unresolved_flag.update!(user_resolved: true)
   end
 end
