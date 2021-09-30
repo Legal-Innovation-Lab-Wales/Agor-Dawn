@@ -7,6 +7,7 @@ class UserMailer < ApplicationMailer
   end
 
   def rejected(user)
+    # TODO: Add information on how to contact team into email
     mail(to: user.email, subject: 'Signup Rejected',
          body: "#{user.full_name} your signup request has been rejected. Please contact the team for further information")
   end
