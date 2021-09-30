@@ -1,6 +1,5 @@
 # app/controllers/application_controller.rb
 class ApplicationController < ActionController::Base
-  before_action :authenticate_user!
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :require_approval
 
@@ -19,7 +18,7 @@ class ApplicationController < ActionController::Base
   def require_approval
     return unless current_user && !current_user.approved?
 
-    flash[:notice] = "You require approval to use the system"
     sign_out_and_redirect(current_user)
+    flash[:error] = "You require approval from an admin. Please wait for an admin to approve your account before you can log in"
   end
 end

@@ -1,6 +1,6 @@
 <section class="admin show">
-  <% if @unauthenticated_users.present? %>
-    <h2 class="title-header">Unauthenticated Users <i class="fas fa-users-slash"></i></h2>
+  <% if @unapproved_users.present? %>
+    <h2 class="title-header">Unapproved Users <i class="fas fa-users-slash"></i></h2>
     <p>Below are the users who have signed up but not been approved yet.</p>
     <div class="table-wrapper">
       <table class="table">
@@ -21,12 +21,14 @@
                 <%= user.full_name %>
               </td>
               <td class="table-action">
-                <%= link_to approve_admin_path(user), method: :put do %>
-                  <i class="fas fa-check text-success user-icon"></i>
+                <%= link_to approve_path(user), method: :put, data: {
+                  confirm: "Are you sure you want to approve #{user.full_name}?" } do %>
+                  <i class="fas fa-check fa-lg text-success user-icon"></i>
                 <% end %>
                 |
-                <%= link_to reject_admin_path(user), method: :put do %>
-                  <i class="fas fa-times text-danger user-icon"></i>
+                <%= link_to reject_path(user), method: :put, data: {
+                  confirm: "Are you sure you want to reject #{user.full_name}?" } do %>
+                  <i class="fas fa-times fa-lg text-danger user-icon"></i>
                 <% end %>
               </td>
             </tr>
@@ -48,7 +50,7 @@
         </tr>
       </thead>
       <tbody>
-        <% @users.each do |user| %>
+        <% @approved_users.each do |user| %>
           <tr>
             <td>
               <%= link_to user_path(user) do %>
@@ -67,9 +69,14 @@
               <% end %>
             </td>
             <td class="table-action">
-              <% unless user == current_user %>
-                <%= link_to toggle_admin_index_path(user), method: :put, data: { confirm: 'Are you sure?' } do %>
-                  <i class="fas fa-<%= user.admin ? 'check' : 'times' %> text-<%= user.admin ? 'success' : 'danger' %> user-icon"></i>
+              <% if user.admin? %>
+                <div class="btn disabled">
+                  <i class="fas fa-check text-success user-icon"></i>
+                </div>
+              <% else %>
+                <%= link_to make_admin_path(user), method: :put, data: {
+                  confirm: "Are you sure you wish to promote #{user.full_name} to admin?" } do %>
+                  <i class="fas fa-times text-danger user-icon"></i>
                 <% end %>
               <% end %>
             </td>

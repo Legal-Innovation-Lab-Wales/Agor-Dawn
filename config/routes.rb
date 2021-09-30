@@ -1,12 +1,15 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  resources :users, only: :show
-  resources :admin, only: :index do
-    put '/users/:id', to: 'admin#toggle_admin', on: :collection, as: :toggle
-    put 'approve', action: 'approve', on: :member, as: :approve
-    put 'reject', action: 'reject', on: :member, as: :reject
-  end
+  authenticated :user do
+    resources :users, only: :show
+    resources :admin, only: :index
+
+    scope 'admin/users/:id', controller: 'admin' do
+      put '/make_admin', action: 'make_admin', as: :make_admin
+      put '/approve', action: 'approve', as: :approve
+      put '/reject', action: 'reject', as: :reject
+    end
 
   resources :projects do
     resources :comments, only: %i[create destroy]
@@ -18,5 +21,9 @@ Rails.application.routes.draw do
     put 'reject', action: 'reject', on: :member, as: :reject
   end
 
-  root 'pages#home'
+  root 'pages#home', as: :authenticated_root
+
+  unauthenticated do
+    root to: redirect('/users/sign_in')
+  end
 end

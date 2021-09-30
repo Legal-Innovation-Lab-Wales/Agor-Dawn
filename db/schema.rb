@@ -116,7 +116,7 @@ ActiveRecord::Schema.define(version: 2021_09_14_102900) do
     t.text "bio"
     t.integer "likes_given", default: 0, null: false
     t.integer "comments_posted", default: 0, null: false
-    t.boolean "approved", default: false
+    t.boolean "approved", default: false, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_users_on_email", unique: true

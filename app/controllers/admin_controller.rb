@@ -1,26 +1,24 @@
 # app/controllers/admin_controller.rb
 class AdminController < ApplicationController
-  before_action :user, only: %i[approve reject]
-  before_action :users
-  before_action :authorize_admin, only: :index
+  before_action :authorize_admin
+  before_action :user, except: :index
+  before_action :users, only: :index
 
-  # GET /user/admin
-  def show
-    render 'show'
+  # GET /admin
+  def index
+    render 'index'
   end
 
-  # PUT /admin/users/:id
-  def toggle_admin
-    @user = User.find(params[:id])
-    @user.update!(admin: !@user.admin)
+  # PUT /admin/users/:id/make_admin
+  def make_admin
+    @user.update!(admin: true)
 
-    redirect_back(fallback_location: projects_path,
-                  flash: { success: "#{@user.full_name} is #{@user.admin ? 'now' : 'no longer'} an admin." })
+    redirect_back(fallback_location: projects_path, flash: { success: "#{@user.full_name} is now an admin." })
   end
 
   # PUT /admin/users/:id/approve
   def approve
-    @user.update(approved: true)
+    @user.update!(approved: true)
 
     redirect_back(fallback_location: admin_index_path, flash: { success: "#{@user.full_name} is now approved" })
   end
@@ -29,17 +27,16 @@ class AdminController < ApplicationController
   def reject
     return if @user.approved
 
-    if @user.destroy
-      redirect_to admin_index_path, flash: { success: "#{@user.full_name} has been rejected" }
-    else
-      redirect_to admin_index_path, flash: { error: "#{@user.full_name} couldn't be rejected" }
-    end
+    flash[:success] = "#{@user.full_name} has been rejected" if @user.destroy
+    flash[:error] = "#{@user.full_name} couldn't be rejected" unless flash[:success].present?
+
+    redirect_back(fallback_location: admin_index_path)
   end
 
   private
 
   def authorize_admin
-    redirect_back(root_path) unless current_user.admin
+    redirect_back(fallback_location: authenticated_root_path) unless current_user.admin
   end
 
   def user
@@ -47,7 +44,7 @@ class AdminController < ApplicationController
   end
 
   def users
-    @users = User.all.order(:first_name)
-    @unauthenticated_users = User.all.where(approved: false)
+    @unapproved_users = User.unapproved
+    @approved_users = User.approved
   end
 end

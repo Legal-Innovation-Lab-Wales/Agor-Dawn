@@ -15,6 +15,7 @@ body#overboot {
   }
 
   .alert, .notice {
+    text-align: center;
     &:empty {
       height: 0;
       padding: 0;
