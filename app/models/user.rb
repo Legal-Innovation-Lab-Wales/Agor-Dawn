@@ -12,6 +12,7 @@ class User < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_one_attached :avatar, dependent: :detach
 
+  default_scope { order(first_name: :asc) }
   scope :admins, -> { where(admin: true) }
   scope :non_admins, -> { where(admin: false) }
   scope :unapproved, -> { where(approved: false) }

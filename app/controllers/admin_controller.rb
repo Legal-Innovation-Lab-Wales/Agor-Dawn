@@ -44,7 +44,7 @@ class AdminController < ApplicationController
   end
 
   def users
-    @unapproved_users = User.unapproved.order(:first_name)
-    @approved_users = User.approved.order(:first_name)
+    @unapproved_users = User.unapproved
+    @approved_users = User.approved
   end
 end
