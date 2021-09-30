@@ -8,15 +8,17 @@
         </button>
       </div>
       <section class="flag-modal form container">
-        <div class="field">
           <%= form_with model: Flag.new do |f| %>
             <%= f.hidden_field :resource_type, required: true %>
             <%= f.hidden_field :resource_id, required: true %>
-            <%= f.label :reason %>
-            <%= f.text_area :reason, class: 'reason', required: true %>
-            <%= f.submit %>
+            <div class="field">
+              <%= f.label :reason %>
+              <%= f.text_area :reason, class: 'reason', required: true %>
+            </div>
+            <div class="actions">
+              <%= f.submit 'Submit', class: 'btn btn-primary' %>
+            </div>
           <% end %>
-        </div>
       </section>
     </div>
   </div>
