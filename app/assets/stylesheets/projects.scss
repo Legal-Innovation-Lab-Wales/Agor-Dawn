@@ -250,10 +250,10 @@
     }
   }
 
-  &.show, &.edit {
+  &.show, .edit {
     .flag-info {
       max-width: none !important;
-
+      
       .updates {
         .header {
           font-weight: 600;
