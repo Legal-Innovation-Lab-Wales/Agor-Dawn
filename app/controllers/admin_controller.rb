@@ -4,6 +4,11 @@ class AdminController < ApplicationController
   before_action :user, except: :index
   before_action :users, only: :index
 
+  # GET /admin
+  def index
+    render 'index'
+  end
+
   # PUT /admin/users/:id/make_admin
   def make_admin
     @user.update!(admin: true)
