@@ -23,7 +23,7 @@
             <% end %>
 
             <% if current_user.admin && !project.flagged? %>
-              <span class="flag link-primary" data-open-modal="flag-modal"
+              <span class="flag link link-primary" data-open-modal="flag-modal"
                     data-resource-type="project" data-resource-id="<%= project.id %>">Flag <i class="fas fa-flag"></i></span>
             <% end %>
           </div>
@@ -53,14 +53,14 @@
         </div>
         <% if controller_name == 'projects' && action_name == 'show' %>
           <div class="like-count">
-            <div class="like-button link-primary">
+            <div class="like-button link link-primary">
               <% if @current_user_like %>
                 <i title="Unlike" class="fas fa-thumbs-up"></i>
               <% else %>
                 <i title="Like" class="far fa-thumbs-up"></i>
               <% end %>
             </div>
-            <div class="count link-primary" title="<%= @tooltip %>" data-toggle="tooltip" data-placement="bottom" data-open-modal="liked-modal">
+            <div class="count link link-primary" title="<%= @tooltip %>" data-toggle="tooltip" data-placement="bottom" data-open-modal="liked-modal">
               <%= @project.likes.count %> likes
             </div>
           </div>

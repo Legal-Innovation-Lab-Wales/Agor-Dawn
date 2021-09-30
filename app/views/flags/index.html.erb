@@ -32,11 +32,11 @@
             </td>
             <td class="table-action">
               <% if flag.flaggable_type == 'Project' %>
-                <%= link_to project_path(flag.flaggable), class: 'link-primary' do %>
+                <%= link_to project_path(flag.flaggable), class: 'link link-primary' do %>
                   <i class="fas fa-external-link-alt"></i>
                 <% end %>
               <% elsif flag.flaggable_type == 'Comment' %>
-                <%= link_to project_path(flag.flaggable.project), class: 'link-primary' do %>
+                <%= link_to project_path(flag.flaggable.project), class: 'link link-primary' do %>
                   <i class="fas fa-external-link-alt"></i>
                 <% end %>
               <% end %>

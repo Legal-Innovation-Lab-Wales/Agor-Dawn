@@ -49,13 +49,18 @@ body#overboot {
     }
   }
 
+  .link {
+    &:hover {
+      cursor: pointer;
+      transition: color 0.15s linear;
+    }
+  }
+
   .link-primary {
     color: $primary;
 
     &:hover {
-      cursor: pointer;
       color: $primary-light;
-      transition: color 0.15s linear;
     }
   }
 
@@ -63,9 +68,15 @@ body#overboot {
     color: $secondary-1;
 
     &:hover {
-      cursor: pointer;
       color: $secondary-1-light;
-      transition: color 0.15s linear;
+    }
+  }
+
+  .link-secondary-2 {
+    color: $secondary-2;
+
+    &:hover {
+      color: $secondary-2-light;
     }
   }
 

@@ -12,7 +12,7 @@
           </tr>
         </thead>
         <tbody>
-          <% @unauthenticated_users.each do |user| %>
+          <% @unapproved_users.each do |user| %>
             <tr>
               <td>
                 <%= user.email %>
@@ -21,14 +21,14 @@
                 <%= user.full_name %>
               </td>
               <td class="table-action">
-                <%= link_to approve_path(user), method: :put, data: {
+                <%= link_to approve_path(user), class: 'link link-secondary-2', method: :put, data: {
                   confirm: "Are you sure you want to approve #{user.full_name}?" } do %>
-                  <i class="fas fa-check fa-lg text-success user-icon"></i>
+                  <i class="fas fa-check user-icon"></i>
                 <% end %>
                 |
-                <%= link_to reject_path(user), method: :put, data: {
+                <%= link_to reject_path(user), class: 'link link-secondary-1', method: :put, data: {
                   confirm: "Are you sure you want to reject #{user.full_name}?" } do %>
-                  <i class="fas fa-times fa-lg text-danger user-icon"></i>
+                  <i class="fas fa-times user-icon"></i>
                 <% end %>
               </td>
             </tr>
@@ -64,7 +64,7 @@
               <%= user.full_name %>
             </td>
             <td class="table-action">
-              <%= link_to user_path(user), class: 'link-primary' do %>
+              <%= link_to user_path(user), class: 'link link-primary' do %>
                 <i class="fas fa-address-card"></i>
               <% end %>
             </td>
