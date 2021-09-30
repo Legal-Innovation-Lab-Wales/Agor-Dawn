@@ -11,16 +11,6 @@ if Flag.count.zero?
     )
   end
 
-  Comment.all.each do |comment|
-    next unless (comment.id % 5).zero?
-
-    Flag.create!(
-      flagged_by: User.where(admin: true).order('RANDOM()').first,
-      reason: "Admin: #{Faker::TvShows::TheITCrowd.quote}",
-      flaggable: comment
-    )
-  end
-
   puts "\tDuration: #{pretty_print(Time.now - @start_time)}   Elapsed: #{pretty_print(Time.now - @start_time)}"
   @last_time = Time.now
 end

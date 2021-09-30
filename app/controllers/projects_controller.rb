@@ -34,7 +34,6 @@ class ProjectsController < ApplicationController
     @tooltip = @project.likes.tooltip + (@count > 20 ? "\nand #{@count - 20} more..." : '')
     @project.likes.build(user: current_user, project: @project) unless @current_user_like
     @comments = @project.comments
-    @comments = @comments.not_flagged(current_user) unless current_user.admin
   end
 
   # GET /projects/new
