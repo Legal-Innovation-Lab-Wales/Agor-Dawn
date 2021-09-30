@@ -2,7 +2,7 @@
 class AdminController < ApplicationController
   before_action :authorize_admin
   before_action :user, except: :index
-  before_action :users
+  before_action :users, only: :index
 
   # PUT /admin/users/:id/make_admin
   def make_admin
