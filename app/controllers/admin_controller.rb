@@ -20,15 +20,15 @@ class AdminController < ApplicationController
   def approve
     @user.update!(approved: true)
 
-    redirect_back(fallback_location: admin_index_path, flash: { success: "#{@user.full_name} is now approved" })
+    redirect_back(fallback_location: admin_index_path, flash: { success: "#{@user.full_name} is now approved." })
   end
 
   # PUT /admin/users/:id/reject
   def reject
     return if @user.approved
 
-    flash[:success] = "#{@user.full_name} has been rejected" if @user.destroy
-    flash[:error] = "#{@user.full_name} couldn't be rejected" unless flash[:success].present?
+    flash[:success] = "#{@user.full_name} has been rejected." if @user.destroy
+    flash[:error] = "#{@user.full_name} couldn't be rejected." unless flash[:success].present?
 
     redirect_back(fallback_location: admin_index_path)
   end

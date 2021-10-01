@@ -51,7 +51,7 @@ class ProjectsController < ApplicationController
       flash[:success] = 'Successfully created project!'
       redirect_to project_path(@project)
     else
-      flash[:error] = 'Error creating project'
+      flash[:error] = 'Error creating project.'
       render 'new'
     end
   end
