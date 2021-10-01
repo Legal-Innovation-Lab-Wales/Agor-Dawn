@@ -1,6 +1,5 @@
 # app/controllers/projects_controller.rb
 class ProjectsController < ApplicationController
-  skip_before_action :authenticate_user!, only: %i[index show]
   before_action :project_params, only: %i[create update]
   before_action :project, except: %i[index new create]
   before_action :category, only: :index
@@ -51,7 +50,7 @@ class ProjectsController < ApplicationController
       flash[:success] = 'Successfully created project!'
       redirect_to project_path(@project)
     else
-      flash[:error] = 'Error creating project'
+      flash[:error] = 'Error creating project.'
       render 'new'
     end
   end
@@ -69,7 +68,7 @@ class ProjectsController < ApplicationController
       flash[:success] = 'Successfully updated project!'
       redirect_to project_path(@project)
     else
-      flash[:error] = 'Error updating project'
+      flash[:error] = 'Error updating project.'
       render 'edit'
     end
   end

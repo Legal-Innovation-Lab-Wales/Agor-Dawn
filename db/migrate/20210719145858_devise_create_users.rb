@@ -40,6 +40,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.1]
       t.text      :bio
       t.integer   :likes_given, null: false, default: 0
       t.integer   :comments_posted, null: false, default: 0
+      t.boolean   :approved, null: false, default: false
 
       t.timestamps null: false
     end

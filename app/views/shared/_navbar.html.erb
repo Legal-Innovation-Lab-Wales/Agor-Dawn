@@ -1,7 +1,9 @@
 <nav class="main-nav">
   <div class="left-navbar">
-    <%= link_to 'Agor Dawn', root_path, class: 'nav-logo btn btn-primary' %>
-    <%= render 'shared/search' %>
+    <%= link_to 'Agor Dawn', authenticated_root_path, class: 'nav-logo btn btn-primary' %>
+    <% unless current_user.nil? %>
+      <%= render 'shared/search' %>
+    <% end %>
   </div>
   <%= render 'shared/right_navbar' %>
 </nav>

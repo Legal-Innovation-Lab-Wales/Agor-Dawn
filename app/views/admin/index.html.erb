@@ -1,35 +1,87 @@
 <div class="row justify-content-center">
+  <% if @unapproved_users.present? %>
+    <h2>Unapproved Users</h2>
+    <p>Below are the users who have signed up but not been approved yet.</p>
     <table class="table">
-    <thead>
+      <thead>
       <tr>
         <th scope="col">Avatar</th>
         <th scope="col">First</th>
         <th scope="col">Last</th>
         <th scope="col">Email</th>
-        <th scope="col">Admin</th>
+        <th scope="col">Approve</th>
       </tr>
-    </thead>
-  <% @users.each do |user| %>
+      </thead>
+      <% @unapproved_users.each do |user| %>
+        <tr>
+          <td>
+            <%= link_to user_path(user) do %>
+              <%= image_tag url_for(user.avatar), class: 'user-icon img-md', alt: 'avatar' %>
+            <% end %>
+          </td>
+          <td>
+            <%= user.first_name %>
+          </td>
+          <td>
+            <%= user.last_name %>
+          </td>
+          <td>
+            <%= user.email %>
+          </td>
+          <td>
+            <%= link_to approve_path(user), method: :put, data: {
+              confirm: "Are you sure you want to approve #{user.full_name}?" } do %>
+              <i class="fas fa-check fa-lg text-success user-icon"></i>
+            <% end %>
+            |
+            <%= link_to reject_path(user), method: :put, data: {
+              confirm: "Are you sure you want to reject #{user.full_name}?" } do %>
+              <i class="fas fa-times fa-lg text-danger user-icon"></i>
+            <% end %>
+          </td>
+      <% end %>
+      </tr>
+    </table>
+  <% end %>
+  <h2>Approved Users</h2>
+  <table class="table">
+    <thead>
     <tr>
-      <td>
-        <%= link_to user_path(user) do %>
-          <%= image_tag url_for(user.avatar), class: 'user-icon img-md', alt: 'avatar' %>
-        <% end %>
-      </td>
-      <td>
-        <%= user.first_name %>
-      </td>
-      <td>
-        <%= user.last_name %>
-      </td>
-      <td>
-        <%= user.email %>
-      </td>
-      <td>
-        <%= link_to toggle_admin_index_path(user), method: :put do %>
-          <i class="fas fa-<%= user.admin ? 'check' : 'times' %> text-<%= user.admin ? 'success' : 'danger' %> user-icon"></i>
-        <% end %>
-      </td>
+      <th scope="col">Avatar</th>
+      <th scope="col">First</th>
+      <th scope="col">Last</th>
+      <th scope="col">Email</th>
+      <th scope="col">Admin</th>
+    </tr>
+    </thead>
+    <% @approved_users.each do |user| %>
+      <tr>
+        <td>
+          <%= link_to user_path(user) do %>
+            <%= image_tag url_for(user.avatar), class: 'user-icon img-md', alt: 'avatar' %>
+          <% end %>
+        </td>
+        <td>
+          <%= user.first_name %>
+        </td>
+        <td>
+          <%= user.last_name %>
+        </td>
+        <td>
+          <%= user.email %>
+        </td>
+        <td>
+          <% if user.admin? %>
+            <div class="btn disabled">
+              <i class="fas fa-check text-success user-icon"></i>
+            </div>
+          <% else %>
+            <%= link_to make_admin_path(user), method: :put, data: {
+              confirm: "Are you sure you wish to promote #{user.full_name} to admin?" } do %>
+              <i class="fas fa-times text-danger user-icon"></i>
+            <% end %>
+          <% end %>
+        </td>
     <% end %>
     </tr>
   </table>
