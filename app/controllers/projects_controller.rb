@@ -83,7 +83,7 @@ class ProjectsController < ApplicationController
 
   def project
     projects = Project.includes(:user, :comments, :likes)
-    projects = projects.not_flagged(current_user) unless current_user.admin
+    projects = projects.not_flagged(current_user.id) unless current_user.admin
     @project = projects.find(params[:id])
     @last_unresolved_flag = @project.last_unresolved_flag
   rescue ActiveRecord::RecordNotFound
