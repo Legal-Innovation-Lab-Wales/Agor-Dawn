@@ -45,8 +45,6 @@ class FlagsController < ApplicationController
     @resource = case flag_params[:resource_type]
                 when 'project'
                   Project.includes(:user).find(flag_params[:resource_id])
-                when 'comment'
-                  Comment.includes(:user).find(flag_params[:resource_id])
                 else
                   raise "Attempting to flag an unknown resource [#{flag_params[:resource_type]}]!"
                 end
