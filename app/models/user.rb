@@ -58,10 +58,10 @@ class User < ApplicationRecord
   end
 
   def mail_approved_user
-    UserMailer.approved(self).deliver_now
+    AdminMailer.approved(self).deliver_now
   end
 
   def mail_rejected_user
-    UserMailer.rejected(self).deliver_now
+    AdminMailer.rejected(self).deliver_now
   end
 end
