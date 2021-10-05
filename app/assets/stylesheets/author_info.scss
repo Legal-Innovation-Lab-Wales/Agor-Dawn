@@ -7,11 +7,11 @@
     width: 240px;
 
     &:hover {
-      & .owner {
+      .owner {
         color: $primary-light;
       }
 
-      & .user-icon {
+      .user-icon {
         filter: grayscale(1);
       }
     }

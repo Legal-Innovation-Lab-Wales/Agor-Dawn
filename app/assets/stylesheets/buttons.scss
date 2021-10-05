@@ -49,11 +49,9 @@ body#overboot {
     }
   }
 
-  .link {
-    &:hover {
-      cursor: pointer;
-      transition: color 0.15s linear;
-    }
+  .link:hover {
+    cursor: pointer;
+    transition: color 0.15s linear;
   }
 
   .link-primary {

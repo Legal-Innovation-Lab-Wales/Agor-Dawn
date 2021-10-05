@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   protected
 
   def authorize_admin
-    redirect_to root_path, flash: { error: 'You do not have access to this page '} unless current_user.admin
+    redirect_back(fallback_location: authenticated_root_path) unless current_user.admin
   end
 
   def configure_permitted_parameters

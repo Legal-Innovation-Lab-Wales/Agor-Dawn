@@ -1,6 +1,6 @@
 # app/controllers/flags_controller.rb
 class FlagsController < ApplicationController
-  before_action :authorize_admin, except: :update
+  before_action :authorize_admin
   before_action :flags, only: :index
   before_action :flag, only: %i[resolve remove]
   before_action :resource, only: :create
@@ -48,7 +48,7 @@ class FlagsController < ApplicationController
                 when 'comment'
                   Comment.includes(:user).find(flag_params[:resource_id])
                 else
-                  raise 'Attempting to flag an unknown resource'
+                  raise "Attempting to flag an unknown resource [#{flag_params[:resource_type]}]!"
                 end
   rescue ActiveRecord::RecordNotFound
     redirect_back(fallback_location: root_path, flash: { error: 'Resource Not Found.' })

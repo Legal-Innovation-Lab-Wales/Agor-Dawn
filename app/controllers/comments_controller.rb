@@ -15,7 +15,7 @@ class CommentsController < ApplicationController
   def destroy
     @comment.destroy
 
-    redirect_to project_path(@project), flash: { success: 'Comment removed.' }
+    redirect_back(fallback_location: project_path(@project), flash: { success: 'Comment removed.' })
   end
 
   private
