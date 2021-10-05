@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <title>Agor Dawn Email</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <style>
-      /* Email styles need to be inline */
-    </style>
   </head>
 
   <body>
+    <h2>Hello <%= @admin.present? ? @admin.first_name : @user.first_name %>,</h2>
     <%= yield %>
+    <h4><i>The Agor Dawn Team</i></h4>
   </body>
 </html>

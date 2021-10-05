@@ -1,4 +1,5 @@
-<section class="projects show">
+<section class="projects show ">
+  <%= render 'flag_information' %>
   <%= render 'project_card', project: @project %>
   <div class="comments-section">
     <p>If you would like to collaborate on this project, can offer a service or you know of
@@ -18,3 +19,8 @@
 </section>
 
 <%= render 'shared/liked_modal' %>
+<%= render 'shared/flag_modal' %>
+
+<%= javascript_pack_tag 'modals' %>
+<%= javascript_pack_tag 'likes' %>
+<%= javascript_pack_tag 'flag_modal' %>

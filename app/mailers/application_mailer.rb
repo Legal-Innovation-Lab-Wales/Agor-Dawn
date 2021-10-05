@@ -1,5 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'agordawn@legaltech.wales'
-
+  default from: 'agordawn-demo@legaltech.wales'
   layout 'mailer'
 end

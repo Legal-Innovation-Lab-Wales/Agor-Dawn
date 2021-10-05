@@ -1,7 +1,7 @@
-<%= link_to user_path(entity.user) do %>
-  <div class="author-info">
+<div class="author-info">
+  <%= link_to user_path(entity.user), class: 'user-link' do %>
     <div class="left">
-      <%= image_tag url_for(entity.user.avatar), class: 'user-icon img-md', alt: 'avatar' %>
+      <%= image_tag url_for(entity.user.avatar), class: 'user-icon img-sm', alt: 'avatar' %>
     </div>
     <div class="right">
       <div class="owner"><%= entity.user.first_name + ' ' + entity.user.last_name %></div>
@@ -15,5 +15,5 @@
         <% end %>
       </div>
     </div>
-  </div>
-<% end %>
+  <% end %>
+</div>

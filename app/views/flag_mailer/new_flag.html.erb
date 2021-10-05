@@ -1,0 +1,5 @@
+<p>Our team have flagged your <%= @type %> for review for the following reason:</p>
+<%= simple_format(@reason) %>
+<p>Please <%= link_to 'login', project_url(@project_id) %> to make the appropriate changes.</p>
+<p>Whilst your <%= @type %> is under review, it will be temporarily removed from public view. Once our team are satisfied with the changes it will be made public again.</p>
+<p>Thank you for your cooperation.</p>

@@ -1,9 +1,9 @@
-<div class="modal fade" id="liked-modal">
+<div class="modal" data-modal="liked-modal">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h5>Liked By</h5>
-        <button type="button" class="btn btn-primary" id="close-liked-modal">
+        <button type="button" class="btn btn-primary" data-close-modal="liked-modal">
           <i class="fas fa-times-circle"></i>
         </button>
       </div>
@@ -14,7 +14,7 @@
         <% @project.likes.each do |liked_by| %>
           <%= link_to user_path(liked_by.user), class: liked_by.user == current_user ? @current_user_like.nil? ? 'current-user hide-like' : 'current-user' : '' do %>
             <div class="like">
-              <%= image_tag url_for(liked_by.user.avatar), class: 'user-icon img-md', alt: 'avatar' %>
+              <%= image_tag url_for(liked_by.user.avatar), class: 'user-icon img-sm', alt: 'avatar' %>
               <div class="username">
                 <%= liked_by.user.full_name %>
               </div>
@@ -26,6 +26,3 @@
   </div>
 </div>
 <div class="modal-backdrop fade show" id="backdrop" style="display: none;"></div>
-
-<%= javascript_pack_tag 'liked_modal' %>
-<%= javascript_pack_tag 'likes' %>

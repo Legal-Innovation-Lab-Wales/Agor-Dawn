@@ -1,7 +1,10 @@
 # app/models/project.rb
 class Project < ApplicationRecord
+  include FlaggableScope
+
   belongs_to :user
   has_many :comments, dependent: :destroy
+  has_many :flags, as: :flaggable, dependent: :destroy
   has_many :likes, dependent: :destroy
 
   validates_presence_of :user_id, :name, :summary, :like_count, :comment_count

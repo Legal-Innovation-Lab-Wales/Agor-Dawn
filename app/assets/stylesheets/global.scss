@@ -91,23 +91,31 @@ body#overboot {
     }
   }
 
-  .table {
-    width: 90% !important;
-    text-align: center !important;
+  .title-header {
+    text-align: center;
+  }
 
-    tr {
-      vertical-align: middle;
-    }
+  .table-wrapper {
+    display: block;
+    overflow-x: auto;
+    margin-bottom: 1rem;
 
-      @media screen and (max-width: $screen-sm) {
-        max-width: 100% !important;
+    .table {
+      margin: 0 auto;
+      overflow: scroll;
+
+      .table-action {
+        width: 0.1%;
+        font-size: 1.5rem;
+        text-align: center;
       }
     }
+  }
 
   main {
     // Shorthand not preferred here as individual styles need to be overridden
     padding-left: 1rem;
     padding-right: 1rem;
-    padding-bottom: 92px; // 92px is the height of the footer
+    padding-bottom: calc(92px + 2rem); // 92px is the height of the footer
   }
 }

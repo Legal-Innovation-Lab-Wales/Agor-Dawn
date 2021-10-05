@@ -33,6 +33,14 @@ class User < ApplicationRecord
     projects.map(&:comment_count).sum
   end
 
+  def flagged_comments
+    comments.filter(&:flagged?)
+  end
+
+  def flagged_projects
+    projects.filter(&:flagged?)
+  end
+
   private
 
   def set_default_avatar
@@ -50,10 +58,10 @@ class User < ApplicationRecord
   end
 
   def mail_approved_user
-    UserMailer.approved(self).deliver_now
+    AdminMailer.approved(self).deliver_now
   end
 
   def mail_rejected_user
-    UserMailer.rejected(self).deliver_now
+    AdminMailer.rejected(self).deliver_now
   end
 end

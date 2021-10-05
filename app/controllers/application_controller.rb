@@ -5,6 +5,10 @@ class ApplicationController < ActionController::Base
 
   protected
 
+  def authorize_admin
+    redirect_back(fallback_location: authenticated_root_path) unless current_user.admin
+  end
+
   def configure_permitted_parameters
     attributes = %i[first_name last_name password email password_confirmation]
     devise_parameter_sanitizer.permit(:sign_up, keys: attributes)

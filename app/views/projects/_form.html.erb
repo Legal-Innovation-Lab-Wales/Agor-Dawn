@@ -16,6 +16,15 @@
     <%= form.label :public, 'Public' %>
     <%= form.check_box :public %>
   </div>
+  <% if @project.flagged? %>
+    <% unless @last_unresolved_flag.user_resolved %>
+      <hr>
+      <div class="field checkbox">
+        <%= form.label :flag_resolved, 'Flag Resolved' %>
+        <%= form.check_box :flag_resolved %>
+      </div>
+    <% end %>
+  <% end %>
   <div class="actions">
     <%= form.submit 'Submit', class: 'btn btn-primary' %>
   </div>
