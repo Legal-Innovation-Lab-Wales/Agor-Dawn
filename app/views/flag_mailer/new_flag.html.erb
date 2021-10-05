@@ -1,4 +1,3 @@
-<h2>Hello <%= @user.first_name %>,</h2>
 <p>Our team have flagged your <%= @type %> for review for the following reason:</p>
 <%= simple_format(@reason) %>
 <p>Please <%= link_to 'login', project_url(@project_id) %> to make the appropriate changes.</p>
