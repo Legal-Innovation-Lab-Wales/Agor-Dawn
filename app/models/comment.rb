@@ -3,6 +3,8 @@ class Comment < ApplicationRecord
   default_scope { order('comments.created_at ASC') }
   belongs_to :user
   belongs_to :project
+  belongs_to :replaced_by, class_name: 'Comment', optional: true, foreign_key: 'replaced_by_id'
+  belongs_to :replacing, class_name: 'Comment', optional: true, foreign_key: 'replacing_id'
 
   after_create :increment_count
   after_destroy :decrement_count
