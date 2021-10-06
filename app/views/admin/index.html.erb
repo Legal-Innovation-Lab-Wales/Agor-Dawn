@@ -70,13 +70,13 @@
             </td>
             <td class="table-action">
               <% if user.admin? %>
-                <div class="btn disabled">
-                  <i class="fas fa-check text-success user-icon"></i>
+                <div class="disabled">
+                  <i class="fas fa-check link-secondary-1"></i>
                 </div>
               <% else %>
                 <%= link_to make_admin_path(user), method: :put, data: {
                   confirm: "Are you sure you wish to promote #{user.full_name} to admin?" } do %>
-                  <i class="fas fa-times text-danger user-icon"></i>
+                  <i class="fas fa-times link-secondary-2"></i>
                 <% end %>
               <% end %>
             </td>
