@@ -32,6 +32,17 @@
         }
       }
     }
+
+    .comment-text-container {
+      .form {
+        max-width: none !important;
+        margin-bottom: 0;
+
+        .actions .cancel {
+          margin-top: 0.5rem;
+        }
+      }
+    }
   }
 
   .sign-in-comment {

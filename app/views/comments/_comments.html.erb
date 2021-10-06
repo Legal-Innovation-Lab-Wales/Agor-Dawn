@@ -6,20 +6,39 @@
         <div class="comment-actions">
           <% if comment.owner?(current_user) || current_user.admin %>
             <% if comment.owner?(current_user) %>
-              <div class="link link-primary" data-toggle="tooltip" data-placement="bottom" title="Edit">
+              <div class="edit link link-primary" data-toggle="tooltip" data-placement="bottom" title="Edit">
                 <i class="fas fa-edit"></i>
               </div>
             <% end %>
-            <%= link_to project_comment_path(@project, comment), method: :delete, class: 'link link-secondary-1', data: { confirm: 'Are you sure you want to delete this comment?', toggle: 'tooltip', placement: 'bottom' }, title: 'Delete' do %>
-              <i class="fas fa-trash-alt"></i>
+            <%= link_to project_comment_path(@project, comment), method: :delete, class: 'link link-secondary-1', 
+              data: { confirm: 'Are you sure you want to delete this comment?', toggle: 'tooltip', placement: 'bottom' }, 
+              title: 'Delete' do %>
+                <i class="fas fa-trash-alt"></i>
             <% end %>
           <% end %>
         </div>
       </div>
       <hr>
-      <div class="comment-text">
-        <%= comment.comment_text %>
+      <div class="comment-text-container">
+        <div class="comment-text">
+          <%= comment.comment_text %>
+        </div>
+        <% if comment.owner?(current_user) %>
+          <div class="form" style="display: none;">
+            <%= form_with model: comment, url: project_comment_path(comment.project_id, comment), method: :put do |f| %>
+              <div class="field">
+                <%= f.text_area :comment_text %>
+              </div>
+              <div class="actions">
+                <%= f.submit 'Save', class: 'btn btn-secondary-2' %>
+                <div class="cancel link link-primary">Cancel</div>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
       </div>
     </div>
   <% end %>
 <% end %>
+
+<%= javascript_pack_tag 'comments' %>
