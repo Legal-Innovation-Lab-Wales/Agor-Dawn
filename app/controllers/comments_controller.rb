@@ -13,7 +13,6 @@ class CommentsController < ApplicationController
 
   # PUT /projects/:project_id/comments/:id
   def update
-    debugger 
     Comment.transaction do
       @new_comment = @project.comments.create!(comment_text: comment_params[:comment_text], user: current_user, replacing: @comment)
       @comment.update!(replaced_by: @new_comment)

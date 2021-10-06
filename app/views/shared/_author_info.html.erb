@@ -17,7 +17,7 @@
           <div class="dot">·</div>
           <i class="far fa-clock"></i> <%= entity.created_time %>
         <% end %>
-        <% if entity.class == Comment && entity.replacing.present? %>
+        <% if entity.class == Comment && entity.replaced_by.present? %>
           <div class="dot">·</div>
           <%= link_to root_path, class: 'edited author-info-link' do %>
             <i class="fas fa-history"></i>Edited

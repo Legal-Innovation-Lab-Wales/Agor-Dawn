@@ -1,6 +1,5 @@
 # app/models/comment.rb
 class Comment < ApplicationRecord
-  default_scope { order('comments.created_at ASC') }
   belongs_to :user
   belongs_to :project
   belongs_to :replaced_by, class_name: 'Comment', optional: true, foreign_key: 'replaced_by_id'
@@ -10,6 +9,8 @@ class Comment < ApplicationRecord
   after_destroy :decrement_count
 
   validates :comment_text, presence: true
+
+  scope :ordered, -> { where(replacing: nil).order(created_at: :asc) }
 
   def increment_count
     project.update!(comment_count: project.comment_count + 1)
@@ -23,5 +24,15 @@ class Comment < ApplicationRecord
 
   def owner?(user)
     self.user == user
+  end
+
+  def newest
+    return self unless replaced_by.present?
+
+    replaced_by.newest
+  end
+
+  def previous
+    replacing
   end
 end
