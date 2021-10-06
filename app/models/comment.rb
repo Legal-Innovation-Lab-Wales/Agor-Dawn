@@ -20,4 +20,8 @@ class Comment < ApplicationRecord
     project.update!(comment_count: project.comment_count - 1)
     user.update!(comments_posted: user.comments_posted - 1)
   end
+
+  def owner?(user)
+    self.user == user
+  end
 end

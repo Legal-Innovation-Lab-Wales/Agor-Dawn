@@ -23,6 +23,14 @@
     .comment-header {
       display: flex;
       justify-content: space-between;
+
+      .comment-actions {
+        display: flex;
+
+        i:last-child {
+          margin-left: 0.5rem;
+        }
+      }
     }
   }
 
