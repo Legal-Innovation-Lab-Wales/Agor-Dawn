@@ -1,7 +1,7 @@
 # app/controllers/comments_controller.rb
 class CommentsController < ApplicationController
   before_action :project
-  before_action :comment, only: :destroy
+  before_action :comment, except: :create
 
   # POST /projects/:project_id/comments
   def create
@@ -9,6 +9,19 @@ class CommentsController < ApplicationController
     redirect_to project_path(@project), flash: { success: 'Comment Added.' }
   rescue ActiveRecord::RecordInvalid
     redirect_to project_path(@project), flash: { error: 'Failed to add comment, please try again.' }
+  end
+
+  # PUT /projects/:project_id/comments/:id
+  def update
+    debugger 
+    Comment.transaction do
+      @new_comment = @project.comments.create!(comment_text: comment_params[:comment_text], user: current_user, replacing: @comment)
+      @comment.update!(replaced_by: @new_comment)
+    end
+
+    redirect_back(fallback_location: project_path(@project), flash: { success: 'Comment updated.' })
+  rescue ActiveRecord::RecordInvalid
+    redirect_back(fallback_location: project_path(@project), flash: { error: 'Failed to update comment, please try again.' })
   end
 
   # DELETE /projects/:project_id/comments/:id
@@ -28,9 +41,11 @@ class CommentsController < ApplicationController
 
   def comment
     @comment = Comment.find(params[:id])
+  rescue ActiveRecord::RecordNotFound
+    redirect_back(fallback_location: project_path(@project), flash: { error: 'Comment was not found.' })
   end
 
   def comment_params
-    params.permit(:comment_text)
+    params.require(:comment).permit(:comment_text)
   end
 end
