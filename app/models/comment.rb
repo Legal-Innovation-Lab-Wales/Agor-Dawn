@@ -31,8 +31,4 @@ class Comment < ApplicationRecord
 
     replaced_by.newest
   end
-
-  def previous
-    replacing
-  end
 end
