@@ -1,6 +1,6 @@
 # app/models/user.rb
 class User < ApplicationRecord
-  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable, :trackable
+  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable, :trackable, :confirmable
   after_save :set_default_avatar # Cannot occur after_create because of seed
   after_update :purge_unattached_avatars, if: -> { avatar.changed? }
   after_create :mail_admins, unless: -> { approved? }
