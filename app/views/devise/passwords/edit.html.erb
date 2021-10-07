@@ -3,7 +3,7 @@
   <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |form| %>
     <%= form.hidden_field :reset_password_token %>
     <div class="field">
-      <%= form.label :password, 'New passowrd' %><br>
+      <%= form.label :password, 'New password' %>
       <% if @minimum_password_length %>
         (<%= @minimum_password_length %> characters minimum)
       <% end %><br>
