@@ -25,6 +25,7 @@ unless User.find_by_email('philr@purpleriver.dev').present?
     admin: true,
     approved: true
   )
+  user.skip_confirmation!
   attach_image(user)
 end
 
@@ -38,6 +39,7 @@ unless User.find_by_email('ieuan.skinner@swansea.ac.uk').present?
     admin: true,
     approved: true
   )
+  user.skip_confirmation!
   attach_image(user)
 end
 
@@ -51,7 +53,9 @@ unless User.find_by_email('a.j.wing@swansea.ac.uk').present?
     admin: true,
     approved: true
   )
+  user.skip_confirmation!
   attach_image(user)
+
 end
 
 unless User.find_by_email('g.d.andrews@swansea.ac.uk').present?
@@ -64,6 +68,7 @@ unless User.find_by_email('g.d.andrews@swansea.ac.uk').present?
     admin: true,
     approved: true
   )
+  user.skip_confirmation!
   attach_image(user)
 end
 
@@ -77,6 +82,7 @@ end
     admin: false,
     approved: true
   )
+  user.skip_confirmation!
   attach_default(user, index + 1)
 end
 
