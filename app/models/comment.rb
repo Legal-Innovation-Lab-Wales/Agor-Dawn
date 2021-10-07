@@ -5,12 +5,12 @@ class Comment < ApplicationRecord
   belongs_to :replaced_by, class_name: 'Comment', optional: true, foreign_key: 'replaced_by_id'
   belongs_to :replacing, class_name: 'Comment', optional: true, foreign_key: 'replacing_id'
 
-  after_create :increment_count
-  after_destroy :decrement_count
+  after_create :increment_count, unless: -> { replacing.present? }
+  after_destroy :decrement_count, unless: -> { replacing.present? }
 
   validates :comment_text, presence: true
 
-  scope :ordered, -> { where(replacing: nil).order(created_at: :asc) }
+  scope :originals, -> { where(replacing: nil).order(created_at: :asc) }
 
   def increment_count
     project.update!(comment_count: project.comment_count + 1)
