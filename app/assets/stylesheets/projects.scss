@@ -99,6 +99,10 @@
           display: flex;
           flex-flow: column nowrap;
 
+          .author-info {
+            justify-content: center;
+          }
+
           .stats {
             display: flex;
             flex-flow: row nowrap;
