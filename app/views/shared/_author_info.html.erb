@@ -19,7 +19,7 @@
         <% end %>
         <% if entity.class == Comment && entity.replaced_by.present? %>
           <div class="dot">·</div>
-          <%= link_to root_path, class: 'edited author-info-link' do %>
+          <%= link_to root_path, class: 'edited author-info-link', data: { toggle: 'tooltip', placement: 'bottom' }, title: "Last edited at #{newest_comment.created}" do %>
             <i class="fas fa-history"></i>Edited
           <% end %>
         <% end %>
