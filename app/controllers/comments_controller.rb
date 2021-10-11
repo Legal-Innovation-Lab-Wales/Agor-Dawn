@@ -2,7 +2,7 @@
 class CommentsController < ApplicationController
   before_action :project
   before_action :comment, except: :create
-  before_action :authorize_admin, only: :destroy
+  before_action :verify_author, only: %i[update destroy]
 
   # GET /projects/:project_id/comments/:id
   def show
@@ -24,8 +24,6 @@ class CommentsController < ApplicationController
 
   # PUT /projects/:project_id/comments/:id
   def update
-    redirect_to project_path(@project), flash: { error: 'You do not have permission to do that.' } and return unless @comment.owner?(current_user)
-
     Comment.transaction do
       @new_comment = @project.comments.create!(comment_text: comment_params[:comment_text], user: current_user, replacing: @comment)
       @comment.update!(replaced_by: @new_comment)
@@ -44,6 +42,10 @@ class CommentsController < ApplicationController
   end
 
   private
+
+  def verify_author
+    redirect_to project_path(@project), flash: { error: 'You do not have permission to do that.' } and return unless @comment.owner?(current_user)
+  end
 
   def project
     @project = Project.find(params[:project_id])
