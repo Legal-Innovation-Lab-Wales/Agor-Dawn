@@ -22,7 +22,7 @@
       <% if entity.class == Comment && entity.replaced_by.present? %>
         <div class="dot">·</div>
         <div class="edited author-info-link" data-open-modal="edit-history-modal" title="Last edited at <%= newest_comment.created %>"
-            data-comment_id="<%= entity.id %>" data-toggle="tooltip" data-placement="bottom">
+            data-comment_id="<%= newest_comment.id %>" data-toggle="tooltip" data-placement="bottom">
           <i class="fas fa-history"></i>Edited
         </div>
       <% end %>

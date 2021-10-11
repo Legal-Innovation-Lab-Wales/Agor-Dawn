@@ -4,6 +4,16 @@ class CommentsController < ApplicationController
   before_action :comment, except: :create
   before_action :authorize_admin, only: :destroy
 
+  # GET /projects/:project_id/comments/:id
+  def show
+    array = []
+    @comment.chain(array)
+
+    respond_to do |format|
+      format.json { render json: array.as_json, status: :ok }
+    end
+  end
+
   # POST /projects/:project_id/comments
   def create
     @project.comments.create!(comment_text: comment_params[:comment_text], user: current_user)

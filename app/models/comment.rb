@@ -31,4 +31,11 @@ class Comment < ApplicationRecord
 
     replaced_by.newest
   end
+
+  def chain(array)
+    array << self
+    return unless replacing.present?
+
+    replacing.chain(array)
+  end
 end
