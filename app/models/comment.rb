@@ -2,8 +2,8 @@
 class Comment < ApplicationRecord
   belongs_to :user
   belongs_to :project
-  belongs_to :replaced_by, class_name: 'Comment', optional: true, foreign_key: 'replaced_by_id'
-  belongs_to :replacing, class_name: 'Comment', optional: true, foreign_key: 'replacing_id'
+  belongs_to :replaced_by, class_name: 'Comment', optional: true, foreign_key: 'replaced_by_id', dependent: :destroy
+  belongs_to :replacing, class_name: 'Comment', optional: true, foreign_key: 'replacing_id', dependent: :destroy
 
   after_create :increment_count, unless: -> { replacing.present? }
   after_destroy :decrement_count, unless: -> { replacing.present? }
