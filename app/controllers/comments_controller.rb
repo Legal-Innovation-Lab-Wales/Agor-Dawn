@@ -37,7 +37,7 @@ class CommentsController < ApplicationController
 
   # DELETE /projects/:project_id/comments/:id
   def destroy
-    verify_author || authorize_admin
+    verify_author unless current_user.admin
 
     @comment.destroy
 
@@ -51,7 +51,7 @@ class CommentsController < ApplicationController
   end
 
   def error_redirect
-    redirect_to project_path(@project), flash: { error: 'You do not have permission to do that.' } and return
+    redirect_to project_path(@project), flash: { error: 'You do not have permission to do that.' }
   end
 
   def project

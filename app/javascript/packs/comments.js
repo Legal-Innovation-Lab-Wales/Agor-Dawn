@@ -1,14 +1,8 @@
-const edit_btns = document.querySelectorAll('.comment-actions .edit'),
-      get_comment_text_container = (btn) => {
-        return btn.parentElement
-                  .parentElement
-                  .nextElementSibling
-                  .nextElementSibling
-      }
+const edit_btns = document.querySelectorAll('.comment-actions .edit')
 
 edit_btns.forEach(btn => {
   btn.addEventListener('click', () => {
-    const container = get_comment_text_container(btn),
+    const container = btn.closest('.comment.container').querySelector('.comment-text-container'),
           comment_text = container.querySelector('.comment-text'),
           form = container.querySelector('.form'),
           cancel_btn = form.querySelector('.cancel')
@@ -23,11 +17,13 @@ edit_btns.forEach(btn => {
   })
 })
 
-const edit_history_btns = document.querySelectorAll('.edited'),
+const csrf_tokens = document.getElementsByName('csrf-token'),
+      headers = {'Content-Type': 'application/json', 'X-CSRF-Token': csrf_tokens.length > 0 ? csrf_tokens[0].content : ''},
+      edit_history_btns = document.querySelectorAll('.edited'),
       edit_history_modal = document.querySelector('.edit-history-modal'),
       hr = document.createElement('hr'),
       get_author_info = (btn_element, date) => {
-        const author_info = btn_element.parentElement.parentElement.parentElement.cloneNode(true),
+        const author_info = btn_element.closest('.author-info').cloneNode(true),
               subtext = author_info.querySelector('.subtext'),
               children = subtext.children
   
@@ -56,14 +52,10 @@ const edit_history_btns = document.querySelectorAll('.edited'),
 
 edit_history_btns.forEach(btn => {
   btn.addEventListener('click', () => {
-    while (edit_history_modal.firstChild) {
-      edit_history_modal.removeChild(edit_history_modal.firstChild)
-    }
+    [...edit_history_modal.children].forEach(child => child.remove())
 
     fetch(`${location.origin}${location.pathname}/comments/${btn.dataset['comment_id']}`, {
-      headers: {
-        'Content-Type': 'application/json'
-      }
+      headers: headers
     })
     .then(data => data.json())
     .then(json => {
