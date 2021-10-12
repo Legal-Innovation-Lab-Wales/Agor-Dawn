@@ -1,5 +1,10 @@
 <section class="users show">
   <div class="container">
+    <% if @user == current_user %>
+      <%= link_to edit_user_registration_path, class: 'edit-profile btn btn-primary' do %>
+        Edit Profile <i class="fas fa-edit"></i>
+      <% end %>
+    <% end %>
     <div class="main-svg"></div>
     <div class="bio">
       <div class="avatar">
