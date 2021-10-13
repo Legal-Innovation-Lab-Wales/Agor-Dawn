@@ -39,6 +39,7 @@
   <div class="form container">
     <h2>Report a Bug</h2>
     <%= form_with url: bugs_path do |f| %>
+      <%= f.hidden_field :user_id, value: current_user.id, required: true %>
       <div class="field">
         <%= f.label :summary, 'Summary' %>
         <%= f.text_field :summary, required: true %>
