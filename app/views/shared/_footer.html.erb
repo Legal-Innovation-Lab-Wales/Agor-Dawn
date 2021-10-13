@@ -1,21 +1,28 @@
 <footer>
-  <div class="footer-container">
+  <div class="footer-list-container">
     <ul class="footer-list">
       <li>
         <a href="#" class="link-primary">About</a>
       </li>
-      <li>
-        <a href="#" class="link-primary">Privacy Policy</a>
-      </li>
+      <% unless current_user.nil? %>
+        <li>
+          <a href="#" class="link-primary">Privacy Policy</a>
+        </li>
+      <% end %>
     </ul>
     <span class="footer-logo">Agor Dawn</span>
     <ul class="footer-list">
-      <li>
-        <a href="#" class="link-primary">Report a Bug</a>
-      </li>
+      <% unless current_user.nil? %>
+        <li>
+          <%= link_to new_bug_path, class: 'link-primary' do %>
+            Report a Bug
+          <% end %>
+        </li>
+      <% end %>
       <li>
         <a href="#" class="link-primary">Help</a>
       </li>
     </ul>
   </div>
+  <span class="disclaimer">Built by the <a href="https://legaltech.wales/" class="link-primary">Legal Innovation Lab Wales</a>. This platform is a prototype and is provided as is.</span>
 </footer>

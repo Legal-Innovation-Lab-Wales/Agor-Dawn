@@ -3,7 +3,6 @@
 footer {
   background-color: $white;
   box-shadow: 0 0 0 0.1rem $primary-light;
-  padding: 1.5em 0;
   margin-top: 2rem;
   position: absolute;
   bottom: 0;
@@ -13,7 +12,8 @@ footer {
     margin-top: 1rem;
   }
 
-  .footer-container {
+  .footer-list-container {
+    padding-top: 1.5rem;
     max-width: 1280px;
     margin: 0 auto;
     display: flex;
@@ -49,5 +49,12 @@ footer {
       text-transform: lowercase;
       color: $primary;
     }
+  }
+
+  .disclaimer {
+    padding-bottom: 1.5rem;
+    display: block;
+    text-align: center;
+    margin-top: 1rem;
   }
 }

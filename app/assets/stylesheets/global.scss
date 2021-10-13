@@ -101,6 +101,10 @@ body#overboot {
     text-align: center;
   }
 
+  .summary {
+    text-align: center;
+  }
+
   .table-wrapper {
     display: block;
     overflow-x: auto;
@@ -122,6 +126,10 @@ body#overboot {
     // Shorthand not preferred here as individual styles need to be overridden
     padding-left: 1rem;
     padding-right: 1rem;
-    padding-bottom: calc(92px + 2rem); // 92px is the height of the footer
+    padding-bottom: calc(124px + 2rem); // 124px is the height of the footer
+
+    @media screen and (max-width: $screen-sm) {
+      padding-bottom: calc(212px + 1rem) // 212px is the height of the footer on mobile
+    }
   }
 }
