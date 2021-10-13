@@ -5,11 +5,11 @@ class CommentsController < ApplicationController
 
   # GET /projects/:project_id/comments/:id
   def show
-    array = []
-    @comment.chain(array)
+    chain_array = []
+    @comment.add_to_chain(chain_array)
 
     respond_to do |format|
-      format.json { render json: array.as_json, status: :ok }
+      format.json { render json: chain_array.as_json, status: :ok }
     end
   end
 

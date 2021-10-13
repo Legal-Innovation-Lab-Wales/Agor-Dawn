@@ -43,10 +43,10 @@ class Comment < ApplicationRecord
     replaced_by.newest
   end
 
-  def chain(array)
-    array << self
+  def add_to_chain(chain_array)
+    chain_array << self
     return unless replacing.present?
 
-    replacing.chain(array)
+    replacing.add_to_chain(chain_array)
   end
 end
