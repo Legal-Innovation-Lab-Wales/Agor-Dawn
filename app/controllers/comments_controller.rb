@@ -30,7 +30,7 @@ class CommentsController < ApplicationController
       @comment.update!(replaced_by: @new_comment)
     end
 
-    redirect_back(fallback_location: project_path(@project), flash: { success: 'Comment updated.' })
+    redirect_to project_path(@project, anchor: "comment[#{@new_comment.id}]"), flash: { success: 'Comment updated.' }
   rescue ActiveRecord::RecordInvalid
     redirect_back(fallback_location: project_path(@project), flash: { error: 'Failed to update comment, please try again.' })
   end
@@ -47,10 +47,10 @@ class CommentsController < ApplicationController
   private
 
   def verify_author
-    error_redirect unless @comment.owner?(current_user)
+    verification_redirect unless @comment.owner?(current_user)
   end
 
-  def error_redirect
+  def verification_redirect
     redirect_to project_path(@project), flash: { error: 'You do not have permission to do that.' }
   end
 

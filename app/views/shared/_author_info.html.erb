@@ -10,7 +10,7 @@
     <% end %>
     <div class="subtext">
       <% if entity.created_at > 1.day.ago %>
-        <div class="created-date" title="<%= entity.created_date %>" data-toggle="tooltip" tool-placement="bottom">
+        <div class="created-date" title="<%= entity.created %>" data-toggle="tooltip" data-placement="bottom">
           <%= time_ago_in_words(entity.created_at) %> ago
         </div>
       <% else %>
