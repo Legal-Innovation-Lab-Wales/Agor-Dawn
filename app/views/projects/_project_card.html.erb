@@ -8,7 +8,9 @@
               <span>
                 <i class="fas fa-flag"></i> Flagged
               </span>
+              <span class="dot"></span>
             <% end %>
+
             <% if project.user == current_user %>
               <span class="public">
                 <% if !project.flagged? && project.public %>
@@ -22,7 +24,7 @@
               <% end %>
             <% end %>
 
-            <% unless (!current_user.admin && project.flagged?) || (current_user.admin && project.user == current_user) %>
+            <% if current_user.admin && !project.flagged? && !project.owner?(current_user) %>
               <span class="flag link link-primary" data-open-modal="flag-modal"
                     data-resource-type="project" data-resource-id="<%= project.id %>">Flag <i class="fas fa-flag"></i></span>
             <% end %>
