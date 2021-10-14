@@ -7,7 +7,9 @@
     <p> Project leaders will use your profile to contact you</p>
     <h2>Comments</h2>
     <hr>
-    <%= render 'comments/comments' %>
+    <% @comments.each do |comment| %>
+      <%= render 'comments/comment', comment: comment, newest_comment: comment.newest %>
+    <% end %>
     <% if user_signed_in? %>
       <div class="form container">
         <%= render 'comments/form' %>
@@ -18,9 +20,11 @@
   </div>
 </section>
 
+<%= render 'shared/edit_history_modal' %>
 <%= render 'shared/liked_modal' %>
 <%= render 'shared/flag_modal' %>
 
 <%= javascript_pack_tag 'modals' %>
 <%= javascript_pack_tag 'likes' %>
 <%= javascript_pack_tag 'flag_modal' %>
+<%= javascript_pack_tag 'comments' %>

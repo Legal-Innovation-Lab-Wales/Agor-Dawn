@@ -1,4 +1,4 @@
-<%= form_with model: @comment, url: project_comments_path(@project) do |f| %>
+<%= form_with model: Comment.new, url: project_comments_path(@project) do |f| %>
   <div class="field">
     <%= f.label 'Post Comment' %>
     <%= f.text_area :comment_text %>

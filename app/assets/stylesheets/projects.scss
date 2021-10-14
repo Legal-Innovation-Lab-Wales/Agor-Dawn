@@ -18,10 +18,6 @@
       margin: 0.5rem 0;
     }
 
-    &.private {
-      filter: grayscale(1);
-    }
-
     .card-outer-1 {
       transform: rotate(-2deg);
 
@@ -32,6 +28,11 @@
           transform: rotate(1deg);
           min-width: 320px;
           max-width: 480px;
+
+          .actions {
+            margin-bottom: -1rem;
+            padding-top: 1.5rem;
+          }
 
           .main {
             padding: 2rem 2rem 0 2rem;
@@ -56,7 +57,7 @@
 }
 
 .project-card {
-  &.flagged {
+  &.private, &.flagged {
     filter: grayscale(1);
   }
 
@@ -77,13 +78,9 @@
         text-align: center;
         border: 0.25rem solid $primary-light;
         background-color: $white;
-        
+
         .main {
           color: $dark-font-color;
-
-          @media screen and (max-width: $screen-sm) {
-            text-decoration: underline;
-          }
 
           .summary {
             margin-bottom: 0;
@@ -102,6 +99,10 @@
         .footer {
           display: flex;
           flex-flow: column nowrap;
+
+          .author-info {
+            justify-content: center;
+          }
 
           .stats {
             display: flex;
@@ -185,8 +186,8 @@
             margin-bottom: 1rem;
           }
 
-          .flag {
-            margin-left: auto;
+          .edit-btn, .flag {
+            margin-left: auto
           }
         }
 
@@ -194,7 +195,7 @@
           display: flex;
           justify-content: center;
           align-items: center;
-          margin-top: 2rem;
+          margin-top: 1rem;
 
           .like-button {
             i {

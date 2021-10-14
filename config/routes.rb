@@ -11,6 +11,16 @@ Rails.application.routes.draw do
   end
 
   resources :projects do
+    resources :comments, only: %i[show create update destroy]
+    resource :likes, only: %i[create destroy]
+  end
+
+  resources :flags, only: %i[index create] do
+    put 'resolve', action: 'resolve', on: :member, as: :resolve
+    put 'reject', action: 'reject', on: :member, as: :reject
+  end
+
+  resources :projects do
     resources :comments, only: %i[create destroy]
     resource :likes, only: %i[create destroy]
   end
