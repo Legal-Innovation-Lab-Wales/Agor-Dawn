@@ -1,30 +1,24 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  authenticated :user do
-    resources :users, only: :show
-    resources :admin, only: :index
+  resources :users, only: :show
+  resources :admin, only: :index
 
-    scope 'admin/users/:id', controller: 'admin' do
-      put '/make_admin', action: 'make_admin', as: :make_admin
-      put '/approve', action: 'approve', as: :approve
-      put '/reject', action: 'reject', as: :reject
-    end
-
-    resources :projects do
-      resources :comments, only: %i[create destroy]
-      resource :likes, only: %i[create destroy]
-    end
-
-    resources :flags, only: %i[index create] do
-      put 'resolve', action: 'resolve', on: :member, as: :resolve
-      put 'reject', action: 'reject', on: :member, as: :reject
-    end
-
-    root 'pages#home', as: :authenticated_root
+  scope 'admin/users/:id', controller: 'admin' do
+    put '/make_admin', action: 'make_admin', as: :make_admin
+    put '/approve', action: 'approve', as: :approve
+    put '/reject', action: 'reject', as: :reject
   end
 
-  unauthenticated do
-    root to: redirect('/users/sign_in')
+  resources :projects do
+    resources :comments, only: %i[create destroy]
+    resource :likes, only: %i[create destroy]
   end
+
+  resources :flags, only: %i[index create] do
+    put 'resolve', action: 'resolve', on: :member, as: :resolve
+    put 'reject', action: 'reject', on: :member, as: :reject
+  end
+
+  root 'pages#home', as: :authenticated_root
 end
