@@ -17,9 +17,9 @@
   <body>
     <% flash.each do |type, msg| %>
       <% if type != 'timedout' %>
-        <div class="alert <%= alert_class_for(type) %> alert-dismissible fade show position-absolute top-0 start-50 translate-middle-x px-5" role="alert">
+        <div class="alert <%= alert_class_for(type) %>" role="alert">
           <%= msg %>
-          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          <span class="btn-close"><i class="fas fa-times"></i></span>
         </div>
       <% end %>
     <% end %>
@@ -33,5 +33,7 @@
       </main>
     <% end %>
     <%= render 'shared/footer' %>
+
+    <%= javascript_pack_tag 'alerts' %>
   </body>
 </html>
