@@ -1,12 +1,14 @@
 @import "variables";
 
-body#overboot {
+body {
   .btn {
     color: $white;
     border-radius: 0.25rem;
     padding: 0.8rem;
     line-height: 1;
     border: none;
+    text-align: center;
+    display: inline-block;
 
     &:hover {
       transition: background-color 0.15s linear;

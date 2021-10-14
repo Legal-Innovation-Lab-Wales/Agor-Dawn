@@ -6,9 +6,9 @@ html, body {
   color: $dark-font-color;
 }
 
-body#overboot {
+body {
+  margin: 0;
   background-color: $primary-background-color;
-  line-height: 1.5;
 
   ::selection {
     background: $primary-light;
@@ -50,6 +50,10 @@ body#overboot {
   }
 
   hr {
+    margin: 1rem 0;
+    opacity: 0.25;
+    border: 0;
+    height: 1.25px;
     background: $primary; /* For browsers that do not support gradients */ 
     background: -webkit-linear-gradient(90deg, transparent 0%, $primary 25%, $primary 75%, transparent 100%); /*For Safari 5.1 to 6.0 */
     background: -o-linear-gradient(90deg, transparent 0%, $primary 25%, $primary 75%, transparent 100%); /* For Opera 11.1 to 12.0 */ 
@@ -57,6 +61,13 @@ body#overboot {
     background: linear-gradient(90deg, transparent 0%, $primary 25%, $primary 75%, transparent 100%); /* Standard syntax */
 
     width: 100%;
+  }
+
+  input {
+    margin: 0;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
   }
 
   .dot {
@@ -94,31 +105,14 @@ body#overboot {
     }
   }
 
-  .title-header {
-    text-align: center;
-  }
-
-  .table-wrapper {
-    display: block;
-    overflow-x: auto;
-    margin-bottom: 1rem;
-
-    .table {
-      margin: 0 auto;
-      overflow: scroll;
-
-      .table-action {
-        width: 0.1%;
-        font-size: 1.5rem;
-        text-align: center;
-      }
-    }
-  }
-
   main {
     // Shorthand not preferred here as individual styles need to be overridden
     padding-left: 1rem;
     padding-right: 1rem;
     padding-bottom: calc(92px + 2rem); // 92px is the height of the footer
+  }
+
+  *, *::before, *::after {
+    box-sizing: border-box;
   }
 }
