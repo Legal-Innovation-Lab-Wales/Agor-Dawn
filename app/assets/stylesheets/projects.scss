@@ -29,6 +29,11 @@
           min-width: 320px;
           max-width: 480px;
 
+          .actions {
+            margin-bottom: -1rem;
+            padding-top: 1.5rem;
+          }
+
           .main {
             padding: 2rem 2rem 0 2rem;
 
@@ -73,7 +78,7 @@
         text-align: center;
         border: 0.25rem solid $primary-light;
         background-color: $white;
-        
+
         .main {
           color: $dark-font-color;
 
