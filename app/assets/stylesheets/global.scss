@@ -28,7 +28,8 @@ body {
     background-color: $white;
     border-radius: 0.25rem;
     box-shadow: $primary-box-shadow;
-    padding: 1.5rem !important; // Override bootstrap
+    padding: 1.5rem !important;
+    width: 100%;
 
     @media screen and (max-width: $screen-sm) {
       max-width: 100%;
@@ -63,7 +64,7 @@ body {
     width: 100%;
   }
 
-  input {
+  input, textarea {
     margin: 0;
     font-family: inherit;
     font-size: inherit;

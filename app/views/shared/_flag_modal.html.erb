@@ -1,11 +1,11 @@
-<div class="modal" data-modal="flag-modal">
+<div class="modal" data-modal="flag-modal" style="display: none;">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5>Flag</h5>
-        <button type="button" class="btn btn-primary" data-close-modal="flag-modal">
-          <i class="fas fa-times-circle"></i>
-        </button>
+        <h4>Flag</h4>
+        <span class="btn-close" data-close-modal="flag-modal">
+          <i class="fas fa-times"></i>
+        </span>
       </div>
       <section class="flag-modal form container">
           <%= form_with model: Flag.new do |f| %>
@@ -23,4 +23,3 @@
     </div>
   </div>
 </div>
-<div class="modal-backdrop fade show" id="backdrop" style="display: none;"></div>

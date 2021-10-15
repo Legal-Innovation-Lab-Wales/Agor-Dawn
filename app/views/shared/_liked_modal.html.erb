@@ -1,11 +1,11 @@
-<div class="modal" data-modal="liked-modal">
+<div class="modal" data-modal="liked-modal" style="display: none;">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5>Liked By</h5>
-        <button type="button" class="btn btn-primary" data-close-modal="liked-modal">
-          <i class="fas fa-times-circle"></i>
-        </button>
+        <h4>Liked By</h4>
+        <span class="btn-close" data-close-modal="liked-modal">
+          <i class="fas fa-times"></i>
+        </span>
       </div>
       <div class="likes">
         <% if @project.likes.length.zero? %>
@@ -25,4 +25,3 @@
     </div>
   </div>
 </div>
-<div class="modal-backdrop fade show" id="backdrop" style="display: none;"></div>

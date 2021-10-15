@@ -36,6 +36,15 @@ body {
     }
   }
 
+  h4 {
+    font-weight: 300;
+    font-size: 1.5rem;
+
+    @media screen and (max-width: $screen-lg) {
+      font-size: calc(1.4rem + 0.6vw);
+    }
+  }
+
   p {
     margin-top: 0;
   }

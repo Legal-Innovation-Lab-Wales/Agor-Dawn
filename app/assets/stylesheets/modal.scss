@@ -1,8 +1,69 @@
 @import "variables";
 
-#close_liked_modal {
-  height: 42px;
-  width: 42px;
+.modal {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1060;
+  width: 100%;
+  height: 100%;
+
+  .modal-dialog {
+    position: relative;
+    max-width: 500px;
+    margin: 2rem auto;
+
+    @media screen and (max-width: $screen-sm) {
+      margin: 0.5rem;
+      width: auto;
+    }
+
+    .modal-content {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      background-color: $white;
+      border: 0.1rem solid $primary;
+      border-radius: 0.25rem;
+      background-color: $primary-background-color;
+
+      .modal-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1rem;
+        border-bottom: 0.1rem solid $primary-light;
+        background-color: $white;
+
+        .btn-close {
+          width: 36px;
+          height: 36px;
+          text-align: center;
+
+          &:hover {
+            cursor: pointer;
+          }
+
+          .fas.fa-times {
+            font-size: 2rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1040;
+  width: 100vw;
+  height: 100vh;
+  background-color: $dark-font-color;
+  opacity: 0.5;
 }
 
 .likes {
@@ -22,6 +83,12 @@
       .username {
         padding-left: 1rem;
         color: $dark-font-color;
+      }
+
+      &:hover {
+        .username {
+          color: $primary;
+        }
       }
     }
 
