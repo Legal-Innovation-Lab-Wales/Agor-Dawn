@@ -4,7 +4,7 @@ print "#{pretty_print_name('Projects')}\tStart: #{pretty_print(Time.now - @start
   Project.create!(
     user_id: rand(1..User.count),
     name: Faker::Company.name,
-    content: Faker::Lorem.paragraph,
+    content: Faker::Lorem.paragraph(sentence_count: 32),
     summary: Faker::Company.catch_phrase,
     public: true,
     view_count: 0
