@@ -28,7 +28,7 @@ body {
     background-color: $white;
     border-radius: 0.25rem;
     box-shadow: $primary-box-shadow;
-    padding: 1.5rem !important;
+    padding: 1.5rem;
     width: 100%;
 
     @media screen and (max-width: $screen-sm) {
