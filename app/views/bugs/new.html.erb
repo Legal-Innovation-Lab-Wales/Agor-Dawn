@@ -1,0 +1,56 @@
+<section class="bugs new">
+  <h2 class="title-header">Bug Center <i class="fas fa-bug"></i></h2>
+  <p class="summary">
+    If you believe you have identified a bug or issue with the system, please first check the list of known bugs and issues below.<br>
+    If we are not aware of the issue please use the form below to notify our team.<br>
+    The issue may be posted here whilst our team are working on resolving the issue.
+  </p>
+  <hr>
+  <h3 class="title-header">Known Bugs and Issues</h3>
+  <div class="table-wrapper">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Issue</th>
+          <th scope="col">Problem</th>
+          <th scope="col">Cause</th>
+          <th scope="col">Solution</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            Unable to make project private.
+          </td>
+          <td>
+            After publishing a project, users are unable to then make the project private.
+          </td>
+          <td>
+            Our team are currently investigating the cause of this issue.
+          </td>
+          <td>
+            For now if you want to make a project private, please contact a system administrator.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <hr>
+  <div class="form container">
+    <h2>Report a Bug</h2>
+    <%= form_with url: bugs_path do |f| %>
+      <%= f.hidden_field :user_id, value: current_user.id, required: true %>
+      <div class="field">
+        <%= f.label :summary, 'Summary' %>
+        <%= f.text_field :summary, required: true %>
+      </div>
+      <div class="field">
+        <%= f.label :description, 'Description' %>
+        <%= f.text_area :description, required: true %>
+      </div>
+      <div class="actions">
+        <%= f.submit 'Submit', class: 'btn btn-primary' %>
+      </div>
+    <% end %>
+  </div>
+</section>

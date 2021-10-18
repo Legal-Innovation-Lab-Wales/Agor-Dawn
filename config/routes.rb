@@ -20,5 +20,7 @@ Rails.application.routes.draw do
     put 'reject', action: 'reject', on: :member, as: :reject
   end
 
+  resources :bugs, only: %i[new create]
+
   root 'pages#home', as: :authenticated_root
 end

@@ -1,21 +1,21 @@
 # app/mailers/admin_mailer.rb
 class AdminMailer < ApplicationMailer
   def new_user_signup(user, admin)
-    @admin = admin
+    @recipient = admin
     @user = user
 
-    mail(to: @admin.email, subject: 'New User Signup')
+    mail(to: @recipient.email, subject: 'New User Signup')
   end
 
   def approved(user)
-    @user = user
+    @recipient = user
 
-    mail(to: user.email, subject: 'Sign-up Approved')
+    mail(to: recipient.email, subject: 'Sign-up Approved')
   end
 
   def rejected(user)
-    @user = user
+    @recipient = user
 
-    mail(to: user.email, subject: 'Sign-up Rejected')
+    mail(to: recipient.email, subject: 'Sign-up Rejected')
   end
 end
