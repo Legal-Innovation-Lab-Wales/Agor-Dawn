@@ -1,0 +1,47 @@
+@import "variables";
+
+.title-header {
+  text-align: center;
+}
+
+.summary {
+  text-align: center;
+}
+
+.table-wrapper {
+  display: block;
+  overflow-x: auto;
+  margin-bottom: 1rem;
+
+  table {
+    margin: 0 auto;
+    overflow: scroll;
+    vertical-align: top;
+    border-collapse: collapse;
+
+    th, td {
+      text-align: left;
+      padding: 0.5rem;
+      border-bottom-width: 0.1rem;
+      border-bottom-style: solid;
+    }
+
+    th {
+      border-color: $dark-font-color;
+    }
+
+    td {
+      border-color: #dee2e6;
+    }
+
+    tbody {
+      vertical-align: inherit;
+    }
+
+    .table-action {
+      width: 0.1%;
+      font-size: 1.5rem;
+      text-align: center;
+    }
+  }
+}

@@ -23,7 +23,6 @@ gem 'jbuilder', '~> 2.7'
 # gem 'bcrypt', '~> 3.1.7'
 
 gem 'devise', '~> 4.8.0'
-gem 'bootstrap', '~> 5.0.1'
 gem 'font-awesome-sass', '~> 5.15.1'
 
 gem 'shrine'
