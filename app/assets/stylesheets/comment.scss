@@ -23,6 +23,25 @@
     .comment-header {
       display: flex;
       justify-content: space-between;
+
+      .comment-actions {
+        display: flex;
+
+        i:last-child {
+          margin-left: 0.5rem;
+        }
+      }
+    }
+
+    .comment-text-container {
+      .form {
+        max-width: none !important;
+        margin-bottom: 0;
+
+        .actions .cancel {
+          margin-top: 0.5rem;
+        }
+      }
     }
   }
 

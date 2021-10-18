@@ -25,16 +25,6 @@
       }
     }
 
-    &:hover{
-      .username{
-        text-decoration: underline;
-      }
-
-      img.user-icon {
-        filter: grayscale(1);
-      }
-    }
-
     &.current-user {
       border: 0.1rem solid $primary;
       border-radius: 0.25rem;

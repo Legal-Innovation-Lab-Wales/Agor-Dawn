@@ -43,7 +43,10 @@ body#overboot {
 
   a {
     text-decoration: none;
-    color: $primary;
+
+    @media screen and (max-width: $screen-sm) {
+      text-decoration: underline;
+    }
   }
 
   hr {

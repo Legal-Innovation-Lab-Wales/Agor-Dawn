@@ -15,7 +15,7 @@
           <%= link_to user_path(liked_by.user), class: liked_by.user == current_user ? @current_user_like.nil? ? 'current-user hide-like' : 'current-user' : '' do %>
             <div class="like">
               <%= image_tag url_for(liked_by.user.avatar), class: 'user-icon img-sm', alt: 'avatar' %>
-              <div class="username">
+              <div class="username link link-primary">
                 <%= liked_by.user.full_name %>
               </div>
             </div>

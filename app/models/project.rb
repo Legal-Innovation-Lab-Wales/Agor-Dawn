@@ -24,4 +24,8 @@ class Project < ApplicationRecord
   scope :most_discussed, -> { order(comment_count: :desc) }
 
   has_rich_text :content
+
+  def owner?(user)
+    self.user == user
+  end
 end
