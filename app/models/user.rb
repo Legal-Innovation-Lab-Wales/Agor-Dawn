@@ -18,6 +18,7 @@ class User < ApplicationRecord
   scope :unapproved, -> { where(approved: false) }
   scope :approved, -> { where(approved: true) }
 
+  validates_presence_of :email, :first_name, :last_name
   validates_presence_of :likes_given, :comments_posted
   validates :bio, length: { maximum: 240 }
 
