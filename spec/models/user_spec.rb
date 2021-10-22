@@ -3,7 +3,6 @@ require 'rails_helper'
 RSpec.describe User, type: :model do
   before(:all) do
     @user = create(:user)
-    # debugger
   end
 
   it 'is valid with valid attributes' do
