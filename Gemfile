@@ -27,7 +27,7 @@ gem 'font-awesome-sass', '~> 5.15.1'
 
 gem 'shrine'
 gem 'trix'
-gem 'image_processing', '~> 1.2'
+gem 'image_processing', '~> 1.12'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
